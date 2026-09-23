@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mutasi Penduduk - Database Warga</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/css/pages/mutasi.css" />
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <!-- ==================================================
+         PAGE CONTENT
+    ================================================== -->
+
+    <section class="page-content">
+      <div class="mutasi-page">
+        <!-- ==================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <div class="page-header">
+          <div class="page-header-left">
+            <div class="page-header-icon">
+              <i data-lucide="repeat-2"></i>
+            </div>
+
+            <div>
+              <h1>Mutasi Penduduk</h1>
+
+              <p>Kelola data mutasi penduduk di Kelurahan Aertembaga Dua.</p>
+            </div>
+          </div>
+
+          <div class="breadcrumb">
+            <i data-lucide="home"></i>
+
+            <span>/</span>
+
+            <span> Mutasi Penduduk </span>
+          </div>
+        </div>
+
+        <!-- ==================================================
+             STATISTICS
+        ================================================== -->
+
+        <div class="stats-grid">
+          <!-- TOTAL MUTASI -->
+
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i data-lucide="users"></i>
+            </div>
+
+            <div class="stat-content">
+              <span class="stat-label"> Total Mutasi </span>
+
+              <strong class="stat-value"> 24 </strong>
+
+              <span class="stat-description"> Seluruh data mutasi </span>
+            </div>
+          </div>
+
+          <!-- LAHIR -->
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i data-lucide="baby"></i>
+            </div>
+
+            <div class="stat-content">
+              <span class="stat-label"> Lahir </span>
+
+              <strong class="stat-value"> 8 </strong>
+
+              <span class="stat-description"> 33% dari total </span>
+            </div>
+          </div>
+
+          <!-- MENINGGAL -->
+
+          <div class="stat-card">
+            <div class="stat-icon red">
+              <i data-lucide="heart-pulse"></i>
+            </div>
+
+            <div class="stat-content">
+              <span class="stat-label"> Meninggal </span>
+
+              <strong class="stat-value"> 5 </strong>
+
+              <span class="stat-description"> 21% dari total </span>
+            </div>
+          </div>
+
+          <!-- PINDAH DATANG -->
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i data-lucide="log-in"></i>
+            </div>
+
+            <div class="stat-content">
+              <span class="stat-label"> Pindah Datang </span>
+
+              <strong class="stat-value"> 6 </strong>
+
+              <span class="stat-description"> 25% dari total </span>
+            </div>
+          </div>
+
+          <!-- PINDAH KELUAR -->
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i data-lucide="log-out"></i>
+            </div>
+
+            <div class="stat-content">
+              <span class="stat-label"> Pindah Keluar </span>
+
+              <strong class="stat-value"> 5 </strong>
+
+              <span class="stat-description"> 21% dari total </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================
+             FILTER BAR
+        ================================================== -->
+
+        <div class="filter-card">
+          <!-- SEARCH -->
+
+          <div class="filter-search">
+            <i data-lucide="search"></i>
+
+            <input
+              type="text"
+              placeholder="Cari nama, NIK, atau keterangan..."
+            />
+          </div>
+
+          <!-- JENIS MUTASI -->
+
+          <div class="filter-field">
+            <label> Jenis Mutasi </label>
+
+            <select>
+              <option value="">Semua Jenis</option>
+
+              <option value="LAHIR">Lahir</option>
+
+              <option value="MENINGGAL">Meninggal</option>
+
+              <option value="PINDAH_DATANG">Pindah Datang</option>
+
+              <option value="PINDAH_KELUAR">Pindah Keluar</option>
+            </select>
+          </div>
+
+          <!-- PERIODE -->
+
+          <div class="filter-field">
+            <label> Periode </label>
+
+            <div class="input-icon">
+              <i data-lucide="calendar"></i>
+
+              <input type="date" />
+            </div>
+          </div>
+
+          <!-- LINGKUNGAN -->
+
+          <div class="filter-field filter-lingkungan">
+            <label>Lingkungan</label>
+
+            <select id="filterLingkungan">
+              <option value="">Semua Lingkungan</option>
+            </select>
+          </div>
+
+          <!-- <div class="filter-field">
+            <label> Lingkungan </label>
+
+            <select>
+              <option>Semua Lingkungan</option>
+
+              <option>Lingkungan I</option>
+
+              <option>Lingkungan II</option>
+
+              <option>Lingkungan III</option>
+
+              <option>Lingkungan IV</option>
+
+              <option>Lingkungan V</option>
+            </select>
+          </div> -->
+
+          <!-- RESET -->
+
+          <button type="button" class="btn btn-secondary">
+            <i data-lucide="rotate-ccw"></i>
+
+            Reset
+          </button>
+
+          <!-- TAMBAH -->
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-action="tambah-mutasi"
+          >
+            <i data-lucide="plus"></i>
+
+            Tambah Mutasi
+          </button>
+        </div>
+
+        <!-- ==================================================
+             TABLE CARD
+        ================================================== -->
+
+        <div class="table-card">
+          <!-- TABLE HEADER -->
+
+          <div class="table-card-header">
+            <div>
+              <h2>Daftar Mutasi Penduduk</h2>
+
+              <p>
+                Menampilkan data mutasi penduduk berdasarkan filter yang
+                dipilih.
+              </p>
+            </div>
+          </div>
+
+          <!-- TABLE -->
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+
+                  <th>Tanggal Mutasi</th>
+
+                  <th>Nama Penduduk</th>
+
+                  <th>NIK</th>
+
+                  <th>Jenis Mutasi</th>
+
+                  <th>Keterangan</th>
+
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- DATA 1 -->
+
+                <tr>
+                  <td>1</td>
+
+                  <td>22 Sep 2026</td>
+
+                  <td>Budi Santoso</td>
+
+                  <td>7172000000000001</td>
+
+                  <td>
+                    <span class="mutation-badge lahir"> LAHIR </span>
+                  </td>
+
+                  <td>Lahir anak pertama</td>
+
+                  <td>
+                    <div class="table-actions">
+                      <button
+                        type="button"
+                        class="action-btn view"
+                        title="Detail"
+                      >
+                        <i data-lucide="eye"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit"
+                      >
+                        <i data-lucide="pencil"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Hapus"
+                      >
+                        <i data-lucide="trash-2"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- DATA 2 -->
+
+                <tr>
+                  <td>2</td>
+
+                  <td>18 Sep 2026</td>
+
+                  <td>Siti Aminah</td>
+
+                  <td>7172000000000002</td>
+
+                  <td>
+                    <span class="mutation-badge meninggal"> MENINGGAL </span>
+                  </td>
+
+                  <td>Meninggal</td>
+
+                  <td>
+                    <div class="table-actions">
+                      <button
+                        type="button"
+                        class="action-btn view"
+                        title="Detail"
+                      >
+                        <i data-lucide="eye"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit"
+                      >
+                        <i data-lucide="pencil"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Hapus"
+                      >
+                        <i data-lucide="trash-2"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- DATA 3 -->
+
+                <tr>
+                  <td>3</td>
+
+                  <td>15 Sep 2026</td>
+
+                  <td>Andi Pratama</td>
+
+                  <td>7172000000000003</td>
+
+                  <td>
+                    <span class="mutation-badge datang"> PINDAH_DATANG </span>
+                  </td>
+
+                  <td>Pindah dari Kota Ternate</td>
+
+                  <td>
+                    <div class="table-actions">
+                      <button
+                        type="button"
+                        class="action-btn view"
+                        title="Detail"
+                      >
+                        <i data-lucide="eye"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit"
+                      >
+                        <i data-lucide="pencil"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Hapus"
+                      >
+                        <i data-lucide="trash-2"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- DATA 4 -->
+
+                <tr>
+                  <td>4</td>
+
+                  <td>10 Sep 2026</td>
+
+                  <td>Rina Marlina</td>
+
+                  <td>7172000000000004</td>
+
+                  <td>
+                    <span class="mutation-badge keluar"> PINDAH_KELUAR </span>
+                  </td>
+
+                  <td>Pindah ke Bitung</td>
+
+                  <td>
+                    <div class="table-actions">
+                      <button
+                        type="button"
+                        class="action-btn view"
+                        title="Detail"
+                      >
+                        <i data-lucide="eye"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit"
+                      >
+                        <i data-lucide="pencil"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Hapus"
+                      >
+                        <i data-lucide="trash-2"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- DATA 5 -->
+
+                <tr>
+                  <td>5</td>
+
+                  <td>08 Sep 2026</td>
+
+                  <td>Ahmad Yani</td>
+
+                  <td>7172000000000005</td>
+
+                  <td>
+                    <span class="mutation-badge lahir"> LAHIR </span>
+                  </td>
+
+                  <td>Lahir anak kedua</td>
+
+                  <td>
+                    <div class="table-actions">
+                      <button
+                        type="button"
+                        class="action-btn view"
+                        title="Detail"
+                      >
+                        <i data-lucide="eye"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn edit"
+                        title="Edit"
+                      >
+                        <i data-lucide="pencil"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="action-btn delete"
+                        title="Hapus"
+                      >
+                        <i data-lucide="trash-2"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ==================================================
+               PAGINATION
+          ================================================== -->
+
+          <div class="table-pagination">
+            <div class="pagination-info">Menampilkan 1 - 5 dari 24 data</div>
+
+            <div class="pagination-controls">
+              <button type="button" class="pagination-btn">
+                <i data-lucide="chevron-left"></i>
+              </button>
+
+              <button type="button" class="pagination-btn active">1</button>
+
+              <button type="button" class="pagination-btn">2</button>
+
+              <button type="button" class="pagination-btn">3</button>
+
+              <button type="button" class="pagination-btn">
+                <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="pagination-per-page">
+              <span> Tampilkan </span>
+
+              <select>
+                <option>10</option>
+
+                <option>20</option>
+
+                <option>50</option>
+              </select>
+
+              <span> data per halaman </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================
+             MODAL TAMBAH MUTASI
+        ================================================== -->
+
+        <div class="modal-overlay" id="modalTambahMutasi" hidden>
+          <div class="modal">
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+              <div>
+                <h2>Tambah Mutasi Penduduk</h2>
+
+                <p>Catat riwayat mutasi penduduk.</p>
+              </div>
+
+              <button type="button" class="modal-close">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- MODAL BODY -->
+
+            <div class="modal-body">
+              <!-- ==========================================
+                   DATA PENDUDUK
+              =========================================== -->
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i data-lucide="user"></i>
+                  </div>
+
+                  <div>
+                    <h3>Data Penduduk</h3>
+
+                    <p>Pilih penduduk yang akan dicatat mutasinya.</p>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <!-- =========================================
+       PENCARIAN PENDUDUK
+  ========================================== -->
+
+                  <div id="mutasiPendudukSearch">
+                    <label>
+                      Penduduk
+                      <span>*</span>
+                    </label>
+
+                    <div class="search-penduduk">
+                      <div class="search-penduduk-input">
+                        <i data-lucide="search"></i>
+
+                        <input
+                          type="text"
+                          id="searchPenduduk"
+                          placeholder="Cari nama atau NIK penduduk..."
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnCariPenduduk"
+                      >
+                        <i data-lucide="search"></i>
+
+                        Cari
+                      </button>
+                    </div>
+
+                    <!-- HASIL PENCARIAN PENDUDUK -->
+
+                    <div
+                      id="hasilPencarianPenduduk"
+                      class="resident-search-results"
+                      hidden
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- PREVIEW PENDUDUK -->
+
+                <div class="resident-preview">
+                  <div class="resident-preview-icon">
+                    <i data-lucide="user"></i>
+                  </div>
+
+                  <div class="resident-preview-data">
+                    <div>
+                      <span> Nama </span>
+
+                      <strong> - </strong>
+                    </div>
+
+                    <div>
+                      <span> NIK </span>
+
+                      <strong> - </strong>
+                    </div>
+
+                    <div>
+                      <span> No. KK </span>
+
+                      <strong> - </strong>
+                    </div>
+
+                    <div>
+                      <span> Lingkungan </span>
+
+                      <strong> - </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ==========================================
+                   DATA MUTASI
+              =========================================== -->
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i data-lucide="repeat-2"></i>
+                  </div>
+
+                  <div>
+                    <h3>Data Mutasi</h3>
+
+                    <p>Isi informasi mutasi penduduk.</p>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <!-- JENIS MUTASI -->
+
+                  <div class="form-group">
+                    <label>
+                      Jenis Mutasi
+                      <span>*</span>
+                    </label>
+
+                    <select id="formMutasiJenis">
+                      <option value="">Pilih Jenis Mutasi</option>
+
+                      <option value="LAHIR">Lahir</option>
+
+                      <option value="MENINGGAL">Meninggal</option>
+
+                      <option value="PINDAH_DATANG">Pindah Datang</option>
+
+                      <option value="PINDAH_KELUAR">Pindah Keluar</option>
+                    </select>
+                  </div>
+
+                  <!-- TANGGAL -->
+
+                  <div class="form-group">
+                    <label>
+                      Tanggal Mutasi
+                      <span>*</span>
+                    </label>
+
+                    <div class="input-icon">
+                      <i data-lucide="calendar"></i>
+
+                      <input type="date" id="formMutasiTanggal" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KETERANGAN -->
+
+                <div class="form-group">
+                  <label> Keterangan </label>
+
+                  <textarea
+                    id="formMutasiKeterangan"
+                    rows="4"
+                    maxlength="250"
+                    placeholder="Masukkan keterangan mutasi..."
+                  ></textarea>
+
+                  <div class="textarea-counter">0 / 250</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MODAL FOOTER -->
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-modal-action="cancel"
+              >
+                Batal
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-modal-action="save-mutasi"
+              >
+                <i data-lucide="save"></i>
+
+                Simpan Mutasi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================================================
+     MODAL DETAIL MUTASI
+================================================== -->
+
+        <div class="modal-overlay" id="modalDetailMutasi" hidden>
+          <div class="modal">
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+              <div>
+                <h2>Detail Mutasi Penduduk</h2>
+
+                <p>Informasi lengkap riwayat mutasi penduduk.</p>
+              </div>
+
+              <button type="button" class="modal-close">
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+
+            <!-- MODAL BODY -->
+
+            <div class="modal-body">
+              <!-- DATA PENDUDUK -->
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i data-lucide="user"></i>
+                  </div>
+
+                  <div>
+                    <h3>Data Penduduk</h3>
+
+                    <p>Informasi penduduk yang mengalami mutasi.</p>
+                  </div>
+                </div>
+
+                <div class="resident-preview">
+                  <div class="resident-preview-icon">
+                    <i data-lucide="user"></i>
+                  </div>
+
+                  <div class="resident-preview-data">
+                    <div>
+                      <span>Nama</span>
+                      <strong id="detailMutasiNama">-</strong>
+                    </div>
+
+                    <div>
+                      <span>NIK</span>
+                      <strong id="detailMutasiNIK">-</strong>
+                    </div>
+
+                    <div>
+                      <span>No. KK</span>
+                      <strong id="detailMutasiKK">-</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DATA MUTASI -->
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i data-lucide="repeat-2"></i>
+                  </div>
+
+                  <div>
+                    <h3>Data Mutasi</h3>
+
+                    <p>Informasi riwayat mutasi penduduk.</p>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Jenis Mutasi</label>
+
+                    <div id="detailMutasiJenis">-</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Tanggal Mutasi</label>
+
+                    <div id="detailMutasiTanggal">-</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Keterangan</label>
+
+                  <div id="detailMutasiKeterangan">-</div>
+                </div>
+              </div>
+
+              <!-- INFORMASI SISTEM -->
+
+              <div class="form-section">
+                <div class="form-section-header">
+                  <div class="form-section-icon">
+                    <i data-lucide="database"></i>
+                  </div>
+
+                  <div>
+                    <h3>Informasi Sistem</h3>
+
+                    <p>Informasi pencatatan data mutasi.</p>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>ID Mutasi</label>
+
+                    <strong id="detailMutasiId"> - </strong>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Dibuat Oleh</label>
+
+                    <strong id="detailMutasiCreatedBy"> - </strong>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Dibuat Pada</label>
+
+                  <strong id="detailMutasiCreatedAt"> - </strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- MODAL FOOTER -->
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-modal-action="close-detail-mutasi"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================
+         LUCIDE
+    ================================================== -->
+
+    <script>
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

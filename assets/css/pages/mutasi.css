@@ -1,0 +1,1344 @@
+/* =========================================
+   MUTASI PENDUDUK
+========================================= */
+
+.mutasi-page {
+  width: 100%;
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.mutasi-page .page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.mutasi-page .page-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mutasi-page .page-header-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  border-radius: 14px;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.mutasi-page .page-header-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.mutasi-page .page-header h1 {
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.mutasi-page .page-header p {
+  margin: 6px 0 0;
+
+  font-size: 14px;
+  color: #64748b;
+}
+
+.mutasi-page .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding-top: 10px;
+
+  font-size: 13px;
+  color: #64748b;
+}
+
+.mutasi-page .breadcrumb svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.mutasi-page .stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.mutasi-page .stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 112px;
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.mutasi-page .stat-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+}
+
+.mutasi-page .stat-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* ICON COLORS */
+
+.mutasi-page .stat-icon.blue {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.mutasi-page .stat-icon.green {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.mutasi-page .stat-icon.red {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.mutasi-page .stat-icon.purple {
+  color: #7c3aed;
+  background: #f5f3ff;
+}
+
+.mutasi-page .stat-icon.orange {
+  color: #ea580c;
+  background: #fff7ed;
+}
+
+/* STAT CONTENT */
+
+.mutasi-page .stat-content {
+  min-width: 0;
+}
+
+.mutasi-page .stat-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 13px;
+  color: #64748b;
+}
+
+.mutasi-page .stat-value {
+  display: block;
+
+  font-size: 25px;
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.mutasi-page .stat-description {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* =========================================
+   FILTER CARD
+========================================= */
+
+.mutasi-page .filter-card {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+
+  padding: 16px;
+
+  margin-bottom: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.mutasi-page .filter-search {
+  position: relative;
+
+  flex: 1;
+  min-width: 220px;
+}
+
+.mutasi-page .filter-search svg {
+  position: absolute;
+
+  left: 13px;
+  top: 50%;
+
+  width: 17px;
+  height: 17px;
+
+  color: #94a3b8;
+
+  transform: translateY(-50%);
+}
+
+.mutasi-page .filter-search input {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 14px 0 40px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 9px;
+
+  outline: none;
+
+  font-size: 13px;
+
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.mutasi-page .filter-search input:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* =========================================
+   FILTER FIELD
+========================================= */
+
+.mutasi-page .filter-field {
+  min-width: 150px;
+}
+
+.mutasi-page .filter-field label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #64748b;
+}
+
+.mutasi-page .filter-field select,
+.mutasi-page .filter-field input {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 9px;
+
+  outline: none;
+
+  font-size: 13px;
+
+  color: #334155;
+  background: #ffffff;
+}
+
+.mutasi-page .filter-field select:focus,
+.mutasi-page .filter-field input:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.mutasi-page .btn {
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 0 15px;
+
+  border: 0;
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.mutasi-page .btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mutasi-page .btn-primary {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.mutasi-page .btn-primary:hover {
+  background: #1d4ed8;
+
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
+}
+
+.mutasi-page .btn-secondary {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.mutasi-page .btn-secondary:hover {
+  background: #dbeafe;
+}
+
+/* =========================================
+   TABLE CARD
+========================================= */
+
+.mutasi-page .table-card {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.mutasi-page .table-card-header {
+  padding: 20px 20px 16px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.mutasi-page .table-card-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.mutasi-page .table-card-header p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.mutasi-page .table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.mutasi-page .data-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 13px;
+}
+
+.mutasi-page .data-table th {
+  height: 46px;
+
+  padding: 0 14px;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  color: #64748b;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mutasi-page .data-table td {
+  padding: 13px 14px;
+
+  color: #334155;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  white-space: nowrap;
+}
+
+.mutasi-page .data-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.mutasi-page .data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =========================================
+   MUTATION BADGE
+========================================= */
+
+.mutasi-page .mutation-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.mutasi-page .mutation-badge.lahir {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.mutasi-page .mutation-badge.meninggal {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.mutasi-page .mutation-badge.datang {
+  color: #7c3aed;
+  background: #ede9fe;
+}
+
+.mutasi-page .mutation-badge.keluar {
+  color: #c2410c;
+  background: #ffedd5;
+}
+
+/* =========================================
+   TABLE ACTIONS
+========================================= */
+
+.mutasi-page .table-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mutasi-page .action-btn {
+  width: 30px;
+  height: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  border: 1px solid #dbe3ef;
+
+  background: #ffffff;
+
+  cursor: pointer;
+}
+
+.mutasi-page .action-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.mutasi-page .action-btn.view {
+  color: #2563eb;
+}
+
+.mutasi-page .action-btn.edit {
+  color: #2563eb;
+}
+
+.mutasi-page .action-btn.delete {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fffafa;
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.mutasi-page .table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #eef2f7;
+}
+
+.mutasi-page .pagination-info {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.mutasi-page .pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mutasi-page .pagination-btn {
+  min-width: 32px;
+  height: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 8px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.mutasi-page .pagination-btn.active {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.mutasi-page .pagination-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.mutasi-page .pagination-per-page {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+.mutasi-page .pagination-per-page select {
+  height: 32px;
+
+  padding: 0 8px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #334155;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.mutasi-page .modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  backdrop-filter: blur(3px);
+}
+
+.mutasi-page .modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: calc(100vh - 40px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+}
+
+.mutasi-page .modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.mutasi-page .modal-header h2 {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.mutasi-page .modal-header p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+.mutasi-page .modal-close {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  cursor: pointer;
+}
+
+.mutasi-page .modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   MODAL BODY
+========================================= */
+
+.mutasi-page .modal-body {
+  padding: 20px 22px;
+
+  overflow-y: auto;
+}
+
+.mutasi-page .form-section {
+  padding: 18px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.mutasi-page .form-section:last-child {
+  margin-bottom: 0;
+}
+
+.mutasi-page .form-section-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  margin-bottom: 18px;
+}
+
+.mutasi-page .form-section-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.mutasi-page .form-section-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mutasi-page .form-section-header h3 {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.mutasi-page .form-section-header p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.mutasi-page .form-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.mutasi-page .form-group {
+  margin-bottom: 15px;
+}
+
+.mutasi-page .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.mutasi-page .form-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+.mutasi-page .form-group label span {
+  color: #ef4444;
+}
+
+.mutasi-page .form-group input,
+.mutasi-page .form-group select,
+.mutasi-page .form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  color: #334155;
+  background: #ffffff;
+}
+
+.mutasi-page .form-group input,
+.mutasi-page .form-group select {
+  height: 42px;
+
+  padding: 0 12px;
+}
+
+.mutasi-page .form-group textarea {
+  min-height: 100px;
+
+  padding: 11px 12px;
+
+  resize: vertical;
+}
+
+.mutasi-page .form-group input:focus,
+.mutasi-page .form-group select:focus,
+.mutasi-page .form-group textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+/* =========================================
+   INPUT ICON
+========================================= */
+
+.mutasi-page .input-icon {
+  position: relative;
+}
+
+.mutasi-page .input-icon svg {
+  position: absolute;
+
+  left: 12px;
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  color: #94a3b8;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.mutasi-page .input-icon input {
+  padding-left: 38px;
+}
+
+/* =========================================
+   SELECT SEARCH
+========================================= */
+
+.mutasi-page .select-search {
+  position: relative;
+}
+
+.mutasi-page .select-search svg {
+  position: absolute;
+
+  left: 12px;
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  color: #94a3b8;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.mutasi-page .select-search select {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px 0 38px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  outline: none;
+}
+
+/* =========================================
+   RESIDENT PREVIEW
+========================================= */
+
+.mutasi-page .resident-preview {
+  display: flex;
+  gap: 14px;
+
+  padding: 14px;
+
+  margin-top: 4px;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+}
+
+.mutasi-page .resident-preview-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+.mutasi-page .resident-preview-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mutasi-page .resident-preview-data {
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px 20px;
+}
+
+.mutasi-page .resident-preview-data span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 10px;
+
+  color: #64748b;
+}
+
+.mutasi-page .resident-preview-data strong {
+  display: block;
+
+  font-size: 12px;
+
+  color: #334155;
+}
+
+/* =========================================
+   TEXTAREA COUNTER
+========================================= */
+
+.mutasi-page .textarea-counter {
+  margin-top: 4px;
+
+  text-align: right;
+
+  font-size: 10px;
+
+  color: #94a3b8;
+}
+
+/* =========================================
+   MODAL FOOTER
+========================================= */
+
+.mutasi-page .modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  padding: 14px 22px;
+
+  border-top: 1px solid #eef2f7;
+
+  background: #ffffff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+  .mutasi-page .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mutasi-page .filter-card {
+    flex-wrap: wrap;
+  }
+
+  .mutasi-page .filter-search {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mutasi-page .page-header {
+    flex-direction: column;
+  }
+
+  .mutasi-page .breadcrumb {
+    display: none;
+  }
+
+  .mutasi-page .page-header h1 {
+    font-size: 23px;
+  }
+
+  .mutasi-page .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mutasi-page .filter-card {
+    align-items: stretch;
+  }
+
+  .mutasi-page .filter-field,
+  .mutasi-page .filter-search {
+    width: 100%;
+    min-width: 0;
+    flex-basis: 100%;
+  }
+
+  .mutasi-page .filter-card .btn {
+    flex: 1;
+  }
+
+  .mutasi-page .table-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mutasi-page .pagination-controls {
+    justify-content: center;
+  }
+
+  .mutasi-page .pagination-per-page {
+    justify-content: center;
+  }
+
+  .mutasi-page .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mutasi-page .resident-preview-data {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mutasi-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mutasi-page .stat-card {
+    min-height: 92px;
+  }
+
+  .mutasi-page .modal-overlay {
+    padding: 0;
+  }
+
+  .mutasi-page .modal {
+    max-height: 100vh;
+
+    border-radius: 0;
+  }
+
+  .mutasi-page .modal-body {
+    padding: 16px;
+  }
+
+  .mutasi-page .modal-footer {
+    padding: 12px 16px;
+  }
+}
+
+/* =========================================
+   SEARCH PENDUDUK
+========================================= */
+
+.search-penduduk {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.search-penduduk-input {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-penduduk-input > svg,
+.search-penduduk-input > i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-penduduk-input input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 42px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #1e293b;
+
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-penduduk-input input::placeholder {
+  color: #94a3b8;
+}
+
+.search-penduduk-input input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================================
+   BUTTON CARI
+========================================= */
+
+#btnCariPenduduk {
+  height: 42px;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 0 16px;
+
+  border-radius: 8px;
+}
+
+/* =========================================
+   HASIL PENCARIAN
+========================================= */
+
+.resident-search-results {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* =========================================
+   ITEM PENDUDUK
+========================================= */
+
+.resident-search-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resident-search-item:hover {
+  border-color: #bfdbfe;
+  background: #f8fbff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================
+   INFO PENDUDUK
+========================================= */
+
+.resident-search-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.resident-search-name {
+  margin-bottom: 5px;
+
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resident-search-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+
+  color: #64748b;
+  font-size: 12px;
+}
+
+.resident-search-meta span {
+  white-space: nowrap;
+}
+
+/* =========================================
+   BUTTON PILIH
+========================================= */
+
+.resident-search-item .btn-sm {
+  flex-shrink: 0;
+
+  min-width: 58px;
+  height: 34px;
+
+  padding: 0 12px;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   EMPTY SEARCH
+========================================= */
+
+.resident-search-empty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+}
+
+.resident-search-empty > svg,
+.resident-search-empty > i {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+}
+
+.resident-search-empty div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resident-search-empty strong {
+  color: #334155;
+  font-size: 13px;
+}
+
+.resident-search-empty span {
+  font-size: 12px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+  .search-penduduk {
+    flex-direction: column;
+  }
+
+  #btnCariPenduduk {
+    width: 100%;
+  }
+
+  .resident-search-item {
+    align-items: flex-start;
+  }
+
+  .resident-search-meta {
+    flex-direction: column;
+    gap: 3px;
+  }
+}

@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#0f3d91" />
+
+    <meta name="description" content="School Finance System - Portal Guru" />
+
+    <title>SFS Guru</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICON -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- STYLE -->
+    <style>
+      /* =====================================
+         RESET
+      ===================================== */
+
+      :root {
+        --primary: #0f3d91;
+        --primary-dark: #08275e;
+        --primary-soft: #eaf1ff;
+
+        --gold: #f5b942;
+        --text: #172033;
+        --muted: #7b8496;
+
+        --surface: #ffffff;
+        --background: #f5f7fb;
+        --border: #e8ecf3;
+
+        --success: #16a34a;
+        --danger: #dc2626;
+
+        --radius-lg: 22px;
+        --radius-md: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+
+        font-family: "Plus Jakarta Sans", sans-serif;
+
+        color: var(--text);
+        background: var(--background);
+      }
+
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* =====================================
+         APPLICATION
+      ===================================== */
+
+      .guru-app {
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .guru-container {
+        width: 100%;
+        max-width: 520px;
+        min-height: 100vh;
+        margin: 0 auto;
+        padding-bottom: 92px;
+      }
+
+      /* =====================================
+         HEADER
+      ===================================== */
+
+      .guru-header {
+        position: relative;
+
+        padding: 24px 20px 78px;
+
+        color: white;
+
+        background: linear-gradient(
+          145deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+
+        border-radius: 0 0 30px 30px;
+      }
+
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        color: var(--primary);
+        background: white;
+
+        border-radius: 14px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .brand-subtitle {
+        margin-top: 3px;
+
+        font-size: 10px;
+        opacity: 0.75;
+      }
+
+      .header-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+
+        color: white;
+        background: rgba(255, 255, 255, 0.12);
+
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+      }
+
+      /* =====================================
+         WELCOME
+      ===================================== */
+
+      .welcome {
+        margin-top: 28px;
+      }
+
+      .welcome-label {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      .welcome-name {
+        margin-top: 5px;
+
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .welcome-class {
+        margin-top: 7px;
+
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      /* =====================================
+         SUMMARY CARD
+      ===================================== */
+
+      .summary-card {
+        position: relative;
+
+        margin: -50px 20px 0;
+        padding: 20px;
+
+        color: var(--text);
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: 0 12px 35px rgba(15, 61, 145, 0.08);
+      }
+
+      .summary-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .summary-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .summary-period {
+        color: var(--primary);
+        background: var(--primary-soft);
+
+        padding: 6px 10px;
+
+        font-size: 10px;
+        font-weight: 700;
+
+        border-radius: 8px;
+      }
+
+      .summary-value {
+        margin-top: 10px;
+
+        font-size: 27px;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+
+      .summary-description {
+        margin-top: 5px;
+
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .summary-divider {
+        height: 1px;
+        margin: 18px 0;
+
+        background: var(--border);
+      }
+
+      .summary-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .summary-stat {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .summary-stat-label {
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .summary-stat-value {
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      /* =====================================
+         CONTENT
+      ===================================== */
+
+      .guru-content {
+        padding: 24px 20px 0;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .section-link {
+        color: var(--primary);
+
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      /* =====================================
+         QUICK MENU
+      ===================================== */
+
+      .quick-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .quick-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 9px;
+
+        padding: 12px 4px;
+
+        color: var(--text);
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+      }
+
+      .quick-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        color: var(--primary);
+        background: var(--primary-soft);
+
+        border-radius: 14px;
+      }
+
+      .quick-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      /* =====================================
+         POS DANA
+      ===================================== */
+
+      .pos-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .pos-card {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        padding: 15px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+      }
+
+      .pos-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        width: 45px;
+        height: 45px;
+
+        color: var(--primary);
+        background: var(--primary-soft);
+
+        border-radius: 14px;
+      }
+
+      .pos-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .pos-name {
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .pos-description {
+        margin-top: 4px;
+
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .pos-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 30px;
+        height: 30px;
+
+        color: var(--primary);
+        background: var(--primary-soft);
+
+        border: 0;
+        border-radius: 10px;
+      }
+
+      /* =====================================
+         TRANSACTIONS
+      ===================================== */
+
+      .transaction-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .transaction-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 14px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+      }
+
+      .transaction-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+
+        color: var(--success);
+        background: #eaf8ef;
+
+        border-radius: 12px;
+      }
+
+      .transaction-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .transaction-title {
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .transaction-date {
+        margin-top: 4px;
+
+        color: var(--muted);
+        font-size: 9px;
+      }
+
+      .transaction-amount {
+        color: var(--success);
+
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      /* =====================================
+         BOTTOM NAVIGATION
+      ===================================== */
+
+      .bottom-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 50;
+
+        display: flex;
+        justify-content: center;
+
+        padding: 10px 20px;
+
+        background: rgba(255, 255, 255, 0.94);
+
+        border-top: 1px solid var(--border);
+        backdrop-filter: blur(14px);
+      }
+
+      .bottom-nav-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+
+        width: 100%;
+        max-width: 480px;
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        padding: 6px;
+
+        color: var(--muted);
+        background: transparent;
+
+        border: 0;
+      }
+
+      .nav-item.active {
+        color: var(--primary);
+      }
+
+      .nav-label {
+        font-size: 9px;
+        font-weight: 700;
+      }
+
+      /* =====================================
+         DESKTOP
+      ===================================== */
+
+      @media (min-width: 768px) {
+        body {
+          padding: 20px 0;
+        }
+
+        .guru-container {
+          min-height: calc(100vh - 40px);
+
+          border: 1px solid var(--border);
+          border-radius: 28px;
+
+          overflow: hidden;
+        }
+
+        .bottom-nav {
+          position: absolute;
+          max-width: 520px;
+          margin: 0 auto;
+        }
+      }
+
+      /* =========================================
+   MODAL
+========================================= */
+
+      #modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 16px;
+        background: rgba(15, 23, 42, 0.55);
+      }
+
+      #modal.show {
+        display: flex;
+      }
+
+      #modal .modal-dialog {
+        width: 100%;
+        max-width: 480px;
+        max-height: 90vh;
+
+        overflow-y: auto;
+
+        background: #ffffff;
+        border-radius: 16px;
+
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      #modal .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 16px;
+      }
+
+      #modal .modal-body {
+        padding: 16px;
+      }
+
+      #modal .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+
+        padding: 16px;
+      }
+      /* =========================================
+   GURU MODAL - MODERN STYLE
+========================================= */
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        padding: 16px;
+        background: rgba(15, 23, 42, 0.58);
+
+        backdrop-filter: blur(4px);
+      }
+
+      .modal.show {
+        display: flex;
+      }
+
+      .modal-dialog {
+        width: 100%;
+        max-width: 440px;
+
+        max-height: calc(100vh - 32px);
+        overflow: hidden;
+
+        background: #ffffff;
+        border-radius: 20px;
+
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+
+        animation: guruModalIn 0.2s ease-out;
+      }
+
+      .modal-md {
+        max-width: 440px;
+      }
+
+      /* =========================================
+   HEADER
+========================================= */
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 20px 20px 14px;
+        border-bottom: 1px solid #eef2f7;
+      }
+
+      .modal-title {
+        margin: 0;
+
+        font-size: 18px;
+        font-weight: 700;
+        color: #172554;
+      }
+
+      #modalClose {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 32px;
+        height: 32px;
+
+        border: 0;
+        border-radius: 10px;
+
+        background: #f1f5f9;
+        color: #475569;
+
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      #modalClose:hover {
+        background: #e2e8f0;
+      }
+
+      /* =========================================
+   BODY
+========================================= */
+
+      .modal-body {
+        padding: 20px;
+
+        max-height: calc(100vh - 190px);
+        overflow-y: auto;
+      }
+
+      .modal-body .form-group {
+        margin-bottom: 16px;
+      }
+
+      .modal-body .form-label {
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-size: 13px;
+        font-weight: 600;
+        color: #334155;
+      }
+
+      .modal-body .form-input {
+        width: 100%;
+        box-sizing: border-box;
+
+        min-height: 42px;
+        padding: 10px 12px;
+
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+
+        background: #ffffff;
+        color: #0f172a;
+
+        font-size: 14px;
+        outline: none;
+
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .modal-body .form-input:focus {
+        border-color: #2563eb;
+
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      }
+
+      .modal-body .form-input[readonly] {
+        background: #f8fafc;
+        color: #64748b;
+      }
+
+      .modal-body textarea.form-input {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      /* =========================================
+   FOOTER
+========================================= */
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        padding: 14px 20px 20px;
+
+        border-top: 1px solid #eef2f7;
+      }
+
+      /* =========================================
+   BUTTON
+========================================= */
+
+      .modal-footer .btn {
+        min-height: 40px;
+        padding: 10px 16px;
+
+        border: 0;
+        border-radius: 10px;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .modal-footer .btn-primary {
+        background: #1d4ed8;
+        color: #ffffff;
+      }
+
+      .modal-footer .btn-primary:hover {
+        background: #1e40af;
+      }
+
+      .modal-footer .btn-secondary {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      .modal-footer .btn-secondary:hover {
+        background: #e2e8f0;
+      }
+
+      .modal-footer .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      /* =========================================
+   ANIMATION
+========================================= */
+
+      @keyframes guruModalIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px) scale(0.98);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* =========================================
+   MOBILE
+========================================= */
+
+      @media (max-width: 480px) {
+        .modal {
+          padding: 12px;
+        }
+
+        .modal-dialog {
+          max-height: calc(100vh - 24px);
+          border-radius: 18px;
+        }
+
+        .modal-header {
+          padding: 18px 16px 12px;
+        }
+
+        .modal-body {
+          padding: 16px;
+        }
+
+        .modal-footer {
+          padding: 12px 16px 16px;
+        }
+
+        .modal-footer .btn {
+          flex: 1;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="../assets/css/pages/guru-bottom-sheet.css" />
+    <link rel="stylesheet" href="../assets/css/pages/guru.css" />
+  </head>
+
+  <body>
+    <!-- =====================================
+         APPLICATION
+    ===================================== -->
+
+    <div class="guru-app">
+      <div class="guru-container">
+        <!-- =================================
+             HEADER
+        ================================== -->
+
+        <header class="guru-header">
+          <div class="header-top">
+            <div class="brand">
+              <div class="brand-logo">
+                <i data-lucide="wallet" size="21"></i>
+              </div>
+
+              <div>
+                <div class="brand-name">SCHOOL FINANCE</div>
+
+                <div class="brand-subtitle">SYSTEM • GURU PORTAL</div>
+              </div>
+            </div>
+
+            <button class="header-action" type="button" aria-label="Notifikasi">
+              <i data-lucide="bell" size="18"></i>
+            </button>
+          </div>
+
+          <div class="welcome">
+            <div class="welcome-label">Selamat datang kembali,</div>
+
+            <div class="welcome-name">Guru Kelas</div>
+
+            <div class="welcome-class">Kelas I Ar Razi</div>
+          </div>
+        </header>
+
+        <!-- =================================
+             SUMMARY
+        ================================== -->
+
+        <section class="summary-card">
+          <div class="summary-heading">
+            <span class="summary-label"> TOTAL TRANSAKSI SAYA </span>
+
+            <span class="summary-period"> Bulan Ini </span>
+          </div>
+
+          <!-- TOTAL NOMINAL -->
+          <div class="summary-value summary-total" data-summary-total>Rp0</div>
+
+          <div class="summary-description">
+            Total transaksi yang dicatat oleh Anda
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-footer">
+            <!-- TOTAL TRANSAKSI -->
+            <div class="summary-stat">
+              <span class="summary-stat-label"> Transaksi </span>
+
+              <span class="summary-stat-value summary-count" data-summary-count>
+                0
+              </span>
+            </div>
+
+            <!-- BERHASIL -->
+            <div class="summary-stat">
+              <span class="summary-stat-label"> Berhasil </span>
+
+              <span
+                class="summary-stat-value summary-success"
+                data-summary-success
+              >
+                0
+              </span>
+            </div>
+
+            <!-- MENUNGGU -->
+            <div class="summary-stat">
+              <span class="summary-stat-label"> Menunggu </span>
+
+              <span
+                class="summary-stat-value summary-pending"
+                data-summary-pending
+              >
+                0
+              </span>
+            </div>
+          </div>
+
+          <!-- TOTAL HARUS DISETORKAN -->
+          <div class="summary-divider"></div>
+
+          <div class="summary-deposit">
+            <div class="summary-deposit-label">TOTAL HARUS DISETORKAN</div>
+
+            <div class="summary-deposit-value" data-summary-deposit>Rp0</div>
+
+            <div class="summary-deposit-description">
+              Belum disetorkan kepada Bendahara Pos
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================
+     CONTENT
+================================== -->
+
+        <main class="guru-content">
+          <!-- =================================
+       QUICK MENU
+  ================================== -->
+
+          <section>
+            <div class="section-heading">
+              <h2 class="section-title">Menu Utama</h2>
+            </div>
+
+            <div class="quick-menu">
+              <!-- TRANSAKSI -->
+              <button class="quick-item" type="button" data-menu="transaction">
+                <span class="quick-icon">
+                  <i data-lucide="plus-circle" size="19"></i>
+                </span>
+
+                <span class="quick-label"> Transaksi </span>
+              </button>
+
+              <!-- INFO SETORAN -->
+              <button class="quick-item" type="button" data-menu="deposit">
+                <span class="quick-icon">
+                  <i data-lucide="wallet" size="19"></i>
+                </span>
+
+                <span class="quick-label"> Info Setoran </span>
+              </button>
+
+              <!-- RIWAYAT -->
+              <button class="quick-item" type="button" data-menu="history">
+                <span class="quick-icon">
+                  <i data-lucide="history" size="19"></i>
+                </span>
+
+                <span class="quick-label"> Riwayat </span>
+              </button>
+
+              <!-- SISWA -->
+              <button class="quick-item" type="button" data-menu="student">
+                <span class="quick-icon">
+                  <i data-lucide="users" size="19"></i>
+                </span>
+
+                <span class="quick-label"> Siswa </span>
+              </button>
+            </div>
+          </section>
+
+          <!-- =================================
+       TRANSAKSI VIEW
+  ================================== -->
+
+          <section id="transaction-view">
+            <!-- POS DANA GURU -->
+
+            <section class="guru-section pos-dana-section">
+              <div class="section-header">
+                <div>
+                  <h2>Pos Dana Saya</h2>
+
+                  <p class="section-description">
+                    Pilih pos dana untuk melakukan transaksi
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  class="section-link"
+                  data-action="view-all-pos-dana"
+                >
+                  Lihat Semua
+                </button>
+              </div>
+
+              <!-- Pos Dana dirender oleh guru.js -->
+
+              <div class="guru-pos-dana-list" data-guru-pos-dana-list></div>
+            </section>
+
+            <!-- TRANSAKSI TERBARU -->
+
+            <section style="margin-top: 28px">
+              <div class="section-heading">
+                <h2 class="section-title">Transaksi Terbaru</h2>
+
+                <button class="section-link" type="button" data-menu="history">
+                  Lihat Semua
+                </button>
+              </div>
+
+              <div class="transaction-list">
+                <div class="transaction-card">
+                  <div class="transaction-icon">
+                    <i data-lucide="arrow-up-right" size="18"></i>
+                  </div>
+
+                  <div class="transaction-info">
+                    <div class="transaction-title">Belum ada transaksi</div>
+
+                    <div class="transaction-date">
+                      Data transaksi akan muncul di sini
+                    </div>
+                  </div>
+
+                  <div class="transaction-amount">-</div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- =================================
+              INFO SETORAN VIEW
+          ================================== -->
+
+          <section id="deposit-view" class="guru-section" hidden>
+            <!-- =================================
+       HEADER
+  ================================== -->
+
+            <div class="section-heading">
+              <h2 class="section-title">Info Setoran</h2>
+            </div>
+
+            <p class="section-description">
+              Lihat informasi setoran transaksi Anda.
+            </p>
+
+            <!-- =================================
+       FILTER
+  ================================== -->
+
+            <div class="deposit-filter">
+              <!-- TANGGAL -->
+
+              <div class="form-group">
+                <label for="deposit-date"> Tanggal </label>
+
+                <input type="date" id="deposit-date" data-deposit-date />
+              </div>
+
+              <!-- POS DANA -->
+
+              <div class="form-group">
+                <label for="deposit-pos-dana"> Pos Dana </label>
+
+                <select id="deposit-pos-dana" data-deposit-pos-dana>
+                  <option value="">Semua Pos Dana</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- =================================
+       RINGKASAN SETORAN PER POS DANA
+  ================================== -->
+
+            <div class="section-heading">
+              <h3 class="section-title">Setoran Per Pos Dana</h3>
+            </div>
+
+            <div class="deposit-pos-summary" data-deposit-pos-summary>
+              <!-- Kartu ringkasan dirender oleh guru.js -->
+
+              <div class="deposit-summary-card">
+                <div class="deposit-summary-header">
+                  <span class="deposit-summary-title"> Memuat data... </span>
+                </div>
+
+                <div class="deposit-summary-amount">Rp0</div>
+
+                <div class="deposit-summary-footer">
+                  0 transaksi belum disetor
+                </div>
+              </div>
+            </div>
+
+            <!-- =================================
+       RINCIAN SETORAN
+  ================================== -->
+
+            <div class="section-heading">
+              <h3 class="section-title">Rincian Setoran</h3>
+            </div>
+
+            <div class="deposit-list" data-deposit-list>
+              <div class="transaction-card">
+                <div class="transaction-icon">
+                  <i data-lucide="wallet" size="18"></i>
+                </div>
+
+                <div class="transaction-info">
+                  <div class="transaction-title">Belum ada data setoran</div>
+
+                  <div class="transaction-date">
+                    Data akan muncul setelah transaksi tersedia.
+                  </div>
+                </div>
+
+                <div class="transaction-amount">-</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =================================
+              RIWAYAT TRANSAKSI VIEW
+          ================================== -->
+
+          <section id="history-view" class="guru-section" hidden>
+            <!-- HEADER -->
+
+            <div class="section-heading">
+              <h2 class="section-title">Riwayat Transaksi</h2>
+            </div>
+
+            <p class="section-description">
+              Lihat dan koreksi transaksi yang belum disetor.
+            </p>
+
+            <!-- =================================
+                FILTER
+            ================================== -->
+
+            <div class="history-filter">
+              <!-- FILTER TANGGAL -->
+
+              <div class="form-group">
+                <label for="history-date"> Tanggal </label>
+
+                <input type="date" id="history-date" data-history-date />
+              </div>
+
+              <!-- FILTER POS DANA -->
+
+              <div class="form-group">
+                <label for="history-pos-dana"> Pos Dana </label>
+
+                <select id="history-pos-dana" data-history-pos-dana>
+                  <option value="">Semua Pos Dana</option>
+                </select>
+              </div>
+
+              <!-- FILTER STATUS -->
+
+              <div class="form-group">
+                <label for="history-status"> Status Setoran </label>
+
+                <select id="history-status" data-history-status>
+                  <option value="">Semua Status</option>
+
+                  <option value="BELUM_DISETOR">Belum Disetor</option>
+
+                  <option value="SUDAH_DISETOR">Sudah Disetor</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- =================================
+                RINGKASAN RIWAYAT
+            ================================== -->
+
+            <div class="history-heading">
+              <h3 class="section-title">Daftar Transaksi</h3>
+
+              <span class="history-count" data-history-count>
+                0 transaksi
+              </span>
+            </div>
+
+            <!-- =================================
+                DAFTAR TRANSAKSI
+            ================================== -->
+
+            <div class="history-list" data-history-list>
+              <!-- EMPTY STATE -->
+
+              <div class="transaction-card">
+                <div class="transaction-icon">
+                  <i data-lucide="history" size="18"></i>
+                </div>
+
+                <div class="transaction-info">
+                  <div class="transaction-title">Belum ada transaksi</div>
+
+                  <div class="transaction-date">
+                    Riwayat transaksi akan muncul di sini.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- =================================
+       SISWA VIEW
+  ================================== -->
+
+          <section id="student-view" class="guru-section" hidden>
+            <div class="section-heading">
+              <h2 class="section-title">Pembayaran Siswa</h2>
+            </div>
+
+            <!-- Pilih siswa -->
+
+            <div data-student-selector></div>
+
+            <!-- Ringkasan pembayaran siswa -->
+
+            <div data-student-payment-summary></div>
+
+            <!-- Daftar pembayaran siswa -->
+
+            <div data-student-payment-list></div>
+          </section>
+        </main>
+
+        <!-- =================================
+             BOTTOM NAVIGATION
+        ================================== -->
+
+        <nav class="bottom-nav">
+          <div class="bottom-nav-inner">
+            <button class="nav-item active" type="button" data-menu="home">
+              <i data-lucide="house" size="19"></i>
+              <span class="nav-label">Beranda</span>
+            </button>
+
+            <button class="nav-item" type="button" data-menu="transaction">
+              <i data-lucide="plus-circle" size="19"></i>
+              <span class="nav-label">Transaksi</span>
+            </button>
+
+            <button class="nav-item" type="button" data-menu="history">
+              <i data-lucide="history" size="19"></i>
+              <span class="nav-label">Riwayat</span>
+            </button>
+
+            <button class="nav-item" type="button" data-menu="profile">
+              <i data-lucide="user-round" size="19"></i>
+              <span class="nav-label">Profil</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- =================================
+     MODAL ENGINE
+    ================================= -->
+
+    <div id="modal" class="modal">
+      <div class="modal-dialog modal-md">
+        <div class="modal-header">
+          <h3 id="modalTitle" class="modal-title"></h3>
+
+          <button
+            type="button"
+            id="modalClose"
+            class="modal-close"
+            aria-label="Tutup"
+          >
+            <i data-lucide="x" size="18"></i>
+          </button>
+        </div>
+
+        <div id="modalBody" class="modal-body"></div>
+
+        <div id="modalFooter" class="modal-footer"></div>
+      </div>
+    </div>
+
+    <script src="../assets/js/modules/guru/guru-bottom-sheet.js"></script>
+
+    <script src="../assets/js/core/engine-modal.js"></script>
+    <script src="../assets/js/core/engine-toast.js"></script>
+
+    <script src="../assets/js/modules/guru/guru.config.js"></script>
+    <script src="../assets/js/modules/guru/guru.service.js"></script>
+    <script src="../assets/js/modules/guru/guru.js"></script>
+  </body>
+</html>

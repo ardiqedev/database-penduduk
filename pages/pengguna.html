@@ -1,0 +1,239 @@
+<!-- =========================================
+     DATABASE WARGA
+     PENGGUNA
+========================================= -->
+
+<div class="page pengguna-page">
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Pengguna</h1>
+
+      <p>
+        Kelola pengguna dan hak akses Database Warga Kelurahan Aertembaga Dua.
+      </p>
+    </div>
+
+    <div class="page-header-action">
+      <button class="btn btn-primary" data-action="add-user" type="button">
+        <i data-lucide="user-plus"></i>
+
+        <span> Tambah Pengguna </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SUMMARY
+  ====================================== -->
+
+  <div class="dashboard-summary">
+    <!-- TOTAL PENGGUNA -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="users"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Total Pengguna </span>
+
+        <h2 id="userTotal">0</h2>
+
+        <small> Pengguna terdaftar </small>
+      </div>
+    </div>
+
+    <!-- OPERATOR -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="shield-check"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Operator Kelurahan </span>
+
+        <h2 id="userOperator">0</h2>
+
+        <small> Akses seluruh wilayah </small>
+      </div>
+    </div>
+
+    <!-- KETUA LINGKUNGAN -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="map-pin"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Ketua Lingkungan </span>
+
+        <h2 id="userKetuaLingkungan">0</h2>
+
+        <small> Pengguna tingkat lingkungan </small>
+      </div>
+    </div>
+
+    <!-- AKTIF -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user-check"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Pengguna Aktif </span>
+
+        <h2 id="userAktif">0</h2>
+
+        <small> Akun aktif </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       FILTER & SEARCH
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Daftar Pengguna</h2>
+
+        <p>Cari dan filter pengguna sistem.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <!-- SEARCH -->
+
+      <div class="search-box">
+        <i data-lucide="search"></i>
+
+        <input
+          id="searchUser"
+          type="text"
+          placeholder="Cari nama atau username..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- ROLE -->
+
+      <div class="form-group">
+        <select id="filterUserRole" class="form-control">
+          <option value="">Semua Role</option>
+
+          <option value="OPERATOR_KELURAHAN">Operator Kelurahan</option>
+
+          <option value="KETUA_LINGKUNGAN">Ketua Lingkungan</option>
+        </select>
+      </div>
+
+      <!-- STATUS -->
+
+      <div class="form-group">
+        <select id="filterUserStatus" class="form-control">
+          <option value="">Semua Status</option>
+
+          <option value="AKTIF">Aktif</option>
+
+          <option value="NONAKTIF">Nonaktif</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       TABLE PENGGUNA
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Data Pengguna</h2>
+
+        <p id="userTableInfo">Menampilkan data pengguna sistem.</p>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        data-action="refresh-users"
+        type="button"
+      >
+        <i data-lucide="refresh-cw"></i>
+
+        <span> Refresh </span>
+      </button>
+    </div>
+
+    <div class="table-container">
+      <table class="data-table" id="tableUsers">
+        <thead>
+          <tr>
+            <th>No</th>
+
+            <th>Nama</th>
+
+            <th>Username</th>
+
+            <th>Role</th>
+
+            <th>Lingkungan</th>
+
+            <th>Status</th>
+
+            <th>Aksi</th>
+          </tr>
+        </thead>
+
+        <tbody id="userTableBody">
+          <!-- Data akan diisi JS -->
+
+          <tr>
+            <td colspan="7" class="table-empty">Belum ada data pengguna.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+
+    <div id="userPagination" class="pagination">
+      <!-- Akan diisi JS -->
+    </div>
+  </div>
+
+  <!-- =====================================
+       DETAIL PENGGUNA
+  ====================================== -->
+
+  <div id="userDetailContainer" class="card" hidden>
+    <div class="card-header">
+      <div>
+        <h2>Detail Pengguna</h2>
+
+        <p>Informasi dan hak akses pengguna.</p>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        data-action="close-user-detail"
+        type="button"
+      >
+        <i data-lucide="x"></i>
+
+        <span> Tutup </span>
+      </button>
+    </div>
+
+    <div id="userDetail" class="detail-container">
+      <!-- Detail akan diisi JS -->
+    </div>
+  </div>
+</div>

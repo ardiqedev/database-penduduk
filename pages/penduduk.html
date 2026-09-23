@@ -1,0 +1,261 @@
+<!-- =========================================
+     DATABASE WARGA
+     PENDUDUK
+========================================= -->
+
+<div class="page penduduk-page">
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Penduduk</h1>
+
+      <p>Kelola data penduduk Kelurahan Aertembaga Dua.</p>
+    </div>
+
+    <div class="page-header-action">
+      <button class="btn btn-primary" data-action="add-penduduk" type="button">
+        <i data-lucide="plus"></i>
+
+        <span> Tambah Penduduk </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SUMMARY
+  ====================================== -->
+
+  <div class="dashboard-summary">
+    <!-- TOTAL PENDUDUK -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="users"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Total Penduduk </span>
+
+        <h2 id="pendudukTotal">0</h2>
+
+        <small> Seluruh penduduk </small>
+      </div>
+    </div>
+
+    <!-- LAKI-LAKI -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Laki-Laki </span>
+
+        <h2 id="pendudukLaki">0</h2>
+
+        <small> Penduduk laki-laki </small>
+      </div>
+    </div>
+
+    <!-- PEREMPUAN -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user-round"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Perempuan </span>
+
+        <h2 id="pendudukPerempuan">0</h2>
+
+        <small> Penduduk perempuan </small>
+      </div>
+    </div>
+
+    <!-- KK TERHUBUNG -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="contact"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Terhubung KK </span>
+
+        <h2 id="pendudukTerhubungKK">0</h2>
+
+        <small> Penduduk memiliki KK </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       FILTER & SEARCH
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Data Penduduk</h2>
+
+        <p>Cari dan filter data penduduk.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <!-- SEARCH -->
+
+      <div class="search-box">
+        <i data-lucide="search"></i>
+
+        <input
+          id="searchPenduduk"
+          type="text"
+          placeholder="Cari NIK atau nama penduduk..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- LINGKUNGAN -->
+
+      <div class="form-group">
+        <select id="filterLingkunganPenduduk" class="form-control">
+          <option value="">Semua Lingkungan</option>
+
+          <option value="L001">Lingkungan I</option>
+
+          <option value="L002">Lingkungan II</option>
+
+          <option value="L003">Lingkungan III</option>
+
+          <option value="L004">Lingkungan IV</option>
+
+          <option value="L005">Lingkungan V</option>
+        </select>
+      </div>
+
+      <!-- JENIS KELAMIN -->
+
+      <div class="form-group">
+        <select id="filterJenisKelamin" class="form-control">
+          <option value="">Semua Jenis Kelamin</option>
+
+          <option value="LAKI-LAKI">Laki-Laki</option>
+
+          <option value="PEREMPUAN">Perempuan</option>
+        </select>
+      </div>
+
+      <!-- STATUS PERKAWINAN -->
+
+      <div class="form-group">
+        <select id="filterStatusPerkawinan" class="form-control">
+          <option value="">Semua Status Perkawinan</option>
+
+          <option value="BELUM_KAWIN">Belum Kawin</option>
+
+          <option value="KAWIN">Kawin</option>
+
+          <option value="CERAI_HIDUP">Cerai Hidup</option>
+
+          <option value="CERAI_MATI">Cerai Mati</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       TABLE PENDUDUK
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Daftar Penduduk</h2>
+
+        <p id="pendudukTableInfo">Menampilkan data penduduk.</p>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        data-action="refresh-penduduk"
+        type="button"
+      >
+        <i data-lucide="refresh-cw"></i>
+
+        <span> Refresh </span>
+      </button>
+    </div>
+
+    <div class="table-container">
+      <table class="data-table" id="tablePenduduk">
+        <thead>
+          <tr>
+            <th>No</th>
+
+            <th>NIK</th>
+
+            <th>Nama</th>
+
+            <th>Jenis Kelamin</th>
+
+            <th>Tempat / Tanggal Lahir</th>
+
+            <th>Hubungan Keluarga</th>
+
+            <th>ID KK</th>
+
+            <th>Aksi</th>
+          </tr>
+        </thead>
+
+        <tbody id="pendudukTableBody">
+          <!-- Data akan diisi JS -->
+
+          <tr>
+            <td colspan="8" class="table-empty">Belum ada data.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+
+    <div id="pendudukPagination" class="pagination">
+      <!-- Akan diisi JS -->
+    </div>
+  </div>
+
+  <!-- =====================================
+       DETAIL PENDUDUK
+  ====================================== -->
+
+  <div id="pendudukDetailContainer" class="card" hidden>
+    <div class="card-header">
+      <div>
+        <h2>Detail Penduduk</h2>
+
+        <p>Informasi lengkap penduduk.</p>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        data-action="close-penduduk-detail"
+        type="button"
+      >
+        <i data-lucide="x"></i>
+
+        <span> Tutup </span>
+      </button>
+    </div>
+
+    <div id="pendudukDetail" class="detail-container">
+      <!-- Detail akan diisi JS -->
+    </div>
+  </div>
+</div>

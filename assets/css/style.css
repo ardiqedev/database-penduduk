@@ -1,0 +1,47 @@
+/* =========================================
+   TEMPLATE
+========================================= */
+
+@import url("templateLayout/variables.css");
+@import url("templateLayout/base.css");
+@import url("templateLayout/layout.css");
+@import url("templateLayout/sidebar.css");
+@import url("templateLayout/navbar.css");
+
+/* =========================================
+   COMPONENTS
+========================================= */
+
+@import url("components/button.css");
+@import url("components/card.css");
+@import url("components/badge.css");
+@import url("components/form.css");
+@import url("components/modal.css");
+@import url("components/detail.css");
+@import url("components/table.css");
+@import url("components/pagination.css");
+@import url("components/loading.css");
+@import url("components/skeleton.css");
+@import url("components/toast.css");
+@import url("components/confirm.css");
+@import url("components/upload.css");
+@import url("components/stat.css");
+@import url("components/empty-state.css");
+@import url("components/search.css");
+@import url("components/toolbar.css");
+
+/* =========================================
+   PAGES
+========================================= */
+
+@import url("pages/dashboard.css");
+@import url("pages/kartu-keluarga.css");
+@import url("pages/skelekton-kk-pend.css");
+@import url("pages/modal-kk.css");
+/* @import url("pages/mutasi.css"); */
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@import url("templateLayout/responsive.css");

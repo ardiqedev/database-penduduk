@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Database Warga Kelurahan Aertembaga Dua"
+    />
+
+    <title>Database Warga - Aertembaga Dua</title>
+
+    <!-- ======================================
+       FONT
+  ======================================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ======================================
+       ICON
+  ======================================= -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- ======================================
+       CSS
+  ======================================= -->
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- ======================================
+       LOADING
+  ======================================= -->
+
+    <div id="loading"></div>
+
+    <!-- ======================================
+       TOAST
+  ======================================= -->
+
+    <div id="toast"></div>
+
+    <!-- ======================================
+       MODAL
+  ======================================= -->
+
+    <div id="modalContainer"></div>
+
+    <!-- ======================================
+       APPLICATION
+  ======================================= -->
+
+    <div class="app">
+      <!-- ====================================
+         SIDEBAR
+    ===================================== -->
+
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <div class="brand">
+            <div class="brand-icon">
+              <i data-lucide="landmark"></i>
+            </div>
+
+            <div class="brand-text">
+              <strong>Database Warga</strong>
+
+              <span>Aertembaga Dua</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <span class="nav-section-title"> UTAMA </span>
+
+            <a href="#dashboard" class="nav-item active">
+              <i data-lucide="layout-dashboard"></i>
+
+              <span>Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title"> DATA PENDUDUK </span>
+
+            <a href="#kk" class="nav-item">
+              <i data-lucide="contact"></i>
+
+              <span>Kartu Keluarga</span>
+            </a>
+
+            <a href="#penduduk" class="nav-item">
+              <i data-lucide="users"></i>
+
+              <span>Penduduk</span>
+            </a>
+
+            <a href="#mutasi" class="nav-item">
+              <i data-lucide="arrow-left-right"></i>
+
+              <span>Mutasi Penduduk</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title"> LAPORAN </span>
+
+            <a href="#laporan" class="nav-item">
+              <i data-lucide="file-text"></i>
+
+              <span>Laporan</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title"> SISTEM </span>
+
+            <a href="#pengguna" class="nav-item">
+              <i data-lucide="user-cog"></i>
+
+              <span>Pengguna</span>
+            </a>
+
+            <a href="#pengaturan" class="nav-item">
+              <i data-lucide="settings"></i>
+
+              <span>Pengaturan</span>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Sidebar Footer -->
+
+        <div class="sidebar-footer">
+          <div class="user-mini">
+            <div class="user-avatar">O</div>
+
+            <div class="user-info">
+              <strong>Operator Kelurahan</strong>
+
+              <span>Administrator</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ====================================
+         MAIN
+    ===================================== -->
+
+      <div class="main">
+        <!-- ==================================
+           NAVBAR
+      =================================== -->
+
+        <header id="navbar" class="navbar">
+          <div class="navbar-left">
+            <button id="sidebarToggle" class="icon-button" type="button">
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div>
+              <div class="page-title">Dashboard</div>
+
+              <div class="page-subtitle">
+                Database Warga Kelurahan Aertembaga Dua
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-right">
+            <button class="icon-button" type="button" title="Notifikasi">
+              <i data-lucide="bell"></i>
+            </button>
+
+            <div class="navbar-user">
+              <div class="user-avatar">O</div>
+
+              <div class="navbar-user-info">
+                <strong>Operator</strong>
+
+                <span>Kelurahan</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ==================================
+           CONTENT
+      =================================== -->
+
+        <main id="content" class="content">
+          <!-- Page Header -->
+
+          <div class="content-header">
+            <div>
+              <h1>Dashboard</h1>
+
+              <p>Ringkasan data kependudukan Kelurahan Aertembaga Dua.</p>
+            </div>
+
+            <div class="content-header-action">
+              <button class="btn btn-primary">
+                <i data-lucide="plus"></i>
+
+                Tambah Data
+              </button>
+            </div>
+          </div>
+
+          <!-- ==================================
+             STAT CARDS
+        =================================== -->
+
+          <section class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i data-lucide="contact"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Total Kartu Keluarga</span>
+
+                <strong>0</strong>
+
+                <small> Data KK terdaftar </small>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i data-lucide="users"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Total Penduduk</span>
+
+                <strong>0</strong>
+
+                <small> Penduduk terdaftar </small>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i data-lucide="map-pin"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Lingkungan</span>
+
+                <strong>5</strong>
+
+                <small> Lingkungan aktif </small>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i data-lucide="arrow-left-right"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Mutasi</span>
+
+                <strong>0</strong>
+
+                <small> Data mutasi </small>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==================================
+             MAIN DASHBOARD
+        =================================== -->
+
+          <section class="dashboard-grid">
+            <!-- Wilayah -->
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2>Wilayah Administrasi</h2>
+
+                  <p>Struktur wilayah Kelurahan Aertembaga Dua</p>
+                </div>
+
+                <i data-lucide="map"></i>
+              </div>
+
+              <div class="wilayah-list">
+                <div class="wilayah-item">
+                  <div class="wilayah-number">I</div>
+
+                  <div>
+                    <strong>Lingkungan I</strong>
+
+                    <span> RT 001 - RT 003 </span>
+                  </div>
+                </div>
+
+                <div class="wilayah-item">
+                  <div class="wilayah-number">II</div>
+
+                  <div>
+                    <strong>Lingkungan II</strong>
+
+                    <span> RT 004 - RT 007 </span>
+                  </div>
+                </div>
+
+                <div class="wilayah-item">
+                  <div class="wilayah-number">III</div>
+
+                  <div>
+                    <strong>Lingkungan III</strong>
+
+                    <span> RT 008 - RT 010 </span>
+                  </div>
+                </div>
+
+                <div class="wilayah-item">
+                  <div class="wilayah-number">IV</div>
+
+                  <div>
+                    <strong>Lingkungan IV</strong>
+
+                    <span> RT 011 - RT 015 </span>
+                  </div>
+                </div>
+
+                <div class="wilayah-item">
+                  <div class="wilayah-number">V</div>
+
+                  <div>
+                    <strong>Lingkungan V</strong>
+
+                    <span> RT 016 - RT 020 </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mutasi -->
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h2>Mutasi Terbaru</h2>
+
+                  <p>Aktivitas perubahan data penduduk</p>
+                </div>
+
+                <i data-lucide="history"></i>
+              </div>
+
+              <div class="empty-state">
+                <div class="empty-icon">
+                  <i data-lucide="clipboard-list"></i>
+                </div>
+
+                <strong> Belum ada data </strong>
+
+                <span> Data mutasi terbaru akan tampil di sini. </span>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 id="modalTitle"></h3>
+
+          <button id="modalClose" type="button">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div id="modalBody" class="modal-body"></div>
+
+        <div id="modalFooter" class="modal-footer"></div>
+      </div>
+    </div>
+
+    <!-- ======================================
+       CORE QEDEV
+  ======================================= -->
+
+    <script src="assets/js/core/config.js"></script>
+
+    <script src="assets/js/core/storage.js"></script>
+
+    <script src="assets/js/core/state.js"></script>
+
+    <script src="assets/js/core/api.js"></script>
+
+    <script src="assets/js/core/auth.js"></script>
+
+    <script src="assets/js/core/router.js"></script>
+
+    <script src="assets/js/core/sidebar.js"></script>
+
+    <script src="assets/js/core/toolbar.js"></script>
+
+    <!-- ======================================
+       ENGINE
+  ======================================= -->
+
+    <script src="assets/js/core/engine-modal.js"></script>
+
+    <script src="assets/js/core/engine-upload.js"></script>
+
+    <script src="assets/js/core/engine-validator.js"></script>
+
+    <script src="assets/js/core/engine-form.js"></script>
+
+    <script src="assets/js/core/engine-table.js"></script>
+
+    <script src="assets/js/core/engine-detail.js"></script>
+
+    <script src="assets/js/core/engine-pagination.js"></script>
+
+    <script src="assets/js/core/engine-badge.js"></script>
+
+    <script src="assets/js/core/engine-toast.js"></script>
+
+    <script src="assets/js/core/engine-confirm.js"></script>
+
+    <script src="assets/js/core/engine-loading.js"></script>
+
+    <script src="assets/js/core/engine-skeleton.js"></script>
+
+    <script src="assets/js/core/engine-dropdown.js"></script>
+
+    <script src="assets/js/core/engine-Search.js"></script>
+
+    <script src="assets/js/core/engine-asset.js"></script>
+
+    <!-- ======================================
+   MODULES
+======================================= -->
+
+    <script src="assets/js/modules/dashboard/dashboard.js"></script>
+    <script src="assets/js/modules/kartu-keluarga/kartu-keluarga.service.js"></script>
+    <script src="assets/js/modules/kartu-keluarga/kartu-keluarga.view.js"></script>
+    <script src="assets/js/modules/kartu-keluarga/kartu-keluarga.controller.js"></script>
+
+    <script src="assets/js/modules/mutasi/mutasi-penduduk.service.js"></script>
+
+    <script src="assets/js/modules/mutasi/mutasi-penduduk.view.js"></script>
+    <script src="assets/js/modules/mutasi/mutasi-penduduk.controller.js"></script>
+    <!-- ======================================
+       APP
+  ======================================= -->
+
+    <script src="assets/js/core/app.js"></script>
+
+    <!-- ======================================
+       INITIALIZE ICON
+  ======================================= -->
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

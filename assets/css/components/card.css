@@ -1,0 +1,168 @@
+/* =========================================
+   QEDEV CARD
+========================================= */
+
+/* =========================================
+   Base
+========================================= */
+
+.card {
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================================
+   Header
+========================================= */
+
+.card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header-left {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.card-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   Title
+========================================= */
+
+.card-title {
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+/* =========================================
+   Subtitle
+========================================= */
+
+.card-subtitle {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+/* =========================================
+   Body
+========================================= */
+
+.card-body {
+  flex: 1;
+
+  padding: 24px;
+
+  min-height: 0;
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+.card-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 18px 24px;
+
+  border-top: 1px solid var(--border);
+}
+
+/* =========================================
+   Variant
+========================================= */
+
+.card-flat {
+  box-shadow: none;
+}
+
+.card-borderless {
+  border: none;
+
+  box-shadow: none;
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+}
+
+.card-simple {
+  padding: 24px;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 768px) {
+  .card-header,
+  .card-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,1568 @@
+/* =========================================
+   POS DANA
+========================================= */
+
+/* =========================================
+   WORKSPACE
+========================================= */
+
+.pos-dana-workspace {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* =========================================
+   POS DANA HEADER
+========================================= */
+
+.pos-dana-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+/* HEADER INFO */
+
+.pos-dana-header .page-header-info {
+  min-width: 0;
+}
+
+.pos-dana-header .page-header-eyebrow {
+  margin-bottom: 5px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: var(--primary-color);
+}
+
+.pos-dana-header .page-header-title {
+  margin: 0;
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+
+  color: var(--text-primary);
+}
+
+.pos-dana-header .page-header-description {
+  max-width: 620px;
+
+  margin: 8px 0 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: var(--text-secondary);
+}
+
+/* HEADER ACTION */
+
+.pos-dana-header .page-header-actions {
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.pos-dana-add-button {
+  white-space: nowrap;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .pos-dana-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pos-dana-header .page-header-actions {
+    width: 100%;
+  }
+
+  .pos-dana-add-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pos-dana-header .page-header-title {
+    font-size: 23px;
+  }
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.pos-dana-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* =========================================
+   POS DANA SIDEBAR
+========================================= */
+
+.pos-dana-sidebar {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 22px 18px;
+  box-sizing: border-box;
+}
+
+/* Header Sidebar */
+
+.pos-dana-sidebar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pos-dana-sidebar-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.pos-dana-sidebar-header span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Count Badge */
+
+.pos-dana-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Tree */
+
+.pos-dana-tree {
+  min-width: 0;
+}
+
+/* Empty Sidebar */
+
+.pos-dana-empty-sidebar {
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.pos-dana-empty-sidebar p {
+  max-width: 260px;
+  margin: 8px auto 20px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   TREE CONTAINER
+========================================= */
+
+.pos-dana-tree {
+  width: 100%;
+}
+
+/* =========================================
+   POS DANA GROUP
+========================================= */
+
+.pos-dana-group {
+  margin-bottom: 24px;
+}
+
+.pos-dana-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+
+.pos-dana-group-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+
+  color: var(--color-text-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tree-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 14px;
+  height: 14px;
+
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.group-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pos-dana-group-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 28px;
+  height: 24px;
+  padding: 0 8px;
+
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Empty tree */
+
+.tree-empty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.tree-empty-icon {
+  font-size: 13px;
+}
+/* =========================================
+   TREE LEVEL 1
+========================================= */
+
+.pos-dana-children {
+  margin-left: 10px;
+  padding-left: 14px;
+
+  border-left: 1px solid var(--border-color);
+}
+
+/* =========================================
+   TREE NODE
+========================================= */
+
+/* =========================================
+   POS DANA TREE NODE
+========================================= */
+
+.pos-dana-tree-node {
+  min-width: 0;
+}
+
+.pos-dana-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--color-text-primary);
+
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.pos-dana-tree-item:hover {
+  background: var(--color-surface-hover, #f1f5f9);
+}
+
+.pos-dana-tree-item.active {
+  border-color: var(--color-primary, #2563eb);
+  background: var(--color-primary-soft, #eff6ff);
+  color: var(--color-primary, #2563eb);
+}
+
+.tree-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+
+  font-size: 13px;
+}
+
+.tree-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+  flex: 1;
+}
+
+.tree-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tree-item-code {
+  flex-shrink: 0;
+
+  color: var(--color-text-secondary);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.pos-dana-tree-item.active .tree-item-code {
+  color: var(--color-primary, #2563eb);
+}
+
+.tree-item-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text-secondary);
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Nested children */
+
+.pos-dana-tree-children {
+  margin-left: 16px;
+  padding-left: 10px;
+
+  border-left: 1px solid var(--color-border, #e2e8f0);
+}
+
+/* =========================================
+   TREE ITEM
+========================================= */
+
+/* =========================================
+   POS DANA TREE ITEM
+========================================= */
+
+.pos-dana-tree-item {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  margin: 2px 0;
+
+  border: 1px solid transparent;
+  border-radius: 9px;
+
+  background: transparent;
+  color: var(--color-text-primary);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Icon */
+
+.pos-dana-tree-item .tree-item-icon {
+  width: 20px;
+  min-width: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+}
+
+/* Informasi item */
+
+.pos-dana-tree-item .tree-item-info {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Nama */
+
+.pos-dana-tree-item .tree-item-name {
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--color-text-primary);
+}
+
+/* Kode */
+
+.pos-dana-tree-item .tree-item-code {
+  flex-shrink: 0;
+
+  padding: 2px 6px;
+
+  border-radius: 5px;
+  background: var(--color-surface);
+
+  color: var(--color-text-secondary);
+
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Hover */
+
+.pos-dana-tree-item:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+/* Active */
+
+.pos-dana-tree-item.active {
+  background: #eff6ff;
+  border-color: #2563eb;
+
+  color: #1d4ed8;
+}
+
+.pos-dana-tree-item.active .tree-item-name {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.pos-dana-tree-item.active .tree-item-code {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* Focus */
+
+.pos-dana-tree-item:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 2px;
+}
+
+/* Active ketika ditekan */
+
+.pos-dana-tree-item:active {
+  transform: scale(0.99);
+}
+
+/* =========================================
+   TREE ITEM ICON
+========================================= */
+
+.tree-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  min-width: 24px;
+
+  margin-right: 6px;
+
+  font-size: 14px;
+}
+
+/* =========================================
+   TREE ITEM INFO
+========================================= */
+
+.tree-item-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  min-width: 0;
+  flex: 1;
+}
+
+.tree-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tree-item-code {
+  flex-shrink: 0;
+
+  padding: 2px 6px;
+
+  border-radius: 5px;
+
+  background: var(--bg-secondary);
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.pos-dana-tree-item.active .tree-item-code {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--primary-color);
+}
+
+/* =========================================
+   TREE ITEM COUNT
+========================================= */
+
+.tree-item-count {
+  flex-shrink: 0;
+
+  min-width: 20px;
+  height: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: var(--bg-secondary);
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =========================================
+   RECURSIVE CHILDREN
+========================================= */
+
+.pos-dana-tree-children {
+  margin-left: 20px;
+  padding-left: 14px;
+
+  border-left: 1px solid var(--border-color);
+}
+
+/* =========================================
+   EMPTY TREE
+========================================= */
+
+.tree-empty {
+  padding: 8px 12px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.pos-dana-content {
+  min-width: 0;
+}
+
+.pos-dana-detail {
+  width: 100%;
+}
+
+/* =========================================
+   DETAIL
+========================================= */
+
+.pos-dana-detail .detail-header {
+  margin-bottom: 20px;
+}
+
+.pos-dana-detail .detail-section {
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   CHILD CARD
+========================================= */
+
+.pos-dana-child-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pos-dana-child-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background: var(--bg-primary);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.pos-dana-child-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.child-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: var(--bg-secondary);
+
+  font-size: 16px;
+}
+
+.child-card-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.child-card-content h4 {
+  margin: 0 0 3px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 13px;
+}
+
+.child-card-content span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.child-card-type {
+  flex-shrink: 0;
+
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* =========================================
+   EMPTY DETAIL
+========================================= */
+
+.pos-dana-detail.empty-detail {
+  min-height: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+
+  background: var(--bg-primary);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+  .pos-dana-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+
+  .pos-dana-child-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pos-dana-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pos-dana-sidebar {
+    width: 100%;
+  }
+
+  .pos-dana-content {
+    width: 100%;
+  }
+
+  .pos-dana-children {
+    margin-left: 6px;
+  }
+
+  .pos-dana-tree-children {
+    margin-left: 12px;
+  }
+}
+
+/* =========================================
+   HAK AKSES
+========================================= */
+
+.pos-dana-access {
+  width: 100%;
+}
+
+/* =========================================
+   ACCESS HEADER
+========================================= */
+
+.access-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.access-header > div:first-child {
+  min-width: 0;
+}
+
+.access-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.access-subtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.access-header-action {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   ACCESS LIST
+========================================= */
+
+.access-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================================
+   ACCESS ITEM
+========================================= */
+
+.access-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  background: var(--bg-primary);
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.access-item:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-primary);
+}
+
+/* =========================================
+   ACCESS MAIN
+========================================= */
+
+.access-item-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.access-item-user {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  color: var(--text-primary);
+}
+
+.access-item-type {
+  margin-top: 3px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  color: var(--primary-color);
+}
+
+/* =========================================
+   ACCESS META
+========================================= */
+
+.access-item-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.access-item-date {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* =========================================
+   ACCESS EMPTY
+========================================= */
+
+.access-empty {
+  padding: 32px 20px;
+
+  text-align: center;
+
+  border: 1px dashed var(--border-color);
+  border-radius: 10px;
+
+  background: var(--bg-secondary);
+}
+
+.access-empty-icon {
+  margin-bottom: 8px;
+
+  font-size: 24px;
+  line-height: 1;
+}
+
+.access-empty h3 {
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+.access-empty p {
+  margin: 5px 0 0;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: var(--text-secondary);
+}
+
+/* =========================================
+   ACCESS RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .access-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .access-header-action {
+    width: 100%;
+  }
+
+  .access-header-action .btn {
+    width: 100%;
+  }
+
+  .access-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .access-item-meta {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .access-item-date {
+    white-space: normal;
+  }
+}
+
+/* =========================================
+   ACCESS ACTION
+========================================= */
+
+.access-item-actions {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.access-menu-button {
+  width: 32px;
+  height: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.access-menu-button:hover {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.access-menu-button:active {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* =========================================
+   ACCESS DROPDOWN
+========================================= */
+
+.access-item-actions {
+  position: relative;
+}
+
+.access-dropdown {
+  position: absolute;
+
+  top: calc(100% + 6px);
+  right: 0;
+
+  z-index: 50;
+
+  min-width: 190px;
+
+  padding: 6px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.12),
+    0 4px 10px rgba(15, 23, 42, 0.06);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-4px);
+
+  transition:
+    opacity 0.15s ease,
+    visibility 0.15s ease,
+    transform 0.15s ease;
+}
+
+.access-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================================
+   DROPDOWN ITEM
+========================================= */
+
+.access-dropdown-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 10px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.access-dropdown-item:hover {
+  background: #ffffff;
+}
+
+.access-dropdown-item:hover {
+  background: var(--bg-secondary);
+}
+
+.access-dropdown-icon {
+  width: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   DANGER ACTION
+========================================= */
+
+.access-dropdown-danger {
+  color: #dc2626;
+}
+
+.access-dropdown-danger:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ==========================================
+   POS DANA SKELETON
+========================================== */
+
+.pos-dana-skeleton {
+  width: 100%;
+}
+
+/* HEADER */
+
+.skeleton-pos-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.skeleton-eyebrow {
+  width: 130px;
+  height: 12px;
+  margin-bottom: 10px;
+}
+
+.skeleton-heading {
+  width: 160px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.skeleton-description {
+  width: 420px;
+  max-width: 100%;
+  height: 14px;
+}
+
+.skeleton-button {
+  width: 170px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+/* LAYOUT */
+
+.skeleton-pos-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 20px;
+}
+
+/* SIDEBAR */
+
+.skeleton-pos-sidebar {
+  padding: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.skeleton-pos-sidebar > .skeleton-title {
+  width: 140px;
+  height: 18px;
+  margin-bottom: 10px;
+}
+
+.skeleton-pos-sidebar > .skeleton-text {
+  width: 210px;
+  height: 14px;
+  margin-bottom: 32px;
+}
+
+.skeleton-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skeleton-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.skeleton-tree-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.skeleton-tree-name {
+  width: 150px;
+  height: 14px;
+}
+
+.skeleton-tree-parent .skeleton-tree-name {
+  width: 190px;
+}
+
+/* DETAIL */
+
+.skeleton-pos-detail {
+  min-width: 0;
+}
+
+.skeleton-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 156px;
+  padding: 28px;
+
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.skeleton-detail-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeleton-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.skeleton-code {
+  width: 45px;
+  height: 12px;
+}
+
+.skeleton-detail-title {
+  width: 100px;
+  height: 25px;
+}
+
+.skeleton-detail-status {
+  width: 100px;
+  height: 14px;
+}
+
+.skeleton-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skeleton-action-button {
+  width: 100px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+/* SECTION */
+
+.skeleton-section-heading {
+  margin: 42px 0 22px;
+}
+
+.skeleton-section-heading .skeleton-title {
+  width: 180px;
+  height: 18px;
+  margin-bottom: 10px;
+}
+
+.skeleton-section-heading .skeleton-text {
+  width: 220px;
+  height: 14px;
+}
+
+/* INFO GRID */
+
+.skeleton-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skeleton-info-card {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.skeleton-label {
+  width: 70px;
+  height: 12px;
+  margin-bottom: 14px;
+}
+
+.skeleton-value {
+  width: 130px;
+  height: 16px;
+}
+
+/* CONFIGURATION */
+
+.skeleton-config-heading {
+  margin-top: 42px;
+}
+
+.skeleton-config-line {
+  width: 280px;
+  height: 14px;
+  margin-bottom: 12px;
+}
+
+.skeleton-config-line.short {
+  width: 220px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .skeleton-pos-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton-pos-sidebar {
+    padding: 24px;
+  }
+
+  .skeleton-detail-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .skeleton-detail-actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .skeleton-pos-header {
+    flex-direction: column;
+  }
+
+  .skeleton-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================
+   FORM FIELD LIST
+===================================== */
+
+.form-field-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =====================================
+   FORM FIELD CARD
+===================================== */
+
+.form-field-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px 18px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.form-field-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* =====================================
+   ICON
+===================================== */
+
+.form-field-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  background: #eff6ff;
+  border-radius: 12px;
+
+  font-size: 21px;
+}
+
+/* =====================================
+   CONTENT
+===================================== */
+
+.form-field-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =====================================
+   TITLE
+===================================== */
+
+.form-field-card-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.form-field-card-title h4 {
+  margin: 0;
+
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =====================================
+   META
+===================================== */
+
+.form-field-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 5px;
+
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.form-field-card-meta span + span::before {
+  content: "•";
+  margin-right: 12px;
+  color: #d1d5db;
+}
+
+/* =====================================
+   STATUS
+===================================== */
+
+.form-field-card-status {
+  margin-top: 8px;
+}
+
+/* =====================================
+   ACTIONS
+===================================== */
+
+.form-field-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+.form-field-card-actions .btn {
+  padding: 7px 11px;
+
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 640px) {
+  .form-field-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .form-field-card-content {
+    flex: 1;
+    min-width: calc(100% - 60px);
+  }
+
+  .form-field-card-actions {
+    width: 100%;
+    padding-left: 56px;
+  }
+
+  .form-field-card-actions .btn {
+    flex: 1;
+  }
+}

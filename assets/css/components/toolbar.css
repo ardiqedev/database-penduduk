@@ -1,0 +1,148 @@
+/* =========================================
+   QEDEV TOOLBAR
+========================================= */
+
+/* =========================================
+   Base
+========================================= */
+
+.toolbar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 16px 20px;
+
+  border-top: 1px solid var(--border-color);
+
+  background: var(--surface-color);
+}
+
+/* =========================================
+   Left
+========================================= */
+
+.toolbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   Right
+========================================= */
+
+.toolbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-left: auto;
+
+  flex-wrap: nowrap;
+}
+
+/* =========================================
+   Group
+========================================= */
+
+.toolbar-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+/* =========================================
+   Divider
+========================================= */
+
+.toolbar-divider {
+  width: 1px;
+
+  height: 32px;
+
+  background: var(--border-color);
+}
+
+/* =========================================
+   Search
+========================================= */
+
+.toolbar .search {
+  min-width: 260px;
+}
+
+/* =========================================
+   Compact
+========================================= */
+
+.toolbar.compact {
+  padding: 12px 16px;
+}
+
+/* =========================================
+   Sticky
+========================================= */
+
+.toolbar.sticky {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  background: var(--surface-color);
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 992px) {
+  .toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .toolbar-left,
+  .toolbar-right {
+    width: 100%;
+
+    margin-left: 0;
+
+    justify-content: flex-start;
+  }
+
+  .toolbar .search {
+    flex: 1;
+
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .toolbar-left,
+  .toolbar-right {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .toolbar-left .btn,
+  .toolbar-right .btn {
+    width: 100%;
+  }
+}

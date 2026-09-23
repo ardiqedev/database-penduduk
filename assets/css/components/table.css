@@ -1,0 +1,87 @@
+/* =========================================
+   TABLE
+========================================= */
+
+.table-wrapper {
+  overflow: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  background: #fff;
+}
+
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 16px 20px;
+
+  background: #f8fafc;
+
+  text-align: left;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 18px 20px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 14px;
+}
+
+.table-empty {
+  text-align: center;
+
+  padding: 60px;
+
+  color: var(--text-light);
+}
+
+.table tbody tr.active {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.table td .progress {
+  margin-bottom: 4px;
+}
+
+.table tbody tr {
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table td:last-child {
+  width: 40px;
+
+  text-align: center;
+}
+
+.table td small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--text-light);
+
+  font-size: 12px;
+}

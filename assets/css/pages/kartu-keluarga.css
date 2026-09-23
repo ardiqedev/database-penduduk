@@ -1,0 +1,1825 @@
+/* =========================================
+   KELUARGA & PENDUDUK
+========================================= */
+
+.keluarga-page {
+  padding-bottom: 30px;
+}
+
+/* =========================================
+   TABS
+========================================= */
+
+.keluarga-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.keluarga-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.keluarga-tab:hover {
+  color: #2563eb;
+}
+
+.keluarga-tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.keluarga-tab svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* =========================================
+   WORKSPACE
+========================================= */
+
+.keluarga-workspace {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(430px, 0.85fr);
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+/* =========================================
+   PANELS
+========================================= */
+
+.keluarga-list-panel,
+.keluarga-detail-panel {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+
+  overflow: hidden;
+}
+
+.keluarga-detail-panel {
+  min-height: 620px;
+}
+
+/* =========================================
+   PANEL HEADER
+========================================= */
+
+.panel-header {
+  padding: 18px 20px 12px;
+}
+
+.panel-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.panel-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+
+  color: #64748b;
+}
+
+/* =========================================
+   FILTER
+========================================= */
+
+.kk-filter {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    145px
+    125px
+    auto;
+
+  gap: 8px;
+
+  padding: 10px 16px;
+}
+
+.filter-search {
+  position: relative;
+}
+
+.filter-search svg {
+  position: absolute;
+
+  left: 11px;
+  top: 50%;
+
+  width: 15px;
+  height: 15px;
+
+  color: #94a3b8;
+
+  transform: translateY(-50%);
+}
+
+.filter-search input,
+.kk-filter select,
+.kk-toolbar select {
+  width: 100%;
+
+  height: 38px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  padding: 0 11px;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+.filter-search input {
+  padding-left: 34px;
+}
+
+.filter-search input:focus,
+.kk-filter select:focus,
+.kk-toolbar select:focus {
+  border-color: #93c5fd;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.btn-filter-reset {
+  height: 38px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  padding: 0 12px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.btn-filter-reset:hover {
+  background: #f8fafc;
+}
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.kk-toolbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 4px 16px 12px;
+}
+
+.kk-total {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 4px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.kk-total strong {
+  color: #0f172a;
+
+  font-size: 15px;
+}
+
+.kk-toolbar-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.kk-toolbar select {
+  width: 145px;
+}
+
+.view-switcher {
+  display: flex;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.view-btn {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  cursor: pointer;
+}
+
+.view-btn + .view-btn {
+  border-left: 1px solid #dbe2ea;
+}
+
+.view-btn.active {
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.view-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* =========================================
+   KK LIST
+========================================= */
+
+.kk-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  padding: 0 16px 12px;
+}
+
+/* =========================================
+   KK ITEM
+========================================= */
+
+.kk-item {
+  display: grid;
+
+  grid-template-columns:
+    52px
+    minmax(0, 1fr)
+    150px
+    32px;
+
+  gap: 14px;
+
+  align-items: center;
+
+  padding: 14px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.kk-item:hover {
+  border-color: #bfdbfe;
+
+  background: #fafdff;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.kk-item.selected {
+  border-color: #2563eb;
+
+  background: #f8fbff;
+
+  box-shadow: 0 0 0 1px #2563eb inset;
+}
+
+/* =========================================
+   KK ICON
+========================================= */
+
+.kk-item-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.kk-item-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+/* =========================================
+   KK MAIN
+========================================= */
+
+.kk-item-main {
+  min-width: 0;
+}
+
+.kk-item-id {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #0f172a;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.kk-item-no {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+.kk-item-person,
+.kk-item-location {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #475569;
+
+  font-size: 12px;
+}
+
+.kk-item-person {
+  margin-bottom: 4px;
+}
+
+.kk-item-person svg,
+.kk-item-location svg {
+  width: 14px;
+  height: 14px;
+
+  color: #2563eb;
+}
+
+.kk-item-address {
+  margin-left: 20px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================================
+   KK META
+========================================= */
+
+.kk-item-meta {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.kk-meta-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #475569;
+
+  font-size: 11px;
+}
+
+.kk-meta-row svg {
+  width: 15px;
+  height: 15px;
+
+  color: #64748b;
+}
+
+.kk-meta-row strong {
+  color: #334155;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  width: fit-content;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.status-badge.aktif {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.status-badge.nonaktif {
+  background: #fee2e2;
+
+  color: #b91c1c;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+}
+
+/* =========================================
+   ARROW
+========================================= */
+
+.kk-item-arrow {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.kk-item-arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.kk-pagination {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 12px 16px;
+
+  border-top: 1px solid #eef2f7;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+.pagination-btn,
+.pagination-number {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #64748b;
+
+  cursor: pointer;
+}
+
+.pagination-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.pagination-number.active {
+  border-color: #2563eb;
+
+  background: #2563eb;
+
+  color: #ffffff;
+}
+
+.pagination-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-left: auto;
+}
+
+.pagination-info select {
+  height: 30px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  padding: 0 7px;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   DETAIL
+========================================= */
+
+.detail-empty {
+  min-height: 620px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  text-align: center;
+}
+
+.detail-empty-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 16px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.detail-empty-icon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.detail-empty h3 {
+  margin: 0 0 5px;
+
+  color: #0f172a;
+
+  font-size: 15px;
+}
+
+.detail-empty p {
+  max-width: 280px;
+
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   DETAIL CONTENT
+========================================= */
+
+.kk-detail {
+  padding-bottom: 18px;
+}
+
+.detail-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 18px 20px 12px;
+}
+
+.detail-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 17px;
+}
+
+.detail-header p {
+  margin: 4px 0 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  border: 1px solid transparent;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.btn-primary {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.18);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-outline {
+  border-color: #bfdbfe;
+
+  background: #ffffff;
+
+  color: #2563eb;
+}
+
+.btn-outline:hover {
+  background: #eff6ff;
+}
+
+.btn-small {
+  min-height: 34px;
+
+  padding: 0 11px;
+}
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.kk-profile-card {
+  margin: 0 16px 14px;
+
+  padding: 16px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.kk-profile-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.kk-home-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.kk-home-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.kk-profile-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.kk-profile-title strong {
+  color: #0f172a;
+
+  font-size: 17px;
+}
+
+.kk-profile-title span {
+  width: fit-content;
+
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =========================================
+   DETAIL GRID
+========================================= */
+
+.kk-profile-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+.detail-field {
+  min-width: 0;
+}
+
+.detail-field span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+.detail-field strong {
+  display: block;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.detail-field-wide {
+  grid-column: 1 / -1;
+}
+
+.desil-value {
+  display: inline-flex !important;
+
+  width: 25px !important;
+  height: 25px !important;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: #dbeafe;
+
+  color: #2563eb !important;
+}
+
+/* =========================================
+   DETAIL TABS
+========================================= */
+
+.detail-tabs {
+  display: flex;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  padding: 0 16px;
+}
+
+.detail-tab {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 11px 8px;
+
+  margin-right: 18px;
+
+  border: none;
+
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.detail-tab.active {
+  color: #2563eb;
+
+  border-bottom-color: #2563eb;
+}
+
+.detail-tab svg {
+  width: 15px;
+  height: 15px;
+}
+
+.detail-tab strong {
+  padding: 2px 6px;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   TAB PANEL
+========================================= */
+
+.detail-tab-panel {
+  display: none;
+
+  padding: 16px;
+}
+
+.detail-tab-panel.active {
+  display: block;
+}
+
+/* =========================================
+   ANGGOTA HEADER
+========================================= */
+
+.anggota-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.anggota-header h3 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 14px;
+}
+
+.anggota-header p {
+  margin: 3px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   MEMBER TABLE
+========================================= */
+
+.anggota-table-wrapper {
+  overflow-x: auto;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+}
+
+.anggota-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 580px;
+}
+
+.anggota-table th {
+  padding: 10px;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+.anggota-table td {
+  padding: 11px 10px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  color: #475569;
+
+  font-size: 11px;
+}
+
+.anggota-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.anggota-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.member-name {
+  color: #0f172a;
+
+  font-weight: 600;
+}
+
+.member-relation {
+  display: inline-flex;
+
+  padding: 4px 7px;
+
+  border-radius: 6px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.anggota-summary {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 12px;
+
+  padding: 13px;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+}
+
+.summary-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #2563eb;
+}
+
+.summary-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.anggota-summary strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #0f172a;
+
+  font-size: 11px;
+}
+
+.summary-stat {
+  display: flex;
+
+  gap: 14px;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.summary-stat b {
+  color: #334155;
+}
+
+/* =========================================
+   HISTORY
+========================================= */
+
+.history-empty {
+  min-height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.history-empty svg {
+  width: 28px;
+  height: 28px;
+
+  margin-bottom: 10px;
+
+  color: #94a3b8;
+}
+
+.history-empty h3 {
+  margin: 0 0 5px;
+
+  color: #334155;
+
+  font-size: 13px;
+}
+
+.history-empty p {
+  max-width: 270px;
+
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   GRID VIEW
+========================================= */
+
+.kk-list.grid-view {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.kk-list.grid-view .kk-item {
+  grid-template-columns: 44px minmax(0, 1fr);
+}
+
+.kk-list.grid-view .kk-item-meta {
+  grid-column: 2;
+}
+
+.kk-list.grid-view .kk-item-arrow {
+  display: none;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1250px) {
+  .keluarga-workspace {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(380px, 0.8fr);
+  }
+
+  .kk-filter {
+    grid-template-columns:
+      minmax(160px, 1fr)
+      130px
+      110px;
+  }
+
+  .btn-filter-reset {
+    grid-column: 3;
+  }
+}
+
+@media (max-width: 1050px) {
+  .keluarga-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .keluarga-detail-panel {
+    min-height: auto;
+  }
+
+  .detail-empty {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .page-header-actions {
+    width: 100%;
+  }
+
+  .page-header-actions .btn {
+    width: 100%;
+  }
+
+  .kk-filter {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-filter-reset {
+    grid-column: auto;
+  }
+
+  .kk-toolbar {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .kk-toolbar-actions {
+    width: 100%;
+  }
+
+  .kk-toolbar select {
+    flex: 1;
+  }
+
+  .kk-item {
+    grid-template-columns:
+      44px
+      minmax(0, 1fr)
+      32px;
+  }
+
+  .kk-item-meta {
+    display: none;
+  }
+
+  .kk-item-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .kk-profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-field-wide {
+    grid-column: 1 / -1;
+  }
+
+  .detail-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .detail-header .btn {
+    width: 100%;
+  }
+
+  .anggota-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .keluarga-tabs {
+    overflow-x: auto;
+  }
+
+  .keluarga-tab {
+    white-space: nowrap;
+  }
+
+  .kk-pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination-info {
+    width: 100%;
+
+    margin-left: 0;
+
+    margin-top: 5px;
+  }
+
+  .kk-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-field-wide {
+    grid-column: auto;
+  }
+
+  .summary-stat {
+    flex-direction: column;
+
+    gap: 3px;
+  }
+}
+
+/* =========================================
+   MODAL TAMBAH KARTU KELUARGA
+========================================= */
+
+.kk-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* -----------------------------------------
+   SECTION
+----------------------------------------- */
+
+.kk-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kk-form-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.kk-form-section-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  border-radius: 10px;
+}
+
+.kk-form-section-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.kk-form-section-title {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #172033;
+}
+
+.kk-form-section-description {
+  margin: 3px 0 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #7b8496;
+}
+
+/* -----------------------------------------
+   GRID
+----------------------------------------- */
+
+.kk-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.kk-form-field {
+  min-width: 0;
+}
+
+.kk-form-field.full {
+  grid-column: 1 / -1;
+}
+
+/* -----------------------------------------
+   LABEL
+----------------------------------------- */
+
+.kk-form-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #344054;
+}
+
+.kk-form-label .required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* -----------------------------------------
+   INPUT
+----------------------------------------- */
+
+.kk-form-input,
+.kk-form-select,
+.kk-form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #d9dee8;
+
+  background: #fff;
+
+  border-radius: 8px;
+
+  padding: 10px 12px;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  color: #172033;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.kk-form-input,
+.kk-form-select {
+  height: 40px;
+}
+
+.kk-form-textarea {
+  min-height: 88px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------
+   FOCUS
+----------------------------------------- */
+
+.kk-form-input:focus,
+.kk-form-select:focus,
+.kk-form-textarea:focus {
+  border-color: #3b82f6;
+
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* -----------------------------------------
+   DISABLED
+----------------------------------------- */
+
+.kk-form-select:disabled {
+  background: #f5f7fa;
+
+  color: #98a2b3;
+
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------
+   HELPER TEXT
+----------------------------------------- */
+
+.kk-form-help {
+  margin-top: 6px;
+
+  font-size: 11px;
+  line-height: 1.4;
+
+  color: #98a2b3;
+}
+
+/* -----------------------------------------
+   DTSEN INFO
+----------------------------------------- */
+
+.kk-dtsen-info {
+  margin-top: 18px;
+
+  padding: 13px 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 9px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.kk-dtsen-info-icon {
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+}
+
+.kk-dtsen-info-title {
+  margin: 0 0 3px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #344054;
+}
+
+.kk-dtsen-info-text {
+  margin: 0;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #7b8496;
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+----------------------------------------- */
+
+@media (max-width: 700px) {
+  .kk-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .kk-form-field.full {
+    grid-column: auto;
+  }
+}
+
+/* =====================================================
+   PAGINATION KARTU KELUARGA
+===================================================== */
+
+.kk-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+}
+
+/* =========================================
+   BAGIAN NAVIGASI
+========================================= */
+
+.kk-pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   NOMOR HALAMAN
+========================================= */
+
+#kkPaginationNumbers {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  flex-wrap: nowrap !important;
+
+  width: auto;
+}
+
+/* =========================================
+   SEMUA TOMBOL PAGINATION
+========================================= */
+
+.kk-pagination button {
+  width: 34px;
+  height: 34px;
+
+  min-width: 34px;
+  min-height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #d9dee8;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #475467;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* =========================================
+   HOVER
+========================================= */
+
+.kk-pagination button:not(:disabled):hover {
+  border-color: #2563eb;
+
+  color: #2563eb;
+
+  background: #eff6ff;
+}
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.kk-pagination .pagination-number.active {
+  border-color: #2563eb;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.18);
+}
+
+/* =========================================
+   DISABLED
+========================================= */
+
+.kk-pagination button:disabled {
+  opacity: 0.45;
+
+  background: #f8fafc;
+
+  color: #98a2b3;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   INFO DATA
+========================================= */
+
+.kk-pagination-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 6px;
+
+  white-space: nowrap;
+
+  font-size: 12px;
+
+  color: #667085;
+}
+
+.kk-pagination-info select {
+  width: 52px;
+  height: 34px;
+
+  padding: 0 8px;
+
+  border: 1px solid #d9dee8;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.kk-pagination-info select:focus {
+  border-color: #3b82f6;
+
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+  .kk-pagination {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+  .kk-pagination-nav {
+    justify-content: center;
+  }
+
+  .kk-pagination-info {
+    justify-content: center;
+  }
+}

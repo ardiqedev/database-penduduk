@@ -1,0 +1,171 @@
+/* =========================================
+   QEDEV STAT CARD
+========================================= */
+
+/* =========================================
+   Base
+========================================= */
+
+.stat-card {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+/* =========================================
+   Content
+========================================= */
+
+.stat-content {
+  display: flex;
+
+  flex: 1;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+/* =========================================
+   Label
+========================================= */
+
+.stat-label {
+  font-size: 13px;
+
+  font-weight: 500;
+
+  color: var(--text-light);
+}
+
+/* =========================================
+   Value
+========================================= */
+
+.stat-value {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  color: var(--text);
+}
+
+/* =========================================
+   Description
+========================================= */
+
+.stat-description {
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+/* =========================================
+   Change
+========================================= */
+
+.stat-change {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.stat-change.positive {
+  color: var(--success);
+}
+
+.stat-change.negative {
+  color: var(--danger);
+}
+
+.stat-change.warning {
+  color: var(--warning);
+}
+
+/* =========================================
+   Icon
+========================================= */
+
+.stat-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 56px;
+
+  height: 56px;
+
+  border-radius: var(--radius-md);
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+.stat-icon svg {
+  width: 28px;
+
+  height: 28px;
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+.stat-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 768px) {
+  .stat-card {
+    gap: 16px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .stat-icon {
+    width: 48px;
+
+    height: 48px;
+  }
+
+  .stat-icon svg {
+    width: 24px;
+
+    height: 24px;
+  }
+}

@@ -1,0 +1,801 @@
+/* =====================================================
+   MODAL TAMBAH KARTU KELUARGA
+===================================================== */
+
+.kk-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.kk-form-section {
+  width: 100%;
+}
+
+.kk-form-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.kk-form-section-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.kk-form-section-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.kk-form-section-title {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  color: #172033;
+}
+
+.kk-form-section-description {
+  margin: 3px 0 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #7b8496;
+}
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.kk-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 18px;
+}
+
+/* =====================================================
+   FIELD
+===================================================== */
+
+.kk-form-field {
+  min-width: 0;
+}
+
+.kk-form-field-full {
+  grid-column: 1 / -1;
+}
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.kk-form-label {
+  display: block;
+
+  margin: 0 0 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  color: #344054;
+}
+
+.kk-form-label .required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* =====================================================
+   INPUT / SELECT / TEXTAREA
+===================================================== */
+
+.kk-form-input,
+.kk-form-select,
+.kk-form-textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d9dee8;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+/* INPUT */
+
+.kk-form-input {
+  height: 42px;
+
+  padding: 0 12px;
+}
+
+/* SELECT */
+
+.kk-form-select {
+  height: 42px;
+
+  padding: 0 36px 0 12px;
+
+  cursor: pointer;
+}
+
+/* TEXTAREA */
+
+.kk-form-textarea {
+  min-height: 90px;
+
+  padding: 10px 12px;
+
+  line-height: 1.5;
+
+  resize: vertical;
+}
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.kk-form-input:focus,
+.kk-form-select:focus,
+.kk-form-textarea:focus {
+  border-color: #3b82f6;
+
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* =====================================================
+   DISABLED
+===================================================== */
+
+.kk-form-select:disabled {
+  background: #f5f7fa;
+
+  color: #98a2b3;
+
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+.kk-form-input::placeholder,
+.kk-form-textarea::placeholder {
+  color: #a0a8b7;
+}
+
+/* =====================================================
+   HELPER TEXT
+===================================================== */
+
+.kk-form-help {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+
+  color: #98a2b3;
+}
+
+/* =====================================================
+   DTSEN INFO
+===================================================== */
+
+.kk-dtsen-info {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 13px 14px;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+}
+
+.kk-dtsen-info-icon {
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+}
+
+.kk-dtsen-info-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.kk-dtsen-info-title {
+  margin: 0 0 3px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  color: #344054;
+}
+
+.kk-dtsen-info-text {
+  margin: 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #7b8496;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+  .kk-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .kk-form-field-full {
+    grid-column: auto;
+  }
+
+  .kk-form-section-header {
+    margin-bottom: 18px;
+  }
+}
+
+/* =====================================================
+   MODAL TAMBAH ANGGOTA
+===================================================== */
+
+.anggota-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* =========================================
+   INFO KK
+========================================= */
+
+.anggota-kk-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  background: #eff6ff;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 9px;
+}
+
+.anggota-kk-icon {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #2563eb;
+}
+
+.anggota-kk-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.anggota-kk-label {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.anggota-kk-title {
+  margin-top: 1px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #172033;
+}
+
+.anggota-kk-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color: #64748b;
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.anggota-form-section {
+  width: 100%;
+}
+
+.anggota-form-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.anggota-form-section-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.anggota-form-section-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.anggota-form-section-title {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #172033;
+}
+
+.anggota-form-section-description {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #7b8496;
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.anggota-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 16px;
+}
+
+.anggota-form-field {
+  min-width: 0;
+}
+
+.anggota-form-field-full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================
+   LABEL
+========================================= */
+
+.anggota-form-label {
+  display: block;
+
+  margin: 0 0 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #344054;
+}
+
+.anggota-form-label .required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* =========================================
+   INPUT / SELECT
+========================================= */
+
+.anggota-form-input,
+.anggota-form-select {
+  width: 100%;
+  height: 40px;
+
+  box-sizing: border-box;
+
+  padding: 0 12px;
+
+  border: 1px solid #d9dee8;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.anggota-form-input:focus,
+.anggota-form-select:focus {
+  border-color: #3b82f6;
+
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.anggota-form-input::placeholder {
+  color: #a0a8b7;
+}
+
+/* =========================================
+   HELPER
+========================================= */
+
+.anggota-form-help {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 10px;
+
+  color: #98a2b3;
+}
+
+/* =========================================
+   DOKUMEN
+========================================= */
+
+.anggota-dokumen-section {
+  padding-top: 4px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .anggota-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .anggota-form-field-full {
+    grid-column: auto;
+  }
+
+  .anggota-kk-meta {
+    flex-wrap: wrap;
+  }
+}
+
+.mutasi-page .modal-overlay[hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   SEARCH PENDUDUK
+========================================= */
+
+.search-penduduk {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.search-penduduk-input {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-penduduk-input > svg,
+.search-penduduk-input > i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-penduduk-input input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px 0 42px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #1e293b;
+
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-penduduk-input input::placeholder {
+  color: #94a3b8;
+}
+
+.search-penduduk-input input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================================
+   BUTTON CARI
+========================================= */
+
+#btnCariPenduduk {
+  height: 42px;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 0 16px;
+
+  border-radius: 8px;
+}
+
+/* =========================================
+   HASIL PENCARIAN
+========================================= */
+
+.resident-search-results {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* =========================================
+   ITEM PENDUDUK
+========================================= */
+
+.resident-search-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resident-search-item:hover {
+  border-color: #bfdbfe;
+  background: #f8fbff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================
+   INFO PENDUDUK
+========================================= */
+
+.resident-search-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.resident-search-name {
+  margin-bottom: 5px;
+
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resident-search-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+
+  color: #64748b;
+  font-size: 12px;
+}
+
+.resident-search-meta span {
+  white-space: nowrap;
+}
+
+/* =========================================
+   BUTTON PILIH
+========================================= */
+
+.resident-search-item .btn-sm {
+  flex-shrink: 0;
+
+  min-width: 58px;
+  height: 34px;
+
+  padding: 0 12px;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   EMPTY SEARCH
+========================================= */
+
+.resident-search-empty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+}
+
+.resident-search-empty > svg,
+.resident-search-empty > i {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+}
+
+.resident-search-empty div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resident-search-empty strong {
+  color: #334155;
+  font-size: 13px;
+}
+
+.resident-search-empty span {
+  font-size: 12px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+  .search-penduduk {
+    flex-direction: column;
+  }
+
+  #btnCariPenduduk {
+    width: 100%;
+  }
+
+  .resident-search-item {
+    align-items: flex-start;
+  }
+
+  .resident-search-meta {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+.filter-lingkungan {
+  display: none !important;
+}

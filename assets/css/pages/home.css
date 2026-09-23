@@ -1,0 +1,634 @@
+/* =========================================
+   SFS HOME / LAUNCHER
+   Mobile First
+========================================= */
+
+.sfs-home {
+  min-height: 100%;
+  padding: 16px;
+  padding-bottom: 90px;
+  background: #f5f7fb;
+  color: #172033;
+  font-family: inherit;
+}
+
+/* =========================================
+   MOBILE HEADER
+========================================= */
+
+.home-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.home-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.home-brand-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.home-brand-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home-brand-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #172033;
+}
+
+.home-brand-subtitle {
+  margin-top: 2px;
+  font-size: 10px;
+  color: #7a8498;
+}
+
+.home-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home-header-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.home-header-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.home-notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+/* =========================================
+   WELCOME CARD
+========================================= */
+
+.home-welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 142px;
+  padding: 22px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.16);
+}
+
+.home-welcome-content {
+  min-width: 0;
+}
+
+.home-greeting {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.home-user-name {
+  margin: 0;
+  overflow: hidden;
+  font-size: 22px;
+  font-weight: 750;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-user-role {
+  margin: 7px 0 0;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.82;
+}
+
+.home-welcome-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.home-welcome-illustration svg {
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.5;
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.home-summary-section,
+.home-menu-section,
+.home-pos-section,
+.home-recent-section {
+  margin-top: 26px;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.home-section-header > svg {
+  width: 19px;
+  height: 19px;
+  color: #94a3b8;
+}
+
+.home-section-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.8px;
+}
+
+.home-section-title {
+  margin: 0;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.home-section-action {
+  border: 0;
+  background: transparent;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.home-section-description {
+  margin: -3px 0 14px;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.home-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.home-summary-card {
+  padding: 16px;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.home-summary-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.home-summary-value {
+  display: block;
+  overflow: hidden;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================
+   LAUNCHER GRID
+========================================= */
+
+.home-launcher-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.home-launcher-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 142px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #172033;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.home-launcher-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 17px;
+  border-radius: 14px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.home-launcher-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.home-launcher-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-right: 8px;
+}
+
+.home-launcher-title {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-launcher-description {
+  display: -webkit-box;
+  margin-top: 4px;
+  overflow: hidden;
+  color: #94a3b8;
+  font-size: 10px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.home-launcher-arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 13px;
+  width: 13px;
+  height: 13px;
+  color: #cbd5e1;
+}
+
+/* =========================================
+   POS DANA
+========================================= */
+
+.home-pos-dana-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.home-pos-dana-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #172033;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.home-pos-dana-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.home-pos-dana-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.home-pos-dana-content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.home-pos-dana-title {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-pos-dana-code {
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.home-pos-dana-arrow {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: #cbd5e1;
+}
+
+/* =========================================
+   RECENT ACTIVITY
+========================================= */
+
+.home-recent-list {
+  display: flex;
+  min-height: 100px;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #e8edf5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.home-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.home-empty-state svg {
+  width: 23px;
+  height: 23px;
+  color: #cbd5e1;
+}
+
+.home-empty-state p {
+  margin: 0;
+  font-size: 11px;
+}
+
+/* =========================================
+   BOTTOM NAVIGATION
+========================================= */
+
+.home-bottom-navigation {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 9px 8px calc(9px + env(safe-area-inset-bottom));
+  border-top: 1px solid #e8edf5;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -5px 20px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(14px);
+}
+
+.home-bottom-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 49px;
+  flex-direction: column;
+  gap: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.home-bottom-nav-item svg {
+  width: 19px;
+  height: 19px;
+}
+
+.home-bottom-nav-item.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* =========================================
+   INTERACTION
+========================================= */
+
+.home-launcher-card:hover,
+.home-pos-dana-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+}
+
+.home-launcher-card:active,
+.home-pos-dana-card:active {
+  transform: scale(0.98);
+}
+
+.home-header-button:focus-visible,
+.home-launcher-card:focus-visible,
+.home-pos-dana-card:focus-visible,
+.home-section-action:focus-visible,
+.home-bottom-nav-item:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 640px) {
+  .sfs-home {
+    padding: 24px;
+    padding-bottom: 32px;
+  }
+
+  .home-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-launcher-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-pos-dana-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-bottom-navigation {
+    display: none;
+  }
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 1024px) {
+  .sfs-home {
+    padding: 30px;
+    padding-bottom: 40px;
+  }
+
+  .home-mobile-header {
+    margin-bottom: 28px;
+  }
+
+  .home-brand-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .home-brand-name {
+    font-size: 14px;
+  }
+
+  .home-welcome-section {
+    min-height: 175px;
+    padding: 30px;
+  }
+
+  .home-user-name {
+    font-size: 28px;
+  }
+
+  .home-greeting {
+    font-size: 12px;
+  }
+
+  .home-welcome-illustration {
+    width: 90px;
+    height: 90px;
+    border-radius: 28px;
+  }
+
+  .home-welcome-illustration svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .home-launcher-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .home-launcher-card {
+    min-height: 155px;
+    padding: 19px;
+  }
+
+  .home-launcher-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .home-pos-dana-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-summary-card {
+    padding: 20px;
+  }
+
+  .home-summary-value {
+    font-size: 20px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-launcher-card,
+  .home-pos-dana-card {
+    transition: none;
+  }
+}

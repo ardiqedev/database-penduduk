@@ -1,0 +1,405 @@
+<!-- =========================================
+     KELUARGA & PENDUDUK
+========================================= -->
+
+<div class="page keluarga-page">
+  <!-- =====================================
+         LOADING SKELETON
+    ====================================== -->
+  <div id="keluargaSkeleton" class="keluarga-skeleton-container"></div>
+
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div class="page-header-info">
+      <h1>Keluarga & Penduduk</h1>
+
+      <p>
+        Kelola data kartu keluarga beserta seluruh anggota keluarga Kelurahan
+        Aertembaga Dua.
+      </p>
+    </div>
+
+    <div class="page-header-actions">
+      <button class="btn btn-primary" type="button" data-action="tambah-kk">
+        <i data-lucide="plus"></i>
+        <span>Tambah Kartu Keluarga</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       TAB
+  ====================================== -->
+
+  <div class="keluarga-tabs">
+    <button class="keluarga-tab active" type="button" data-tab="kk">
+      <i data-lucide="house"></i>
+      <span>Kartu Keluarga</span>
+    </button>
+
+    <button class="keluarga-tab" type="button" data-tab="penduduk">
+      <i data-lucide="search"></i>
+      <span>Pencarian Penduduk</span>
+    </button>
+  </div>
+
+  <!-- =====================================
+       CONTENT
+  ====================================== -->
+
+  <div class="keluarga-workspace">
+    <!-- ===================================
+         LEFT : LIST
+    ==================================== -->
+
+    <section class="keluarga-list-panel">
+      <!-- LIST HEADER -->
+
+      <div class="panel-header">
+        <div>
+          <h2>Daftar Kartu Keluarga</h2>
+
+          <p>Menampilkan seluruh data kartu keluarga.</p>
+        </div>
+      </div>
+
+      <!-- FILTER -->
+
+      <div class="kk-filter">
+        <div class="filter-search">
+          <i data-lucide="search"></i>
+
+          <input
+            type="text"
+            id="kkSearch"
+            placeholder="Cari No. KK, kepala keluarga, atau alamat..."
+            autocomplete="off"
+          />
+        </div>
+
+        <select id="kkFilterLingkungan">
+          <option value="">Semua Lingkungan</option>
+
+          <option value="L001">Lingkungan I</option>
+
+          <option value="L002">Lingkungan II</option>
+
+          <option value="L003">Lingkungan III</option>
+
+          <option value="L004">Lingkungan IV</option>
+
+          <option value="L005">Lingkungan V</option>
+        </select>
+
+        <select id="kkFilterStatus">
+          <option value="">Semua Status</option>
+
+          <option value="AKTIF">Aktif</option>
+
+          <option value="NONAKTIF">Nonaktif</option>
+        </select>
+
+        <button
+          type="button"
+          class="btn-filter-reset"
+          data-action="reset-filter"
+        >
+          Reset
+        </button>
+      </div>
+
+      <!-- LIST TOOLBAR -->
+
+      <div class="kk-toolbar">
+        <div class="kk-total">
+          <strong id="kkTotal"> 0 </strong>
+
+          <span>data</span>
+        </div>
+
+        <div class="kk-toolbar-actions">
+          <select id="kkSort">
+            <option value="terbaru">Urutkan: Terbaru</option>
+
+            <option value="terlama">Urutkan: Terlama</option>
+
+            <option value="nama">Nama Kepala Keluarga</option>
+          </select>
+
+          <div class="view-switcher">
+            <button
+              class="view-btn active"
+              type="button"
+              data-view="list"
+              title="Tampilan list"
+            >
+              <i data-lucide="list"></i>
+            </button>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-view="grid"
+              title="Tampilan grid"
+            >
+              <i data-lucide="grid-2x2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KK LIST -->
+
+      <div id="kkList" class="kk-list"></div>
+
+      <!-- PAGINATION -->
+
+      <div class="kk-pagination">
+        <button type="button" class="pagination-btn" data-page-action="prev">
+          <i data-lucide="chevron-left"></i>
+        </button>
+
+        <div id="kkPaginationNumbers" class="pagination-numbers"></div>
+
+        <button type="button" class="pagination-btn" data-page-action="next">
+          <i data-lucide="chevron-right"></i>
+        </button>
+
+        <div class="pagination-info">
+          Tampilkan
+
+          <select id="kkPerPage">
+            <option value="5">5</option>
+
+            <option value="10" selected>10</option>
+
+            <option value="20">20</option>
+          </select>
+
+          dari
+
+          <strong id="kkPaginationTotal"> 0 </strong>
+
+          data
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================
+         RIGHT : DETAIL
+    ==================================== -->
+
+    <aside class="keluarga-detail-panel">
+      <!-- DETAIL EMPTY -->
+
+      <div id="kkDetailEmpty" class="detail-empty">
+        <div class="detail-empty-icon">
+          <i data-lucide="house"></i>
+        </div>
+
+        <h3>Pilih Kartu Keluarga</h3>
+
+        <p>
+          Pilih salah satu kartu keluarga untuk melihat detail dan anggota
+          keluarga.
+        </p>
+      </div>
+
+      <!-- DETAIL CONTENT -->
+
+      <div id="kkDetail" class="kk-detail hidden">
+        <!-- DETAIL HEADER -->
+
+        <div class="detail-header">
+          <div>
+            <h2>Detail Kartu Keluarga</h2>
+
+            <p>Informasi lengkap kartu keluarga dan anggota.</p>
+          </div>
+
+          <button type="button" class="btn btn-outline" data-action="edit-kk">
+            <i data-lucide="pencil"></i>
+            <span>Edit KK</span>
+          </button>
+        </div>
+
+        <!-- KK PROFILE -->
+
+        <div class="kk-profile-card">
+          <div class="kk-profile-top">
+            <div class="kk-home-icon">
+              <i data-lucide="house"></i>
+            </div>
+
+            <div class="kk-profile-title">
+              <strong id="detailIdKK"> - </strong>
+
+              <span id="detailStatus"> AKTIF </span>
+            </div>
+          </div>
+
+          <div class="kk-profile-grid">
+            <div class="detail-field">
+              <span>No. KK</span>
+
+              <strong id="detailNoKK"> - </strong>
+            </div>
+
+            <div class="detail-field">
+              <span>Lingkungan</span>
+
+              <strong id="detailLingkungan"> - </strong>
+            </div>
+
+            <div class="detail-field">
+              <span>RT</span>
+
+              <strong id="detailRT"> - </strong>
+            </div>
+
+            <div class="detail-field">
+              <span>Kepala Keluarga</span>
+
+              <strong id="detailKepala"> - </strong>
+            </div>
+
+            <div class="detail-field">
+              <span>Desil DTSEN</span>
+
+              <strong id="detailDesil" class="desil-value"> - </strong>
+            </div>
+
+            <div class="detail-field">
+              <span>Tanggal Terdaftar</span>
+
+              <strong id="detailTanggal"> - </strong>
+            </div>
+
+            <div class="detail-field detail-field-wide">
+              <span>Alamat</span>
+
+              <strong id="detailAlamat"> - </strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAIL TABS -->
+
+        <div class="detail-tabs">
+          <button
+            type="button"
+            class="detail-tab active"
+            data-detail-tab="anggota"
+          >
+            <i data-lucide="users"></i>
+
+            <span> Anggota Keluarga </span>
+
+            <strong id="detailJumlahAnggota"> 0 </strong>
+          </button>
+
+          <button type="button" class="detail-tab" data-detail-tab="riwayat">
+            <i data-lucide="clock-3"></i>
+
+            <span> Riwayat </span>
+          </button>
+        </div>
+
+        <!-- ANGGOTA -->
+
+        <div id="detailAnggotaPanel" class="detail-tab-panel active">
+          <div class="anggota-header">
+            <div>
+              <h3>Anggota Keluarga</h3>
+
+              <p>Daftar penduduk dalam kartu keluarga.</p>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary btn-small"
+              data-action="tambah-anggota"
+            >
+              <i data-lucide="plus"></i>
+
+              <span> Tambah Anggota </span>
+            </button>
+          </div>
+
+          <!-- MEMBER TABLE -->
+
+          <div class="anggota-table-wrapper">
+            <table class="anggota-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+
+                  <th>Nama</th>
+
+                  <th>NIK</th>
+
+                  <th>Hubungan</th>
+
+                  <th>JK</th>
+
+                  <th>Status</th>
+
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id="anggotaTableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- MEMBER SUMMARY -->
+
+          <div class="anggota-summary">
+            <div class="summary-icon">
+              <i data-lucide="users"></i>
+            </div>
+
+            <div>
+              <strong> Ringkasan Anggota </strong>
+
+              <div class="summary-stat">
+                <span>
+                  Total:
+                  <b id="summaryTotalAnggota"> 0 </b>
+                </span>
+
+                <span>
+                  Laki-laki:
+                  <b id="summaryLaki"> 0 </b>
+                </span>
+
+                <span>
+                  Perempuan:
+                  <b id="summaryPerempuan"> 0 </b>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIWAYAT -->
+
+        <div id="detailRiwayatPanel" class="detail-tab-panel">
+          <div class="history-empty">
+            <i data-lucide="clock-3"></i>
+
+            <h3>Riwayat Perubahan</h3>
+
+            <p>
+              Riwayat mutasi dan perubahan data keluarga akan ditampilkan di
+              sini.
+            </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>

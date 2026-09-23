@@ -1,0 +1,485 @@
+/* =========================================
+   INFO SETORAN
+========================================= */
+
+#deposit-view {
+  padding-bottom: 24px;
+}
+
+/* HEADER */
+
+#deposit-view .section-description {
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   FILTER
+========================================= */
+
+.deposit-filter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.deposit-filter .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.deposit-filter label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.deposit-filter input,
+.deposit-filter select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #dbe3f0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.deposit-filter input:focus,
+.deposit-filter select:focus {
+  border-color: #2563eb;
+}
+
+/* =========================================
+   RINGKASAN
+========================================= */
+
+#deposit-view .deposit-summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+#deposit-view .summary-card {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  border: 1px solid #e5eaf2;
+  border-radius: 16px;
+  background: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+#deposit-view .summary-card-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+}
+
+#deposit-view .summary-card-value {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+#deposit-view .summary-card-description {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* =========================================
+   RINCIAN SETORAN
+========================================= */
+
+#deposit-view .deposit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+#deposit-view .transaction-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 70px;
+  padding: 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+#deposit-view .transaction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: #e8f8ef;
+  color: #16a34a;
+}
+
+#deposit-view .transaction-info {
+  flex: 1;
+  min-width: 0;
+}
+
+#deposit-view .transaction-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+#deposit-view .transaction-date {
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #94a3b8;
+}
+
+#deposit-view .transaction-amount {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (min-width: 480px) {
+  #deposit-view .deposit-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deposit-filter {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+   SUMMARY SETORAN PER POS DANA
+========================================= */
+
+.deposit-pos-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+/* CARD */
+
+.deposit-summary-card {
+  width: 100%;
+  padding: 14px 16px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+/* HEADER */
+
+.deposit-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.deposit-summary-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* NOMINAL */
+
+.deposit-summary-amount {
+  margin-top: 8px;
+
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+
+  color: #b45309;
+}
+
+/* FOOTER */
+
+.deposit-summary-footer {
+  margin-top: 5px;
+
+  font-size: 11px;
+  line-height: 1.4;
+
+  color: #94a3b8;
+}
+
+/* EMPTY STATE */
+
+.deposit-pos-summary .deposit-summary-card:has(.deposit-summary-title) {
+  min-height: 70px;
+}
+
+/* =========================================
+   RIWAYAT TRANSAKSI
+========================================= */
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-card {
+  width: 100%;
+}
+
+/* Kartu transaksi */
+
+.history-card .transaction-card {
+  margin: 0;
+  border-radius: 14px 14px 8px 8px;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.history-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+}
+
+.history-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  min-height: 32px;
+  padding: 6px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.history-action.edit {
+  color: #2563eb;
+  background: #eff6ff;
+  border-color: #dbeafe;
+}
+
+.history-action.delete {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fee2e2;
+}
+
+.history-action:hover {
+  opacity: 0.8;
+}
+
+.history-action:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   TRANSAKSI TERKUNCI
+========================================= */
+
+.history-locked {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 6px;
+
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* =========================================
+   HISTORY VIEW
+========================================= */
+
+#history-view {
+  margin: 12px 0 20px;
+  padding: 16px;
+
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+#history-view .section-heading {
+  margin-bottom: 6px;
+}
+
+#history-view .section-title {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+  color: #172554;
+}
+
+#history-view .section-description {
+  margin: 0 0 16px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* =========================================
+   FILTER
+========================================= */
+
+.history-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-bottom: 18px;
+  padding: 12px;
+
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+}
+
+.history-filter .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin: 0;
+}
+
+.history-filter label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.history-filter input,
+.history-filter select {
+  width: 100%;
+  min-height: 38px;
+  box-sizing: border-box;
+
+  padding: 8px 10px;
+
+  border: 1px solid #dbe3ef;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #334155;
+
+  font-size: 12px;
+  outline: none;
+}
+
+.history-filter input:focus,
+.history-filter select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* =========================================
+   HISTORY HEADING
+========================================= */
+
+.history-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.history-heading .section-title {
+  font-size: 13px;
+}
+
+.history-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* =========================================
+   HISTORY LIST
+========================================= */
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================================
+   MOBILE / DESKTOP
+========================================= */
+
+@media (min-width: 600px) {
+  .history-filter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+  }
+}

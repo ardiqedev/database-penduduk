@@ -1,0 +1,306 @@
+/* =========================================
+   SFS OPERATIONAL SHELL
+========================================= */
+
+.sfs-shell {
+  --shell-primary: #2563eb;
+  --shell-primary-dark: #1d4ed8;
+  --shell-bg: #f5f7fb;
+  --shell-card: #ffffff;
+  --shell-text: #0f172a;
+  --shell-muted: #94a3b8;
+  --shell-border: #e2e8f0;
+
+  min-height: 100vh;
+  background: var(--shell-bg);
+  color: var(--shell-text);
+
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 82px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  background: var(--shell-card);
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.shell-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shell-brand-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: var(--shell-primary);
+  color: #ffffff;
+}
+
+.shell-brand-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.shell-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shell-brand-info h1 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.shell-brand-info span {
+  font-size: 11px;
+  color: var(--shell-muted);
+}
+
+.shell-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shell-icon-button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--shell-border);
+  border-radius: 12px;
+
+  background: var(--shell-card);
+  color: var(--shell-text);
+
+  cursor: pointer;
+}
+
+.shell-icon-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================
+   USER SECTION
+========================================= */
+
+.shell-user-section {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin: 20px 16px 8px;
+  padding: 18px;
+
+  background: var(--shell-card);
+  border: 1px solid var(--shell-border);
+  border-radius: 18px;
+}
+
+.shell-user-avatar {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #eff6ff;
+  color: var(--shell-primary);
+}
+
+.shell-user-avatar svg {
+  width: 23px;
+  height: 23px;
+}
+
+.shell-user-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.shell-user-label {
+  font-size: 11px;
+  color: var(--shell-muted);
+}
+
+.shell-user-name {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shell-user-role {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--shell-primary);
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.shell-main {
+  flex: 1;
+
+  padding: 16px;
+}
+
+.shell-empty-state {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+
+  text-align: center;
+
+  background: var(--shell-card);
+  border: 1px solid var(--shell-border);
+  border-radius: 18px;
+}
+
+.shell-empty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 16px;
+
+  background: #eff6ff;
+  color: var(--shell-primary);
+}
+
+.shell-empty-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.shell-empty-message {
+  margin: 0;
+
+  font-size: 13px;
+  color: var(--shell-muted);
+}
+
+/* =========================================
+   BOTTOM NAVIGATION
+========================================= */
+
+.shell-bottom-navigation {
+  position: fixed;
+  z-index: 100;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 10px 8px;
+
+  background: var(--shell-card);
+  border-top: 1px solid var(--shell-border);
+}
+
+.shell-bottom-item {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  padding: 7px 4px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+  color: var(--shell-muted);
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.shell-bottom-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.shell-bottom-item.active {
+  background: #eff6ff;
+  color: var(--shell-primary);
+}
+
+.shell-bottom-item:active {
+  transform: scale(0.96);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (min-width: 768px) {
+  .sfs-shell {
+    max-width: 520px;
+    margin: 0 auto;
+
+    box-shadow: 0 0 30px rgba(15, 23, 42, 0.06);
+  }
+}

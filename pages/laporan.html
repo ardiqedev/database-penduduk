@@ -1,0 +1,318 @@
+<!-- =========================================
+     DATABASE WARGA
+     LAPORAN
+========================================= -->
+
+<div class="page laporan-page">
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Laporan Penduduk</h1>
+
+      <p>Rekapitulasi data kependudukan Kelurahan Aertembaga Dua.</p>
+    </div>
+
+    <div class="page-header-action">
+      <button
+        class="btn btn-secondary"
+        data-action="print-laporan"
+        type="button"
+      >
+        <i data-lucide="printer"></i>
+
+        <span> Cetak Laporan </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       FILTER LAPORAN
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Filter Laporan</h2>
+
+        <p>Tentukan data yang ingin ditampilkan.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <!-- JENIS LAPORAN -->
+
+      <div class="form-group">
+        <label for="jenisLaporan"> Jenis Laporan </label>
+
+        <select id="jenisLaporan" class="form-control">
+          <option value="penduduk">Data Penduduk</option>
+
+          <option value="kk">Kartu Keluarga</option>
+
+          <option value="mutasi">Mutasi Penduduk</option>
+
+          <option value="wilayah">Rekapitulasi Wilayah</option>
+        </select>
+      </div>
+
+      <!-- LINGKUNGAN -->
+
+      <div class="form-group">
+        <label for="laporanLingkungan"> Lingkungan </label>
+
+        <select id="laporanLingkungan" class="form-control">
+          <option value="">Semua Lingkungan</option>
+
+          <option value="L001">Lingkungan I</option>
+
+          <option value="L002">Lingkungan II</option>
+
+          <option value="L003">Lingkungan III</option>
+
+          <option value="L004">Lingkungan IV</option>
+
+          <option value="L005">Lingkungan V</option>
+        </select>
+      </div>
+
+      <!-- RT -->
+
+      <div class="form-group">
+        <label for="laporanRT"> RT </label>
+
+        <select id="laporanRT" class="form-control">
+          <option value="">Semua RT</option>
+
+          <!-- Akan diisi JS -->
+        </select>
+      </div>
+
+      <!-- JENIS KELAMIN -->
+
+      <div class="form-group">
+        <label for="laporanJenisKelamin"> Jenis Kelamin </label>
+
+        <select id="laporanJenisKelamin" class="form-control">
+          <option value="">Semua</option>
+
+          <option value="LAKI-LAKI">Laki-Laki</option>
+
+          <option value="PEREMPUAN">Perempuan</option>
+        </select>
+      </div>
+
+      <!-- TAHUN -->
+
+      <div class="form-group">
+        <label for="laporanTahun"> Tahun </label>
+
+        <select id="laporanTahun" class="form-control">
+          <option value="">Semua Tahun</option>
+
+          <!-- Akan diisi JS -->
+        </select>
+      </div>
+    </div>
+
+    <!-- FILTER ACTION -->
+
+    <div class="toolbar-actions">
+      <button
+        class="btn btn-primary"
+        data-action="generate-laporan"
+        type="button"
+      >
+        <i data-lucide="file-search"></i>
+
+        <span> Tampilkan Laporan </span>
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        data-action="reset-laporan"
+        type="button"
+      >
+        <i data-lucide="rotate-ccw"></i>
+
+        <span> Reset </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SUMMARY LAPORAN
+  ====================================== -->
+
+  <div class="dashboard-summary">
+    <!-- TOTAL -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="database"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Total Data </span>
+
+        <h2 id="laporanTotal">0</h2>
+
+        <small> Berdasarkan filter </small>
+      </div>
+    </div>
+
+    <!-- LAKI-LAKI -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Laki-Laki </span>
+
+        <h2 id="laporanLaki">0</h2>
+
+        <small> Penduduk laki-laki </small>
+      </div>
+    </div>
+
+    <!-- PEREMPUAN -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user-round"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Perempuan </span>
+
+        <h2 id="laporanPerempuan">0</h2>
+
+        <small> Penduduk perempuan </small>
+      </div>
+    </div>
+
+    <!-- KK -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="contact"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Kartu Keluarga </span>
+
+        <h2 id="laporanKK">0</h2>
+
+        <small> KK berdasarkan filter </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       HASIL LAPORAN
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2 id="laporanTitle">Hasil Laporan</h2>
+
+        <p id="laporanDescription">
+          Silakan pilih filter dan tampilkan laporan.
+        </p>
+      </div>
+
+      <div class="card-header-actions">
+        <button
+          class="btn btn-secondary"
+          data-action="export-laporan"
+          type="button"
+        >
+          <i data-lucide="download"></i>
+
+          <span> Export </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+      <table class="data-table" id="tableLaporan">
+        <thead id="laporanTableHead">
+          <tr>
+            <th>No</th>
+
+            <th>Data</th>
+
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+
+        <tbody id="laporanTableBody">
+          <tr>
+            <td colspan="3" class="table-empty">Belum ada laporan.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+
+    <div id="laporanPagination" class="pagination">
+      <!-- Akan diisi JS -->
+    </div>
+  </div>
+
+  <!-- =====================================
+       REKAP WILAYAH
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h2>Rekapitulasi Wilayah</h2>
+
+        <p>Ringkasan jumlah KK dan penduduk berdasarkan lingkungan.</p>
+      </div>
+
+      <i data-lucide="map"></i>
+    </div>
+
+    <div class="table-container">
+      <table class="data-table" id="tableRekapWilayah">
+        <thead>
+          <tr>
+            <th>No</th>
+
+            <th>Lingkungan</th>
+
+            <th>RT</th>
+
+            <th>Jumlah KK</th>
+
+            <th>Laki-Laki</th>
+
+            <th>Perempuan</th>
+
+            <th>Total Penduduk</th>
+          </tr>
+        </thead>
+
+        <tbody id="rekapWilayahBody">
+          <!-- Akan diisi JS -->
+
+          <tr>
+            <td colspan="7" class="table-empty">
+              Belum ada data rekapitulasi.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

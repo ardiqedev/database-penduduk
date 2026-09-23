@@ -1,0 +1,169 @@
+/* =========================================
+   QEDEV SECTION
+========================================= */
+
+/* =========================================
+   Section
+========================================= */
+
+.section {
+  display: flex;
+
+  flex-direction: column;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+/* =========================================
+   Header
+========================================= */
+
+.section-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================
+   Header Left
+========================================= */
+
+.section-header-left {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  min-width: 0;
+}
+
+/* =========================================
+   Header Right
+========================================= */
+
+.section-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   Title
+========================================= */
+
+.section-title {
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+/* =========================================
+   Subtitle
+========================================= */
+
+.section-subtitle {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: var(--text-light);
+}
+
+/* =========================================
+   Body
+========================================= */
+
+.section-body {
+  flex: 1;
+
+  padding: 24px;
+
+  min-height: 0;
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+.section-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 18px 24px;
+
+  border-top: 1px solid var(--border);
+}
+
+/* =========================================
+   Variant
+========================================= */
+
+.section-flat {
+  border: none;
+
+  box-shadow: none;
+}
+
+.section-borderless {
+  border: none;
+}
+
+.section-scroll {
+  overflow: auto;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .section-header-right {
+    justify-content: flex-end;
+  }
+
+  .section-body {
+    padding: 20px;
+  }
+
+  .section-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+}

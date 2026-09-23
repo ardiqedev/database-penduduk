@@ -1,0 +1,210 @@
+<!-- =========================================
+     DATABASE WARGA
+     DASHBOARD
+========================================= -->
+
+<div class="page dashboard-page">
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div class="page-header-content">
+      <h1>Dashboard</h1>
+
+      <p>Ringkasan data kependudukan Kelurahan Aertembaga Dua.</p>
+    </div>
+
+    <div class="page-header-action">
+      <button class="btn btn-primary" data-action="add">
+        <i data-lucide="plus"></i>
+
+        <span> Tambah Data </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SUMMARY
+  ====================================== -->
+
+  <div class="dashboard-summary">
+    <!-- TOTAL KK -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="contact"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Total Kartu Keluarga </span>
+
+        <h2 id="totalKK">0</h2>
+
+        <small> Data KK terdaftar </small>
+      </div>
+    </div>
+
+    <!-- TOTAL PENDUDUK -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="users"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Total Penduduk </span>
+
+        <h2 id="totalPenduduk">0</h2>
+
+        <small> Penduduk terdaftar </small>
+      </div>
+    </div>
+
+    <!-- LINGKUNGAN -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="map-pin"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Lingkungan </span>
+
+        <h2 id="totalLingkungan">5</h2>
+
+        <small> Lingkungan aktif </small>
+      </div>
+    </div>
+
+    <!-- MUTASI -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="arrow-left-right"></i>
+      </div>
+
+      <div class="summary-content">
+        <span> Mutasi Penduduk </span>
+
+        <h2 id="totalMutasi">0</h2>
+
+        <small> Riwayat mutasi </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       DASHBOARD GRID
+  ====================================== -->
+
+  <div class="dashboard-grid">
+    <!-- ===================================
+         WILAYAH ADMINISTRASI
+    ==================================== -->
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2>Wilayah Administrasi</h2>
+
+          <p>Struktur wilayah Kelurahan Aertembaga Dua.</p>
+        </div>
+
+        <i data-lucide="map"></i>
+      </div>
+
+      <div class="wilayah-list">
+        <!-- LINGKUNGAN I -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">I</div>
+
+          <div>
+            <strong> Lingkungan I </strong>
+
+            <span> RT 001 - RT 003 </span>
+          </div>
+        </div>
+
+        <!-- LINGKUNGAN II -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">II</div>
+
+          <div>
+            <strong> Lingkungan II </strong>
+
+            <span> RT 004 - RT 007 </span>
+          </div>
+        </div>
+
+        <!-- LINGKUNGAN III -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">III</div>
+
+          <div>
+            <strong> Lingkungan III </strong>
+
+            <span> RT 008 - RT 010 </span>
+          </div>
+        </div>
+
+        <!-- LINGKUNGAN IV -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">IV</div>
+
+          <div>
+            <strong> Lingkungan IV </strong>
+
+            <span> RT 011 - RT 015 </span>
+          </div>
+        </div>
+
+        <!-- LINGKUNGAN V -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">V</div>
+
+          <div>
+            <strong> Lingkungan V </strong>
+
+            <span> RT 016 - RT 020 </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================
+         MUTASI TERBARU
+    ==================================== -->
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2>Mutasi Terbaru</h2>
+
+          <p>Aktivitas perubahan data penduduk.</p>
+        </div>
+
+        <i data-lucide="history"></i>
+      </div>
+
+      <div id="recentMutasi" class="activity-list">
+        <!-- Akan diisi oleh JS -->
+
+        <div class="empty-state">
+          <div class="empty-icon">
+            <i data-lucide="clipboard-list"></i>
+          </div>
+
+          <strong> Belum ada data </strong>
+
+          <span> Data mutasi terbaru akan tampil di sini. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

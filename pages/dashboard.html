@@ -1,0 +1,571 @@
+<div class="page dashboard-page">
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <div class="page-header">
+    <div>
+      <h2>Dashboard</h2>
+
+      <p>Ringkasan data penduduk Kelurahan Aertembaga Dua.</p>
+    </div>
+
+    <div class="page-header-actions">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-action="refresh-dashboard"
+      >
+        <i data-lucide="refresh-cw"></i>
+        Refresh Data
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SUMMARY
+  ====================================== -->
+
+  <div class="dashboard-summary">
+    <!-- Total KK -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="contact-round"></i>
+      </div>
+
+      <div class="summary-content">
+        <span>Total Kartu Keluarga</span>
+
+        <strong id="totalKK">0</strong>
+
+        <small>Seluruh data KK</small>
+      </div>
+    </div>
+
+    <!-- Total Penduduk -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="users"></i>
+      </div>
+
+      <div class="summary-content">
+        <span>Total Penduduk</span>
+
+        <strong id="totalPenduduk">0</strong>
+
+        <small>Seluruh penduduk</small>
+      </div>
+    </div>
+
+    <!-- Laki-Laki -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user-round"></i>
+      </div>
+
+      <div class="summary-content">
+        <span>Laki-Laki</span>
+
+        <strong id="totalLaki">0</strong>
+
+        <small>Penduduk laki-laki</small>
+      </div>
+    </div>
+
+    <!-- Perempuan -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="user-round"></i>
+      </div>
+
+      <div class="summary-content">
+        <span>Perempuan</span>
+
+        <strong id="totalPerempuan">0</strong>
+
+        <small>Penduduk perempuan</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       WILAYAH + MUTASI
+  ====================================== -->
+
+  <div class="dashboard-grid">
+    <!-- ===================================
+         REKAP WILAYAH
+    ==================================== -->
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Rekap Wilayah</h3>
+
+          <p>Jumlah KK dan penduduk berdasarkan lingkungan.</p>
+        </div>
+
+        <span class="badge badge-primary"> 5 Lingkungan </span>
+      </div>
+
+      <div class="wilayah-list">
+        <!-- Lingkungan I -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">I</div>
+
+          <div class="wilayah-info">
+            <strong> Lingkungan I </strong>
+
+            <span> RT 001 - RT 003 </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahKKL001"> 0 </strong>
+
+            <span> KK </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahPendudukL001"> 0 </strong>
+
+            <span> Penduduk </span>
+          </div>
+        </div>
+
+        <!-- Lingkungan II -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">II</div>
+
+          <div class="wilayah-info">
+            <strong> Lingkungan II </strong>
+
+            <span> RT 004 - RT 007 </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahKKL002"> 0 </strong>
+
+            <span> KK </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahPendudukL002"> 0 </strong>
+
+            <span> Penduduk </span>
+          </div>
+        </div>
+
+        <!-- Lingkungan III -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">III</div>
+
+          <div class="wilayah-info">
+            <strong> Lingkungan III </strong>
+
+            <span> RT 008 - RT 010 </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahKKL003"> 0 </strong>
+
+            <span> KK </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahPendudukL003"> 0 </strong>
+
+            <span> Penduduk </span>
+          </div>
+        </div>
+
+        <!-- Lingkungan IV -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">IV</div>
+
+          <div class="wilayah-info">
+            <strong> Lingkungan IV </strong>
+
+            <span> RT 011 - RT 015 </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahKKL004"> 0 </strong>
+
+            <span> KK </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahPendudukL004"> 0 </strong>
+
+            <span> Penduduk </span>
+          </div>
+        </div>
+
+        <!-- Lingkungan V -->
+
+        <div class="wilayah-item">
+          <div class="wilayah-number">V</div>
+
+          <div class="wilayah-info">
+            <strong> Lingkungan V </strong>
+
+            <span> RT 016 - RT 020 </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahKKL005"> 0 </strong>
+
+            <span> KK </span>
+          </div>
+
+          <div class="wilayah-stat">
+            <strong id="wilayahPendudukL005"> 0 </strong>
+
+            <span> Penduduk </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================
+         MUTASI
+    ==================================== -->
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Mutasi Penduduk</h3>
+
+          <p>Ringkasan mutasi tahun berjalan.</p>
+        </div>
+
+        <span class="badge badge-primary">
+          Tahun <span id="mutasiTahun">2026</span>
+        </span>
+      </div>
+
+      <div class="mutasi-summary">
+        <!-- Lahir -->
+
+        <div class="mutasi-item">
+          <div class="mutasi-icon">
+            <i data-lucide="baby"></i>
+          </div>
+
+          <div>
+            <span> Lahir </span>
+
+            <strong id="mutasiLahir"> 0 </strong>
+          </div>
+        </div>
+
+        <!-- Meninggal -->
+
+        <div class="mutasi-item">
+          <div class="mutasi-icon">
+            <i data-lucide="heart-crack"></i>
+          </div>
+
+          <div>
+            <span> Meninggal </span>
+
+            <strong id="mutasiMeninggal"> 0 </strong>
+          </div>
+        </div>
+
+        <!-- Pindah Datang -->
+
+        <div class="mutasi-item">
+          <div class="mutasi-icon">
+            <i data-lucide="log-in"></i>
+          </div>
+
+          <div>
+            <span> Pindah Datang </span>
+
+            <strong id="mutasiPindahDatang"> 0 </strong>
+          </div>
+        </div>
+
+        <!-- Pindah Keluar -->
+
+        <div class="mutasi-item">
+          <div class="mutasi-icon">
+            <i data-lucide="log-out"></i>
+          </div>
+
+          <div>
+            <span> Pindah Keluar </span>
+
+            <strong id="mutasiPindahKeluar"> 0 </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       SEBARAN DESIL DTSEN
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h3>Sebaran Desil DTSEN</h3>
+
+        <p>Jumlah Kartu Keluarga berdasarkan Desil DTSEN.</p>
+      </div>
+
+      <span class="badge badge-primary"> Data KK </span>
+    </div>
+
+    <div class="desil-list">
+      <!-- Desil 1 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 1</strong>
+          <span>Prioritas desil 1</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil1">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 2 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 2</strong>
+          <span>Prioritas desil 2</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil2">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 3 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 3</strong>
+          <span>Prioritas desil 3</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil3">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 4 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 4</strong>
+          <span>Prioritas desil 4</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil4">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 5 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 5</strong>
+          <span>Prioritas desil 5</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil5">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 6 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 6</strong>
+          <span>Prioritas desil 6</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil6">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 7 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 7</strong>
+          <span>Prioritas desil 7</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil7">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 8 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 8</strong>
+          <span>Prioritas desil 8</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil8">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 9 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 9</strong>
+          <span>Prioritas desil 9</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil9">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Desil 10 -->
+
+      <div class="desil-item">
+        <div class="desil-label">
+          <strong>Desil 10</strong>
+          <span>Prioritas desil 10</span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desil10">0</strong>
+          <span>KK</span>
+        </div>
+      </div>
+
+      <!-- Belum Ada Data -->
+
+      <div class="desil-item desil-empty">
+        <div class="desil-label">
+          <strong> Belum Ada Data </strong>
+
+          <span> KK tanpa Desil DTSEN </span>
+        </div>
+
+        <div class="desil-value">
+          <strong id="desilBelumAda"> 0 </strong>
+
+          <span> KK </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       MUTASI TERBARU
+  ====================================== -->
+
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <h3>Mutasi Terbaru</h3>
+
+        <p>Aktivitas perubahan data penduduk terbaru.</p>
+      </div>
+
+      <button
+        class="btn btn-secondary"
+        type="button"
+        data-action="lihat-mutasi"
+      >
+        Lihat Semua
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+
+    <div id="recentMutasi" class="activity-list">
+      <div class="empty-state">
+        <div class="empty-state-icon">
+          <i data-lucide="history"></i>
+        </div>
+
+        <strong> Belum ada aktivitas </strong>
+
+        <span> Data mutasi terbaru akan tampil di sini. </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================
+       INFO SISTEM
+  ====================================== -->
+
+  <div class="dashboard-info">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Wilayah Administrasi</h3>
+
+          <p>Struktur wilayah Kelurahan Aertembaga Dua.</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span> Kelurahan </span>
+
+          <strong> Aertembaga Dua </strong>
+        </div>
+
+        <div class="info-item">
+          <span> Kecamatan </span>
+
+          <strong> Aertembaga </strong>
+        </div>
+
+        <div class="info-item">
+          <span> Kota </span>
+
+          <strong> Bitung </strong>
+        </div>
+
+        <div class="info-item">
+          <span> Lingkungan </span>
+
+          <strong> 5 </strong>
+        </div>
+
+        <div class="info-item">
+          <span> RT </span>
+
+          <strong> 20 </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
