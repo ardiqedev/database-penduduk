@@ -1,0 +1,588 @@
+/* =========================================================
+   MUTASI PENDUDUK - SKELETON LOADING
+========================================================= */
+
+/* =========================================
+   SKELETON CONTAINER
+========================================= */
+
+.mutasi-skeleton-container {
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mutasi-page.is-loading .mutasi-skeleton-container {
+  display: block;
+}
+
+/* =========================================
+   HIDE REAL CONTENT WHILE LOADING
+========================================= */
+
+.mutasi-page.is-loading > *:not(.mutasi-skeleton-container) {
+  visibility: hidden;
+}
+
+/* =========================================
+   BASE SKELETON
+========================================= */
+
+.mutasi-skeleton {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mutasi-skeleton .skeleton {
+  position: relative;
+  overflow: hidden;
+
+  background: #e2e8f0;
+
+  border-radius: 8px;
+}
+
+.mutasi-skeleton .skeleton::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+
+  transform: translateX(-100%);
+
+  animation: mutasiSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes mutasiSkeletonShimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.mutasi-skeleton-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+.mutasi-skeleton-header-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.mutasi-skeleton-header-info .skeleton-heading {
+  width: 230px;
+  height: 32px;
+
+  border-radius: 7px;
+}
+
+.mutasi-skeleton-header-info .skeleton-description {
+  width: 340px;
+  max-width: 100%;
+  height: 15px;
+
+  border-radius: 5px;
+}
+
+.mutasi-skeleton-header .skeleton-breadcrumb {
+  width: 145px;
+  height: 18px;
+
+  margin-top: 10px;
+
+  border-radius: 5px;
+}
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.mutasi-skeleton-stats {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.mutasi-skeleton-stat-card {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  min-height: 112px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.mutasi-skeleton-stat-card .skeleton-stat-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+}
+
+.mutasi-skeleton-stat-content {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.mutasi-skeleton-stat-content .skeleton-stat-label {
+  width: 75px;
+  height: 12px;
+
+  margin-bottom: 7px;
+
+  border-radius: 4px;
+}
+
+.mutasi-skeleton-stat-content .skeleton-stat-value {
+  width: 48px;
+  height: 27px;
+
+  margin-bottom: 7px;
+
+  border-radius: 5px;
+}
+
+.mutasi-skeleton-stat-content .skeleton-stat-description {
+  width: 105px;
+  max-width: 100%;
+  height: 10px;
+
+  border-radius: 4px;
+}
+
+/* =========================================
+   FILTER
+========================================= */
+
+.mutasi-skeleton-filter {
+  display: flex;
+  align-items: flex-end;
+
+  gap: 12px;
+
+  padding: 16px;
+
+  margin-bottom: 20px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.mutasi-skeleton-filter .skeleton-search {
+  flex: 1;
+
+  min-width: 220px;
+
+  height: 42px;
+}
+
+.mutasi-skeleton-filter .skeleton-filter-field {
+  width: 150px;
+
+  height: 42px;
+
+  flex-shrink: 0;
+}
+
+.mutasi-skeleton-filter .skeleton-filter-button {
+  width: 76px;
+
+  height: 42px;
+
+  flex-shrink: 0;
+}
+
+.mutasi-skeleton-filter .skeleton-add-button {
+  width: 130px;
+
+  height: 42px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   TABLE CARD
+========================================= */
+
+.mutasi-skeleton-table-card {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+/* =========================================
+   TABLE HEADER
+========================================= */
+
+.mutasi-skeleton-table-header {
+  padding: 20px 20px 16px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.mutasi-skeleton-table-header .skeleton-table-title {
+  width: 220px;
+  height: 20px;
+
+  margin-bottom: 9px;
+
+  border-radius: 5px;
+}
+
+.mutasi-skeleton-table-header .skeleton-table-description {
+  width: 390px;
+  max-width: 100%;
+  height: 12px;
+
+  border-radius: 4px;
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.mutasi-skeleton-table {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.mutasi-skeleton-table-row {
+  display: grid;
+
+  grid-template-columns:
+    60px
+    150px
+    minmax(160px, 1.3fr)
+    155px
+    150px
+    minmax(180px, 1.5fr)
+    120px;
+
+  align-items: center;
+
+  min-width: 975px;
+
+  min-height: 58px;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.mutasi-skeleton-table-row.header {
+  min-height: 46px;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mutasi-skeleton-table-row > .skeleton {
+  margin: 0 14px;
+}
+
+/* =========================================
+   TABLE HEADER ITEMS
+========================================= */
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading {
+  height: 11px;
+
+  border-radius: 4px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(1) {
+  width: 25px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(2) {
+  width: 95px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(3) {
+  width: 105px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(4) {
+  width: 70px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(5) {
+  width: 85px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(6) {
+  width: 85px;
+}
+
+.mutasi-skeleton-table-row.header .skeleton-table-heading:nth-child(7) {
+  width: 50px;
+}
+
+/* =========================================
+   TABLE BODY ITEMS
+========================================= */
+
+.mutasi-skeleton-table-cell {
+  height: 13px;
+
+  border-radius: 5px;
+}
+
+.mutasi-skeleton-table-cell.short {
+  width: 24px;
+}
+
+.mutasi-skeleton-table-cell.date {
+  width: 100px;
+}
+
+.mutasi-skeleton-table-cell.name {
+  width: 125px;
+}
+
+.mutasi-skeleton-table-cell.nik {
+  width: 125px;
+}
+
+.mutasi-skeleton-table-cell.badge {
+  width: 85px;
+
+  border-radius: 999px;
+}
+
+.mutasi-skeleton-table-cell.description {
+  width: 150px;
+}
+
+.mutasi-skeleton-table-cell.actions {
+  width: 85px;
+}
+
+/* =========================================
+   PAGINATION
+========================================= */
+
+.mutasi-skeleton-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #eef2f7;
+}
+
+.mutasi-skeleton-pagination .skeleton-pagination-info {
+  width: 150px;
+  height: 12px;
+
+  border-radius: 4px;
+}
+
+.mutasi-skeleton-pagination-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.mutasi-skeleton-pagination-buttons .skeleton-pagination-button {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 7px;
+}
+
+.mutasi-skeleton-pagination-buttons .skeleton-pagination-number {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 7px;
+}
+
+.mutasi-skeleton-pagination .skeleton-pagination-per-page {
+  width: 145px;
+  height: 32px;
+
+  border-radius: 7px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+  .mutasi-skeleton-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mutasi-skeleton-filter {
+    flex-wrap: wrap;
+  }
+
+  .mutasi-skeleton-filter .skeleton-search {
+    flex-basis: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .mutasi-skeleton-header {
+    flex-direction: column;
+  }
+
+  .mutasi-skeleton-header .skeleton-breadcrumb {
+    display: none;
+  }
+
+  .mutasi-skeleton-header-info .skeleton-heading {
+    width: 190px;
+  }
+
+  .mutasi-skeleton-header-info .skeleton-description {
+    width: 280px;
+  }
+
+  .mutasi-skeleton-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mutasi-skeleton-filter {
+    align-items: stretch;
+  }
+
+  .mutasi-skeleton-filter .skeleton-filter-field,
+  .mutasi-skeleton-filter .skeleton-search {
+    width: 100%;
+    min-width: 0;
+
+    flex-basis: 100%;
+  }
+
+  .mutasi-skeleton-filter .skeleton-filter-button,
+  .mutasi-skeleton-filter .skeleton-add-button {
+    flex: 1;
+
+    width: auto;
+  }
+
+  .mutasi-skeleton-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mutasi-skeleton-pagination .skeleton-pagination-info {
+    width: 150px;
+  }
+
+  .mutasi-skeleton-pagination-buttons {
+    justify-content: center;
+  }
+
+  .mutasi-skeleton-pagination .skeleton-pagination-per-page {
+    width: 145px;
+
+    align-self: center;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .mutasi-skeleton-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .mutasi-skeleton-stat-card {
+    min-height: 92px;
+  }
+
+  .mutasi-skeleton-stat-card .skeleton-stat-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mutasi-skeleton-table-card {
+    border-radius: 12px;
+  }
+
+  .mutasi-skeleton-table-header {
+    padding: 16px;
+  }
+
+  .mutasi-skeleton-table-header .skeleton-table-title {
+    width: 180px;
+  }
+
+  .mutasi-skeleton-table-header .skeleton-table-description {
+    width: 280px;
+  }
+
+  .mutasi-skeleton-pagination {
+    padding: 12px 16px;
+  }
+}

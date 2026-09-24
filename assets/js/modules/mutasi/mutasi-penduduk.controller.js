@@ -39,6 +39,8 @@ const MutasiPendudukController = {
   async init() {
     console.log("[MutasiPendudukController] init");
 
+    Skeleton.mutasi("#mutasiSkeleton");
+
     this.bindEvents();
 
     await this.loadData();

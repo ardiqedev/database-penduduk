@@ -214,6 +214,10 @@
       }
 
       try {
+        Skeleton.keluargaDetail("#kkDetailSkeleton");
+
+        document.getElementById("kkDetailSkeleton")?.classList.add("active");
+
         console.log("[KartuKeluargaController] Load detail:", idKK);
 
         const kk = await KartuKeluargaService.getKKById(idKK);
@@ -239,6 +243,8 @@
         this.renderList();
       } catch (error) {
         console.error("[KartuKeluargaController] loadKKDetail:", error);
+      } finally {
+        document.getElementById("kkDetailSkeleton")?.classList.remove("active");
       }
     },
 
