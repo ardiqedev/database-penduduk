@@ -1204,6 +1204,171 @@
     },
 
     /* =====================================
+   CONFIRM ACTION
+===================================== */
+
+    confirmAction({
+      title = "Konfirmasi",
+      body = "",
+      confirmText = "Ya",
+      cancelText = "Batal",
+      confirmClass = "btn-danger",
+    } = {}) {
+      return new Promise((resolve) => {
+        Modal.open({
+          title,
+
+          body,
+
+          footer: `
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-confirm-cancel
+        >
+          ${cancelText}
+        </button>
+
+        <button
+          type="button"
+          class="btn ${confirmClass}"
+          data-confirm-submit
+        >
+          ${confirmText}
+        </button>
+      `,
+
+          size: "sm",
+        });
+
+        const modal = Modal.modal;
+
+        if (!modal) {
+          resolve(false);
+          return;
+        }
+
+        const cancelButton = modal.querySelector("[data-confirm-cancel]");
+
+        const confirmButton = modal.querySelector("[data-confirm-submit]");
+
+        const cleanup = (result) => {
+          cancelButton?.removeEventListener("click", handleCancel);
+
+          confirmButton?.removeEventListener("click", handleConfirm);
+
+          Modal.close();
+
+          resolve(result);
+        };
+
+        const handleCancel = () => {
+          cleanup(false);
+        };
+
+        const handleConfirm = () => {
+          cleanup(true);
+        };
+
+        cancelButton?.addEventListener("click", handleCancel);
+
+        confirmButton?.addEventListener("click", handleConfirm);
+      });
+    },
+
+    /* =====================================
+   DELETE KK
+===================================== */
+
+    async deleteKK() {
+      console.log("[KartuKeluargaController] deleteKK()");
+
+      if (!this.state.selectedKK) {
+        Toast.warning("Pilih Kartu Keluarga terlebih dahulu.");
+        return;
+      }
+
+      const idKK = this.state.selectedKK;
+
+      const kk = this.state.kk.find(
+        (item) => String(item.ID_KK) === String(idKK),
+      );
+
+      if (!kk) {
+        Toast.error("Data Kartu Keluarga tidak ditemukan.");
+        return;
+      }
+
+      const confirmed = await this.confirmAction({
+        title: "Hapus Kartu Keluarga",
+
+        body: `
+    <div class="modal-confirm-content">
+
+      <p>
+        Apakah Anda yakin ingin menghapus Kartu Keluarga ini?
+      </p>
+
+      <div class="modal-confirm-info">
+
+        <div>
+          <span>ID KK</span>
+          <strong>${String(kk.ID_KK || "-")}</strong>
+        </div>
+
+        <div>
+          <span>No. KK</span>
+          <strong>${String(kk.NO_KK || "-")}</strong>
+        </div>
+
+        <div>
+          <span>Kepala Keluarga</span>
+          <strong>${String(
+            kk.KEPALA_KELUARGA || "Belum ada kepala keluarga",
+          )}</strong>
+        </div>
+
+      </div>
+
+      <p class="modal-confirm-warning">
+        Data Kartu Keluarga akan dihapus secara permanen.
+      </p>
+
+    </div>
+  `,
+
+        confirmText: "Hapus KK",
+
+        cancelText: "Batal",
+
+        confirmClass: "btn-danger",
+      });
+
+      if (!confirmed) {
+        return;
+      }
+
+      try {
+        const response = await KartuKeluargaService.deleteKK(idKK);
+
+        console.log("[KartuKeluargaController] Delete KK response:", response);
+
+        Toast.success("Kartu Keluarga berhasil dihapus.");
+
+        this.state.selectedKK = null;
+        this.state.anggota = [];
+
+        KartuKeluargaView.showDetailEmpty();
+
+        await this.loadData();
+      } catch (error) {
+        console.error("[KartuKeluargaController] deleteKK:", error);
+
+        Toast.error(error?.message || "Gagal menghapus Kartu Keluarga.");
+      }
+    },
+
+    /* =====================================
    TAMBAH ANGGOTA
 ===================================== */
 
@@ -1253,6 +1418,94 @@
       } catch (error) {
         console.error("❌ Gagal mengambil data penduduk:", error);
         Toast.error(error?.message || "Gagal mengambil data penduduk.");
+      }
+    },
+
+    /* =====================================
+   DELETE ANGGOTA
+===================================== */
+
+    async deleteAnggota(idPenduduk) {
+      console.log("[KartuKeluargaController] deleteAnggota():", idPenduduk);
+
+      if (!idPenduduk) {
+        Toast.warning("ID penduduk tidak ditemukan.");
+        return;
+      }
+
+      const anggota = this.state.anggota.find(
+        (item) => String(item.ID_PENDUDUK) === String(idPenduduk),
+      );
+
+      if (!anggota) {
+        Toast.error("Data penduduk tidak ditemukan.");
+        return;
+      }
+
+      const confirmed = await this.confirmAction({
+        title: "Hapus Penduduk",
+
+        body: `
+    <div class="modal-confirm-content">
+
+      <p>
+        Apakah Anda yakin ingin menghapus penduduk ini?
+      </p>
+
+      <div class="modal-confirm-info">
+
+        <div>
+          <span>Nama</span>
+          <strong>${String(anggota.NAMA || "-")}</strong>
+        </div>
+
+        <div>
+          <span>NIK</span>
+          <strong>${String(anggota.NIK || "-")}</strong>
+        </div>
+
+        <div>
+          <span>Hubungan</span>
+          <strong>${String(anggota.HUBUNGAN_KELUARGA || "-")}</strong>
+        </div>
+
+      </div>
+
+      <p class="modal-confirm-warning">
+        Data penduduk akan dihapus secara permanen.
+      </p>
+
+    </div>
+  `,
+
+        confirmText: "Hapus Penduduk",
+
+        cancelText: "Batal",
+
+        confirmClass: "btn-danger",
+      });
+
+      if (!confirmed) {
+        return;
+      }
+
+      try {
+        const response = await KartuKeluargaService.deletePenduduk(idPenduduk);
+
+        console.log(
+          "[KartuKeluargaController] Delete penduduk response:",
+          response,
+        );
+
+        Toast.success("Data penduduk berhasil dihapus.");
+
+        if (this.state.selectedKK) {
+          await this.loadKKDetail(this.state.selectedKK);
+        }
+      } catch (error) {
+        console.error("[KartuKeluargaController] deleteAnggota:", error);
+
+        Toast.error(error?.message || "Gagal menghapus data penduduk.");
       }
     },
 
@@ -1308,6 +1561,10 @@
               this.editKK();
               return;
 
+            case "delete-kk":
+              this.deleteKK();
+              return;
+
             case "tambah-anggota":
               console.log("CLICK TAMBAH ANGGOTA");
               this.tambahAnggota();
@@ -1315,6 +1572,10 @@
 
             case "edit-anggota":
               this.editAnggota(actionElement.dataset.pendudukId);
+              return;
+
+            case "delete-anggota":
+              this.deleteAnggota(actionElement.dataset.pendudukId);
               return;
           }
         }

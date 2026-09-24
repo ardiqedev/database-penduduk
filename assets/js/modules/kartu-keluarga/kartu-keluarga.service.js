@@ -240,4 +240,43 @@ const KartuKeluargaService = {
 
     return response.data;
   },
+
+  /* =====================================
+     DELETE KK
+  ===================================== */
+
+  async deleteKK(idKK) {
+    if (!idKK) {
+      throw new Error("ID Kartu Keluarga tidak ditemukan.");
+    }
+
+    const response = await API.post("deleteKK", {
+      ID_KK: idKK,
+    });
+
+    if (!response || response.success === false) {
+      throw new Error(response?.message || "Gagal menghapus Kartu Keluarga.");
+    }
+
+    return response.data;
+  },
+
+  /* =====================================
+     DELETE PENDUDUK
+  ===================================== */
+  async deletePenduduk(idPenduduk) {
+    if (!idPenduduk) {
+      throw new Error("ID penduduk tidak ditemukan.");
+    }
+
+    const response = await API.post("deletePenduduk", {
+      ID_PENDUDUK: idPenduduk,
+    });
+
+    if (!response || response.success === false) {
+      throw new Error(response?.message || "Gagal menghapus data penduduk.");
+    }
+
+    return response.data;
+  },
 };

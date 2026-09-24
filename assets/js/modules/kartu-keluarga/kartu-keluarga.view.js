@@ -347,7 +347,7 @@
 
               </td>
 
-              <td>
+              <div class="member-actions">
 
                 <button
                   type="button"
@@ -356,12 +356,20 @@
                   data-action="edit-anggota"
                   data-penduduk-id="${this.escape(item.ID_PENDUDUK)}"
                 >
-
                   <i data-lucide="pencil"></i>
-
                 </button>
 
-              </td>
+                <button
+                  type="button"
+                  class="view-btn"
+                  title="Hapus penduduk"
+                  data-action="delete-anggota"
+                  data-penduduk-id="${this.escape(item.ID_PENDUDUK)}"
+                >
+                  <i data-lucide="trash-2"></i>
+                </button>
+
+              </div>
 
             </tr>
           `,
