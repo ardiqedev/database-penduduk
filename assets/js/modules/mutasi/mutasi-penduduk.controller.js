@@ -1804,10 +1804,10 @@ const MutasiPendudukController = {
    AUTO INIT
 ========================================= */
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    MutasiPendudukController.init();
-  });
-} else {
-  MutasiPendudukController.init();
-}
+// if (document.readyState === "loading") {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     MutasiPendudukController.init();
+//   });
+// } else {
+//   MutasiPendudukController.init();
+// }

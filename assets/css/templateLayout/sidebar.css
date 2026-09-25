@@ -361,16 +361,127 @@
    RESPONSIVE
 ========================================== */
 
+/* ==========================================
+   MOBILE SIDEBAR
+========================================== */
+
+/* ==========================================
+   MOBILE SIDEBAR
+========================================== */
+
 @media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    z-index: 1000;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.25s ease;
+
+    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ========================================
+     MOBILE OPEN
+  ======================================== */
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* ========================================
+     MOBILE TIDAK PAKAI COLLAPSED
+  ======================================== */
+
+  .sidebar.collapsed {
+    width: 280px;
+  }
+
+  .sidebar.collapsed .brand-text,
+  .sidebar.collapsed .menu-label,
+  .sidebar.collapsed .menu-item span,
+  .sidebar.collapsed .profile-info {
+    display: block;
+  }
+
+  .sidebar.collapsed .sidebar-brand,
+  .sidebar.collapsed .menu-item,
+  .sidebar.collapsed .profile {
+    justify-content: flex-start;
+  }
+
+  .sidebar.collapsed .sidebar-header {
+    padding: 0 18px;
+    justify-content: flex-start;
+  }
+
+  .sidebar.collapsed .sidebar-body {
+    padding: 18px 10px;
+  }
+
+  .sidebar.collapsed .menu-item {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .sidebar.collapsed .sidebar-footer {
+    padding: 16px;
+  }
+
+  /* ========================================
+     HEADER
+  ======================================== */
+
   .sidebar-header {
     padding: 0 18px;
   }
+
+  /* ========================================
+     BODY
+  ======================================== */
 
   .sidebar-body {
     padding: 18px 10px;
   }
 
+  /* ========================================
+     FOOTER
+  ======================================== */
+
   .sidebar-footer {
     padding: 16px;
+  }
+
+  /* ========================================
+     OVERLAY
+  ======================================== */
+
+  .sidebar-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    z-index: 999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -8,6 +8,8 @@ const Router = {
   ===================================== */
 
   routes: {
+    login: "pages/login.html",
+
     dashboard: "pages/dashboard.html",
 
     "keluarga-penduduk": "pages/kartu-keluarga.html",
@@ -86,7 +88,9 @@ const Router = {
 
     this.currentPage = page;
 
-    this.saveCurrentPage(page);
+    if (page !== "login") {
+      this.saveCurrentPage(page);
+    }
 
     await this.loadPage(this.routes[page]);
 
@@ -103,6 +107,7 @@ const Router = {
 
   initModule(page) {
     const modules = {
+      login: typeof LoginController !== "undefined" ? LoginController : null,
       dashboard: typeof Dashboard !== "undefined" ? Dashboard : null,
 
       "keluarga-penduduk":

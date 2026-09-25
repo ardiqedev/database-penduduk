@@ -202,3 +202,46 @@
 .hidden {
   display: none !important;
 }
+
+/* ==========================================
+   MOBILE SIDEBAR
+========================================== */
+
+@media (max-width: 768px) {
+  .app {
+    position: relative;
+  }
+
+  .sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    z-index: 1000;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 0.3s ease,
+      width 0.3s ease;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Mobile jangan menggunakan collapsed 84px */
+
+  .sidebar.collapsed {
+    width: 280px;
+  }
+
+  .main {
+    width: 100%;
+    min-width: 0;
+  }
+}

@@ -658,11 +658,12 @@
 
       const getValue = (id) => {
         const element = document.getElementById(id);
+
         return element ? String(element.value || "").trim() : "";
       };
 
       /* =====================================
-     AMBIL ID
+     AMBIL ID PENDUDUK
   ===================================== */
 
       const idPenduduk = getValue("formEditAnggotaId");
@@ -672,10 +673,16 @@
         return;
       }
 
+      /* =====================================
+     AMBIL ID KK
+  ===================================== */
+
       if (!this.state.selectedKK) {
         Toast.error("Kartu Keluarga tidak ditemukan.");
         return;
       }
+
+      const idKK = this.state.selectedKK;
 
       /* =====================================
      AMBIL DATA FORM
@@ -684,7 +691,7 @@
       const data = {
         ID_PENDUDUK: idPenduduk,
 
-        ID_KK: this.state.selectedKK,
+        ID_KK: idKK,
 
         NIK: getValue("formAnggotaNIK"),
 
@@ -700,14 +707,6 @@
 
         KEWARGANEGARAAN: getValue("formAnggotaKewarganegaraan") || "WNI",
 
-        NO_PASPOR: getValue("formAnggotaPaspor"),
-
-        NO_KITAS: getValue("formAnggotaKitas"),
-
-        PENDIDIKAN: getValue("formAnggotaPendidikan"),
-
-        PEKERJAAN: getValue("formAnggotaPekerjaan"),
-
         STATUS_PERKAWINAN: getValue("formAnggotaStatusPerkawinan"),
 
         HUBUNGAN_KELUARGA: getValue("formAnggotaHubungan"),
@@ -715,20 +714,83 @@
         NAMA_AYAH: getValue("formAnggotaNamaAyah"),
 
         NAMA_IBU: getValue("formAnggotaNamaIbu"),
+
+        PENDIDIKAN: getValue("formAnggotaPendidikan"),
+
+        PEKERJAAN: getValue("formAnggotaPekerjaan"),
+
+        NO_PASPOR: getValue("formAnggotaPaspor"),
+
+        NO_KITAS: getValue("formAnggotaKitas"),
       };
 
       console.log("📦 Data update anggota:", data);
 
       /* =====================================
-        VALIDASI
-      ===================================== */
+     VALIDASI FORM
+     SESUAI FIELD YANG ADA DI MODAL
+  ===================================== */
 
-      const validation = KartuKeluargaService.validatePenduduk(data);
+      const errors = {};
 
-      if (!validation.valid) {
-        console.warn("⚠️ Validasi gagal:", validation.errors);
+      /* NIK */
 
-        const firstError = Object.values(validation.errors)[0];
+      if (!data.NIK) {
+        errors.NIK = "NIK wajib diisi.";
+      } else if (!/^\d{16}$/.test(data.NIK)) {
+        errors.NIK = "NIK harus terdiri dari 16 digit.";
+      }
+
+      /* NAMA */
+
+      if (!data.NAMA) {
+        errors.NAMA = "Nama lengkap wajib diisi.";
+      }
+
+      /* TEMPAT LAHIR */
+
+      if (!data.TEMPAT_LAHIR) {
+        errors.TEMPAT_LAHIR = "Tempat lahir wajib diisi.";
+      }
+
+      /* TANGGAL LAHIR */
+
+      if (!data.TANGGAL_LAHIR) {
+        errors.TANGGAL_LAHIR = "Tanggal lahir wajib diisi.";
+      }
+
+      /* JENIS KELAMIN */
+
+      if (!data.JENIS_KELAMIN) {
+        errors.JENIS_KELAMIN = "Jenis kelamin wajib dipilih.";
+      }
+
+      /* AGAMA */
+
+      if (!data.AGAMA) {
+        errors.AGAMA = "Agama wajib dipilih.";
+      }
+
+      /* STATUS PERKAWINAN */
+
+      if (!data.STATUS_PERKAWINAN) {
+        errors.STATUS_PERKAWINAN = "Status perkawinan wajib dipilih.";
+      }
+
+      /* HUBUNGAN KELUARGA */
+
+      if (!data.HUBUNGAN_KELUARGA) {
+        errors.HUBUNGAN_KELUARGA = "Hubungan keluarga wajib dipilih.";
+      }
+
+      /* =====================================
+     CEK VALIDASI
+  ===================================== */
+
+      if (Object.keys(errors).length > 0) {
+        console.warn("⚠️ Validasi update anggota gagal:", errors);
+
+        const firstError = Object.values(errors)[0];
 
         Toast.warning(firstError);
 
@@ -759,21 +821,31 @@
       }
 
       /* =====================================
-     SAVE
+     UPDATE KE BACKEND
   ===================================== */
 
       try {
+        console.log("🚀 Mengirim updatePenduduk:", data);
+
         const result = await KartuKeluargaService.updatePenduduk(data);
 
         console.log("✅ Penduduk berhasil diperbarui:", result);
 
+        /* ===================================
+       TUTUP MODAL
+    =================================== */
+
         Modal.close();
+
+        /* ===================================
+       NOTIFIKASI
+    =================================== */
 
         Toast.success("Data anggota berhasil diperbarui.");
 
-        /* =====================================
-       REFRESH DATA
-    ===================================== */
+        /* ===================================
+       REFRESH DETAIL KK
+    =================================== */
 
         await this.loadKKDetail(this.state.selectedKK);
       } catch (error) {
@@ -781,6 +853,10 @@
 
         Toast.error(error?.message || "Gagal memperbarui data anggota.");
       } finally {
+        /* ===================================
+       RESTORE BUTTON
+    =================================== */
+
         if (button) {
           button.disabled = false;
 

@@ -225,9 +225,13 @@ API.request = function (action, data = {}) {
   });
 };
 
-/* =====================================
+/* =========================================
    GET
-===================================== */
+========================================= */
+
+/* =========================================
+   GET
+========================================= */
 
 API.get = function (action, params = {}) {
   return new Promise((resolve, reject) => {
@@ -235,6 +239,10 @@ API.get = function (action, params = {}) {
     let timeoutId = null;
     let finished = false;
 
+    /*
+     * Callback harus unik agar setiap request
+     * memiliki handler JSONP sendiri.
+     */
     const callbackName =
       "__QEDEV_API_GET_CALLBACK_" +
       Date.now() +
@@ -246,14 +254,27 @@ API.get = function (action, params = {}) {
     =============================== */
 
     const cleanup = () => {
+      /* =============================
+         CLEAR TIMEOUT
+      ============================= */
+
       if (timeoutId) {
         clearTimeout(timeoutId);
+
         timeoutId = null;
       }
+
+      /* =============================
+         REMOVE SCRIPT
+      ============================= */
 
       if (script && script.parentNode) {
         script.parentNode.removeChild(script);
       }
+
+      /* =============================
+         REMOVE CALLBACK
+      ============================= */
 
       try {
         delete window[callbackName];
@@ -263,7 +284,7 @@ API.get = function (action, params = {}) {
     };
 
     /* ===============================
-       SUCCESS
+       FINISH SUCCESS
     =============================== */
 
     const finishSuccess = (result) => {
@@ -274,6 +295,10 @@ API.get = function (action, params = {}) {
       finished = true;
 
       cleanup();
+
+      /* =============================
+         VALIDATE RESPONSE
+      ============================= */
 
       if (!result || typeof result !== "object") {
         const error = new Error("Response server tidak valid.");
@@ -287,10 +312,16 @@ API.get = function (action, params = {}) {
         return;
       }
 
-      if (result.success === false) {
-        const error = new Error(result.message || "Request GET gagal.");
+      /* =============================
+         SERVER ERROR
+      ============================= */
 
-        console.error(error);
+      if (result.success === false) {
+        const error = new Error(
+          result.error || result.message || "Request gagal.",
+        );
+
+        console.error("QEDEV API GET SERVER ERROR:", result);
 
         Toast.error(error.message);
 
@@ -299,11 +330,15 @@ API.get = function (action, params = {}) {
         return;
       }
 
+      /* =============================
+         SUCCESS
+      ============================= */
+
       resolve(result);
     };
 
     /* ===============================
-       ERROR
+       FINISH ERROR
     =============================== */
 
     const finishError = (error) => {
@@ -315,7 +350,7 @@ API.get = function (action, params = {}) {
 
       cleanup();
 
-      console.error(error);
+      console.error("QEDEV API GET ERROR:", error);
 
       Toast.error(error.message || "Gagal terhubung ke server.");
 
@@ -324,27 +359,31 @@ API.get = function (action, params = {}) {
 
     try {
       /* ===============================
-         QUERY PARAMS
+         SESSION
       =============================== */
 
-      const query = new URLSearchParams();
-
-      query.append("action", action);
-
-      Object.keys(params).forEach((key) => {
-        const value = params[key];
-
-        if (value !== undefined && value !== null && value !== "") {
-          query.append(key, value);
-        }
-      });
-
-      query.append("callback", callbackName);
-
-      query.append("_", Date.now());
+      const sessionId = params.sessionId || Auth.getSessionId() || "";
 
       /* ===============================
-         CALLBACK
+         DATA PAYLOAD
+      =============================== */
+
+      const data = {
+        ...params,
+        sessionId,
+      };
+
+      /* ===============================
+         BUILD PAYLOAD
+      =============================== */
+
+      const payload = JSON.stringify({
+        action,
+        data,
+      });
+
+      /* ===============================
+         GLOBAL CALLBACK
       =============================== */
 
       window[callbackName] = function (result) {
@@ -352,33 +391,108 @@ API.get = function (action, params = {}) {
       };
 
       /* ===============================
-         SCRIPT
+         CREATE SCRIPT
       =============================== */
 
       script = document.createElement("script");
 
-      script.onerror = function () {
+      /* ===============================
+         SCRIPT ERROR
+      =============================== */
+
+      script.onerror = function (event) {
+        console.error("QEDEV API GET SCRIPT ERROR:", {
+          action,
+          url: script ? script.src : "",
+          event,
+        });
+
         finishError(new Error("Gagal terhubung ke server."));
       };
 
       /* ===============================
-         URL
+         URL SEPARATOR
       =============================== */
 
       const separator = this.baseUrl.includes("?") ? "&" : "?";
 
-      const url = `${this.baseUrl}` + `${separator}` + `${query.toString()}`;
+      /* ===============================
+         QUERY
+      =============================== */
 
-      console.log("QEDEV API GET:", {
-        action,
-        url,
+      const query = new URLSearchParams();
+
+      /*
+       * Action tetap dikirim di level query
+       * untuk kompatibilitas Router.handleGet().
+       */
+      query.set("action", action);
+
+      /*
+       * Payload utama.
+       *
+       * Di dalamnya terdapat:
+       * {
+       *   action,
+       *   data: {
+       *     ...params,
+       *     sessionId
+       *   }
+       * }
+       */
+      query.set("payload", payload);
+
+      /*
+       * Callback JSONP.
+       */
+      query.set("callback", callbackName);
+
+      /*
+       * Cache buster.
+       */
+      query.set("_", Date.now());
+
+      /* ===============================
+         TOP LEVEL PARAMETERS
+      =============================== */
+
+      /*
+       * Router detail seperti:
+       *
+       * params.idKK
+       * params.idPenduduk
+       * params.idMutasi
+       *
+       * membaca parameter langsung dari
+       * e.parameter.
+       *
+       * Karena itu parameter GET juga
+       * dikirim di level query.
+       */
+      Object.keys(params).forEach((key) => {
+        const value = params[key];
+
+        if (value !== undefined && value !== null) {
+          query.set(key, String(value));
+        }
       });
 
       /* ===============================
-         LOAD
+         REQUEST URL
+      =============================== */
+
+      const url = `${this.baseUrl}` + `${separator}` + `${query.toString()}`;
+
+      /* ===============================
+         LOAD SCRIPT
       =============================== */
 
       script.src = url;
+
+      console.log("QEDEV API GET:", {
+        action,
+        url: url.split("payload=")[0],
+      });
 
       document.head.appendChild(script);
 
@@ -412,6 +526,148 @@ API.get = function (action, params = {}) {
  * transport internal yang digunakan.
  */
 
+/* =====================================
+   POST
+===================================== */
+
+/* =====================================
+   POST
+===================================== */
+
 API.post = function (action, data = {}) {
-  return this.request(action, data);
+  return new Promise((resolve, reject) => {
+    let timeoutId = null;
+    let finished = false;
+
+    /* ===============================
+       FINISH
+    =============================== */
+
+    const finish = (callback) => {
+      if (finished) {
+        return;
+      }
+
+      finished = true;
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+
+      callback();
+    };
+
+    /* ===============================
+       PAYLOAD
+    =============================== */
+
+    const sessionId = data.sessionId || Auth.getSessionId() || "";
+
+    const payloadData = {
+      ...data,
+      sessionId,
+    };
+
+    const payload = JSON.stringify({
+      action,
+      data: payloadData,
+    });
+
+    console.log("QEDEV API POST:", {
+      action,
+      url: this.baseUrl,
+    });
+
+    /* ===============================
+       REQUEST
+    =============================== */
+
+    fetch(this.baseUrl, {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+
+      body: payload,
+    })
+      .then(async (response) => {
+        /* =============================
+           HTTP ERROR
+        ============================= */
+
+        if (!response.ok) {
+          throw new Error(`Server mengembalikan HTTP ${response.status}.`);
+        }
+
+        /* =============================
+           RESPONSE
+        ============================= */
+
+        return response.json();
+      })
+      .then((result) => {
+        /* =============================
+           VALIDATE RESPONSE
+        ============================= */
+
+        if (!result || typeof result !== "object") {
+          throw new Error("Response server tidak valid.");
+        }
+
+        /* =============================
+           SERVER ERROR
+        ============================= */
+
+        if (result.success === false) {
+          const error = new Error(
+            result.error || result.message || "Request gagal.",
+          );
+
+          console.error("QEDEV API POST SERVER ERROR:", result);
+
+          Toast.error(error.message);
+
+          finish(() => reject(error));
+
+          return;
+        }
+
+        /* =============================
+           SUCCESS
+        ============================= */
+
+        finish(() => resolve(result));
+      })
+      .catch((error) => {
+        finish(() => {
+          console.error("QEDEV API POST ERROR:", error);
+
+          Toast.error(error.message || "Gagal terhubung ke server.");
+
+          reject(error);
+        });
+      });
+
+    /* ===============================
+       TIMEOUT
+    =============================== */
+
+    const timeout = Number(CONFIG.API.TIMEOUT) || 60000;
+
+    timeoutId = setTimeout(() => {
+      finish(() => {
+        const error = new Error(
+          "Request timeout setelah " + Math.round(timeout / 1000) + " detik.",
+        );
+
+        console.error(error);
+
+        Toast.error(error.message);
+
+        reject(error);
+      });
+    }, timeout);
+  });
 };
