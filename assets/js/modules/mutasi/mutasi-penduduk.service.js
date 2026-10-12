@@ -122,10 +122,6 @@ const MutasiPendudukService = {
   getJenisMutasiOptions() {
     return [
       {
-        value: "LAHIR",
-        label: "Lahir",
-      },
-      {
         value: "MENINGGAL",
         label: "Meninggal",
       },
@@ -195,12 +191,7 @@ const MutasiPendudukService = {
     if (!jenisMutasi) {
       errors.JENIS_MUTASI = "Jenis mutasi wajib dipilih.";
     } else {
-      const allowedTypes = [
-        "LAHIR",
-        "MENINGGAL",
-        "PINDAH_DATANG",
-        "PINDAH_KELUAR",
-      ];
+      const allowedTypes = ["MENINGGAL", "PINDAH_DATANG", "PINDAH_KELUAR"];
 
       if (!allowedTypes.includes(jenisMutasi)) {
         errors.JENIS_MUTASI = "Jenis mutasi tidak valid.";

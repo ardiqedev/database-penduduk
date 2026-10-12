@@ -1,0 +1,640 @@
+/* ==========================================
+   LAPORAN PENDUDUK
+========================================== */
+
+.laporan-page {
+  width: 100%;
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.laporan-page .page-header {
+  margin-bottom: 24px;
+}
+
+.laporan-page .page-header-content h1 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.laporan-page .page-header-content p {
+  margin: 6px 0 0;
+
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ==========================================
+   FILTER CARD
+========================================== */
+
+.laporan-page .card {
+  background: #ffffff;
+
+  border: 1px solid #dce5f1;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+
+  overflow: hidden;
+}
+
+.laporan-page .card-header {
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.laporan-page .card-header h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.laporan-page .card-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ==========================================
+   FILTER TOOLBAR
+========================================== */
+
+.laporan-page .toolbar {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1.2fr)
+    minmax(150px, 0.8fr)
+    minmax(150px, 0.8fr)
+    minmax(180px, 1fr)
+    minmax(120px, 0.7fr);
+
+  gap: 16px;
+
+  padding: 18px 20px 14px;
+}
+
+/* ==========================================
+   FORM GROUP
+========================================== */
+
+.laporan-page .form-group {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.laporan-page .form-group label {
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+/* ==========================================
+   SELECT
+========================================== */
+
+.laporan-page .form-control {
+  width: 100%;
+  height: 40px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d6dfeb;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.laporan-page .form-control:hover {
+  border-color: #b8c9df;
+}
+
+.laporan-page .form-control:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ==========================================
+   FILTER ACTION
+========================================== */
+
+.laporan-page .toolbar-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 20px 18px;
+}
+
+.laporan-page .toolbar-actions .btn {
+  height: 38px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.laporan-page .toolbar-actions .btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ==========================================
+   SUMMARY
+========================================== */
+
+.laporan-page .dashboard-summary {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin: 18px 0;
+}
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.laporan-page .summary-card {
+  min-height: 120px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce5f1;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.laporan-page .summary-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+/* ==========================================
+   SUMMARY ICON
+========================================== */
+
+.laporan-page .summary-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+.laporan-page .summary-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* ==========================================
+   SUMMARY CONTENT
+========================================== */
+
+.laporan-page .summary-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.laporan-page .summary-content > span {
+  font-size: 12px;
+
+  color: #64748b;
+}
+
+.laporan-page .summary-content h2 {
+  margin: 7px 0 2px;
+
+  font-size: 24px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.laporan-page .summary-content small {
+  font-size: 11px;
+
+  color: #94a3b8;
+}
+
+/* ==========================================
+   HASIL LAPORAN
+========================================== */
+
+.laporan-page .table-container {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+/* ==========================================
+   REPORT CARD
+========================================== */
+
+.laporan-page .card:has(#tableLaporan) {
+  margin-top: 4px;
+}
+
+/* ==========================================
+   REPORT HEADER
+========================================== */
+
+.laporan-page .card-header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.laporan-page .card-header-actions .btn {
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 0 11px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+}
+
+.laporan-page .card-header-actions svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.laporan-page .data-table {
+  width: 100%;
+
+  min-width: 900px;
+
+  border-collapse: collapse;
+}
+
+.laporan-page .data-table thead th {
+  height: 42px;
+
+  padding: 0 14px;
+
+  background: #f8fafc;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  color: #475569;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.laporan-page .data-table tbody td {
+  height: 48px;
+
+  padding: 0 14px;
+
+  border-bottom: 1px solid #edf1f6;
+
+  color: #334155;
+
+  font-size: 12px;
+}
+
+.laporan-page .data-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* ==========================================
+   EMPTY TABLE
+========================================== */
+
+.laporan-page .table-empty {
+  height: 150px !important;
+
+  text-align: center !important;
+
+  color: #94a3b8 !important;
+}
+
+/* ==========================================
+   PAGINATION
+========================================== */
+
+.laporan-page .pagination {
+  padding: 14px 20px;
+
+  border-top: 1px solid #edf1f6;
+}
+
+/* ==========================================
+   REKAP WILAYAH
+========================================== */
+
+.laporan-page #tableRekapWilayah {
+  min-width: 700px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+  .laporan-page .toolbar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .laporan-page .dashboard-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .laporan-page .toolbar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .laporan-page .dashboard-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .laporan-page .page-header {
+    display: block;
+  }
+
+  .laporan-page .page-header-action {
+    margin-top: 14px;
+  }
+
+  .laporan-page .page-header-content h1 {
+    font-size: 23px;
+  }
+
+  .laporan-page .toolbar {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    padding: 16px;
+  }
+
+  .laporan-page .toolbar-actions {
+    padding: 0 16px 16px;
+
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .laporan-page .toolbar-actions .btn {
+    width: 100%;
+  }
+
+  .laporan-page .dashboard-summary {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .laporan-page .summary-card {
+    min-height: 100px;
+  }
+
+  .laporan-page .card-header {
+    padding: 16px;
+  }
+
+  .laporan-page .card-header-actions {
+    margin-top: 10px;
+  }
+
+  .laporan-page .card-header-actions .btn {
+    flex: 1;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .laporan-page .page-header-content h1 {
+    font-size: 21px;
+  }
+
+  .laporan-page .summary-card {
+    padding: 15px;
+  }
+
+  .laporan-page .summary-content h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================
+   LAPORAN SUMMARY CARD
+========================================= */
+
+.laporan-page .summary-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.laporan-page .summary-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================================
+   STRIP WARNA
+========================================= */
+
+.laporan-page .summary-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+}
+
+/* =========================================
+   TOTAL PENDUDUK
+========================================= */
+
+.laporan-page .summary-card:nth-child(1)::before {
+  background: #2563eb;
+}
+
+/* =========================================
+   LAHIR
+========================================= */
+
+.laporan-page .summary-card:nth-child(2)::before {
+  background: #16a34a;
+}
+
+/* =========================================
+   MENINGGAL
+========================================= */
+
+.laporan-page .summary-card:nth-child(3)::before {
+  background: #dc2626;
+}
+
+/* =========================================
+   PINDAH DATANG
+========================================= */
+
+.laporan-page .summary-card:nth-child(4)::before {
+  background: #0891b2;
+}
+
+/* =========================================
+   PINDAH KELUAR
+========================================= */
+
+.laporan-page .summary-card:nth-child(5)::before {
+  background: #f59e0b;
+}
+
+/* =========================================
+   SUMMARY ICON
+========================================= */
+
+.laporan-page .summary-card .summary-icon {
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Total */
+.laporan-page .summary-card:nth-child(1) .summary-icon {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+/* Lahir */
+.laporan-page .summary-card:nth-child(2) .summary-icon {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+/* Meninggal */
+.laporan-page .summary-card:nth-child(3) .summary-icon {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+/* Pindah Datang */
+.laporan-page .summary-card:nth-child(4) .summary-icon {
+  color: #0891b2;
+  background: #ecfeff;
+}
+
+/* Pindah Keluar */
+.laporan-page .summary-card:nth-child(5) .summary-icon {
+  color: #d97706;
+  background: #fffbeb;
+}

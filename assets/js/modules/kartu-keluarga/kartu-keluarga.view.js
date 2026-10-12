@@ -598,6 +598,30 @@
     ===================================== */
 
     getTambahKKBody() {
+      const user = typeof Auth !== "undefined" ? Auth.getUser() : null;
+
+      const isLingkungan = user?.ROLE === "LINGKUNGAN";
+
+      const userLingkungan = String(user?.LINGKUNGAN || "").trim();
+
+      const lingkunganMap = {
+        "Lingkungan I": "L001",
+        "Lingkungan II": "L002",
+        "Lingkungan III": "L003",
+        "Lingkungan IV": "L004",
+        "Lingkungan V": "L005",
+      };
+
+      const userLingkunganId = lingkunganMap[userLingkungan] || "";
+      const lingkunganRTMap = {
+        L001: ["RT001", "RT002", "RT003"],
+        L002: ["RT004", "RT005", "RT006", "RT007"],
+        L003: ["RT008", "RT009", "RT010"],
+        L004: ["RT011", "RT012", "RT013", "RT014", "RT015"],
+        L005: ["RT016", "RT017", "RT018", "RT019", "RT020"],
+      };
+
+      const userRTOptions = lingkunganRTMap[userLingkunganId] || [];
       return `
 
     <div class="kk-modal-form">
@@ -688,7 +712,7 @@
 
           <!-- LINGKUNGAN -->
 
-          <div class="kk-form-field">
+         <div class="kk-form-field">
 
             <label
               for="formLingkungan"
@@ -702,29 +726,45 @@
               id="formLingkungan"
               name="ID_LINGKUNGAN"
               class="kk-form-select"
+              ${isLingkungan ? "disabled" : ""}
             >
 
-              <option value="">
+              <option value="" ${!userLingkunganId ? "selected" : ""}>
                 Pilih Lingkungan
               </option>
 
-              <option value="L001">
+              <option
+                value="L001"
+                ${userLingkunganId === "L001" ? "selected" : ""}
+              >
                 Lingkungan I
               </option>
 
-              <option value="L002">
+              <option
+                value="L002"
+                ${userLingkunganId === "L002" ? "selected" : ""}
+              >
                 Lingkungan II
               </option>
 
-              <option value="L003">
+              <option
+                value="L003"
+                ${userLingkunganId === "L003" ? "selected" : ""}
+              >
                 Lingkungan III
               </option>
 
-              <option value="L004">
+              <option
+                value="L004"
+                ${userLingkunganId === "L004" ? "selected" : ""}
+              >
                 Lingkungan IV
               </option>
 
-              <option value="L005">
+              <option
+                value="L005"
+                ${userLingkunganId === "L005" ? "selected" : ""}
+              >
                 Lingkungan V
               </option>
 
@@ -749,13 +789,31 @@
               id="formRT"
               name="ID_RT"
               class="kk-form-select"
-              disabled
+              ${isLingkungan ? "" : "disabled"}
             >
+              ${
+                userRTOptions.length
+                  ? `
+                    <option value="">
+                      Pilih RT
+                    </option>
 
-              <option value="">
-                Pilih Lingkungan terlebih dahulu
-              </option>
-
+                    ${userRTOptions
+                      .map(
+                        (rt) => `
+                          <option value="${rt}">
+                            ${rt}
+                          </option>
+                        `,
+                      )
+                      .join("")}
+                  `
+                  : `
+                    <option value="">
+                      Pilih Lingkungan terlebih dahulu
+                    </option>
+                  `
+              }
             </select>
 
             <small class="kk-form-help">

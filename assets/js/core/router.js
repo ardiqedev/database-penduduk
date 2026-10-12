@@ -77,15 +77,6 @@ const Router = {
       return;
     }
 
-    /* =====================================
-       FITUR BELUM DIKEMBANGKAN
-  ===================================== */
-
-    if (page === "laporan") {
-      Toast.info("Fitur laporan belum dikembangkan.");
-      return;
-    }
-
     this.currentPage = page;
 
     if (page !== "login") {

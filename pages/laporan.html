@@ -1,6 +1,6 @@
 <!-- =========================================
      DATABASE WARGA
-     LAPORAN
+     LAPORAN PENDUDUK
 ========================================= -->
 
 <div class="page laporan-page">
@@ -12,19 +12,7 @@
     <div class="page-header-content">
       <h1>Laporan Penduduk</h1>
 
-      <p>Rekapitulasi data kependudukan Kelurahan Aertembaga Dua.</p>
-    </div>
-
-    <div class="page-header-action">
-      <button
-        class="btn btn-secondary"
-        data-action="print-laporan"
-        type="button"
-      >
-        <i data-lucide="printer"></i>
-
-        <span> Cetak Laporan </span>
-      </button>
+      <p>Rekap dan laporan data penduduk Kelurahan Aertembaga Dua.</p>
     </div>
   </div>
 
@@ -32,33 +20,104 @@
        FILTER LAPORAN
   ====================================== -->
 
-  <div class="card">
+  <div class="card laporan-filter-card">
     <div class="card-header">
       <div>
         <h2>Filter Laporan</h2>
 
-        <p>Tentukan data yang ingin ditampilkan.</p>
+        <p>Pilih jenis laporan dan periode untuk menampilkan data.</p>
       </div>
     </div>
 
-    <div class="toolbar">
-      <!-- JENIS LAPORAN -->
+    <div class="toolbar laporan-filter-toolbar">
+      <!-- =================================
+           JENIS LAPORAN
+      ================================== -->
 
       <div class="form-group">
         <label for="jenisLaporan"> Jenis Laporan </label>
 
         <select id="jenisLaporan" class="form-control">
-          <option value="penduduk">Data Penduduk</option>
+          <option value="penduduk">Semua Penduduk</option>
 
-          <option value="kk">Kartu Keluarga</option>
+          <option value="kelahiran">Kelahiran</option>
 
-          <option value="mutasi">Mutasi Penduduk</option>
-
-          <option value="wilayah">Rekapitulasi Wilayah</option>
+          <option value="mutasi">Mutasi</option>
         </select>
       </div>
 
-      <!-- LINGKUNGAN -->
+      <!-- =================================
+           JENIS MUTASI
+           HANYA UNTUK LAPORAN MUTASI
+      ================================== -->
+
+      <div class="form-group" id="jenisMutasiGroup" style="display: none">
+        <label for="jenisMutasiLaporan"> Jenis Mutasi </label>
+
+        <select id="jenisMutasiLaporan" class="form-control">
+          <option value="">Semua Mutasi</option>
+
+          <option value="MENINGGAL">Meninggal</option>
+
+          <option value="PINDAH_DATANG">Pindah Datang</option>
+
+          <option value="PINDAH_KELUAR">Pindah Keluar</option>
+        </select>
+      </div>
+
+      <!-- =================================
+           BULAN
+      ================================== -->
+
+      <div class="form-group">
+        <label for="laporanBulan"> Bulan </label>
+
+        <select id="laporanBulan" class="form-control">
+          <option value="">Semua Bulan</option>
+
+          <option value="1">Januari</option>
+
+          <option value="2">Februari</option>
+
+          <option value="3">Maret</option>
+
+          <option value="4">April</option>
+
+          <option value="5">Mei</option>
+
+          <option value="6">Juni</option>
+
+          <option value="7">Juli</option>
+
+          <option value="8">Agustus</option>
+
+          <option value="9">September</option>
+
+          <option value="10">Oktober</option>
+
+          <option value="11">November</option>
+
+          <option value="12">Desember</option>
+        </select>
+      </div>
+
+      <!-- =================================
+           TAHUN
+      ================================== -->
+
+      <div class="form-group">
+        <label for="laporanTahun"> Tahun </label>
+
+        <select id="laporanTahun" class="form-control">
+          <option value="">Semua Tahun</option>
+
+          <!-- Akan diisi oleh laporan.js -->
+        </select>
+      </div>
+
+      <!-- =================================
+           LINGKUNGAN
+      ================================== -->
 
       <div class="form-group">
         <label for="laporanLingkungan"> Lingkungan </label>
@@ -78,7 +137,9 @@
         </select>
       </div>
 
-      <!-- RT -->
+      <!-- =================================
+           RT
+      ================================== -->
 
       <div class="form-group">
         <label for="laporanRT"> RT </label>
@@ -86,38 +147,14 @@
         <select id="laporanRT" class="form-control">
           <option value="">Semua RT</option>
 
-          <!-- Akan diisi JS -->
-        </select>
-      </div>
-
-      <!-- JENIS KELAMIN -->
-
-      <div class="form-group">
-        <label for="laporanJenisKelamin"> Jenis Kelamin </label>
-
-        <select id="laporanJenisKelamin" class="form-control">
-          <option value="">Semua</option>
-
-          <option value="LAKI-LAKI">Laki-Laki</option>
-
-          <option value="PEREMPUAN">Perempuan</option>
-        </select>
-      </div>
-
-      <!-- TAHUN -->
-
-      <div class="form-group">
-        <label for="laporanTahun"> Tahun </label>
-
-        <select id="laporanTahun" class="form-control">
-          <option value="">Semua Tahun</option>
-
-          <!-- Akan diisi JS -->
+          <!-- Akan diisi oleh laporan.js -->
         </select>
       </div>
     </div>
 
-    <!-- FILTER ACTION -->
+    <!-- =====================================
+         FILTER ACTION
+    ====================================== -->
 
     <div class="toolbar-actions">
       <button
@@ -147,67 +184,83 @@
   ====================================== -->
 
   <div class="dashboard-summary">
-    <!-- TOTAL -->
+    <!-- =================================
+         TOTAL PENDUDUK
+    ================================== -->
 
     <div class="summary-card">
       <div class="summary-icon">
-        <i data-lucide="database"></i>
+        <i data-lucide="users"></i>
       </div>
 
       <div class="summary-content">
-        <span> Total Data </span>
+        <h2 id="laporanTotalPenduduk">0</h2>
 
-        <h2 id="laporanTotal">0</h2>
-
-        <small> Berdasarkan filter </small>
+        <small> Seluruh penduduk </small>
       </div>
     </div>
 
-    <!-- LAKI-LAKI -->
+    <!-- =================================
+         LAHIR
+    ================================== -->
 
     <div class="summary-card">
       <div class="summary-icon">
-        <i data-lucide="user"></i>
+        <i data-lucide="baby"></i>
       </div>
 
       <div class="summary-content">
-        <span> Laki-Laki </span>
+        <h2 id="laporanTotalLahir">0</h2>
 
-        <h2 id="laporanLaki">0</h2>
-
-        <small> Penduduk laki-laki </small>
+        <small> Periode terpilih </small>
       </div>
     </div>
 
-    <!-- PEREMPUAN -->
+    <!-- =================================
+         MENINGGAL
+    ================================== -->
 
     <div class="summary-card">
       <div class="summary-icon">
-        <i data-lucide="user-round"></i>
+        <i data-lucide="heart"></i>
       </div>
 
       <div class="summary-content">
-        <span> Perempuan </span>
+        <h2 id="laporanTotalMeninggal">0</h2>
 
-        <h2 id="laporanPerempuan">0</h2>
-
-        <small> Penduduk perempuan </small>
+        <small> Periode terpilih </small>
       </div>
     </div>
 
-    <!-- KK -->
+    <!-- =================================
+         PINDAH DATANG
+    ================================== -->
 
     <div class="summary-card">
       <div class="summary-icon">
-        <i data-lucide="contact"></i>
+        <i data-lucide="log-in"></i>
       </div>
 
       <div class="summary-content">
-        <span> Kartu Keluarga </span>
+        <h2 id="laporanTotalPindahDatang">0</h2>
 
-        <h2 id="laporanKK">0</h2>
+        <small> Periode terpilih </small>
+      </div>
+    </div>
 
-        <small> KK berdasarkan filter </small>
+    <!-- =================================
+         PINDAH KELUAR
+    ================================== -->
+
+    <div class="summary-card">
+      <div class="summary-icon">
+        <i data-lucide="log-out"></i>
+      </div>
+
+      <div class="summary-content">
+        <h2 id="laporanTotalPindahKeluar">0</h2>
+
+        <small> Periode terpilih </small>
       </div>
     </div>
   </div>
@@ -216,7 +269,11 @@
        HASIL LAPORAN
   ====================================== -->
 
-  <div class="card">
+  <div class="card laporan-result-card">
+    <!-- =================================
+         RESULT HEADER
+    ================================== -->
+
     <div class="card-header">
       <div>
         <h2 id="laporanTitle">Hasil Laporan</h2>
@@ -226,20 +283,49 @@
         </p>
       </div>
 
+      <!-- =================================
+           ACTION
+      ================================== -->
+
       <div class="card-header-actions">
         <button
           class="btn btn-secondary"
-          data-action="export-laporan"
+          id="btnRefreshLaporan"
+          data-action="refresh-laporan"
           type="button"
         >
-          <i data-lucide="download"></i>
+          <i data-lucide="refresh-cw"></i>
 
-          <span> Export </span>
+          <span> Refresh </span>
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          id="btnCetakLaporan"
+          data-action="print-laporan"
+          type="button"
+        >
+          <i data-lucide="printer"></i>
+
+          <span> Cetak </span>
         </button>
       </div>
     </div>
 
-    <!-- TABLE -->
+    <!-- =================================
+         TOTAL DATA
+    ================================== -->
+
+    <div class="laporan-result-summary">
+      <div class="table-total">
+        Total Data
+        <span id="laporanTableTotal"> 0 </span>
+      </div>
+    </div>
+
+    <!-- =================================
+         TABLE
+    ================================== -->
 
     <div class="table-container">
       <table class="data-table" id="tableLaporan">
@@ -247,7 +333,19 @@
           <tr>
             <th>No</th>
 
-            <th>Data</th>
+            <th>NIK</th>
+
+            <th>Nama</th>
+
+            <th>Jenis Kelamin</th>
+
+            <th>Tanggal Lahir</th>
+
+            <th>Lingkungan</th>
+
+            <th>RT</th>
+
+            <th>Status</th>
 
             <th>Keterangan</th>
           </tr>
@@ -255,64 +353,30 @@
 
         <tbody id="laporanTableBody">
           <tr>
-            <td colspan="3" class="table-empty">Belum ada laporan.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            <td colspan="9" class="table-empty">
+              <div class="laporan-empty-state">
+                <i data-lucide="file-search"></i>
 
-    <!-- PAGINATION -->
+                <strong> Belum ada laporan </strong>
 
-    <div id="laporanPagination" class="pagination">
-      <!-- Akan diisi JS -->
-    </div>
-  </div>
-
-  <!-- =====================================
-       REKAP WILAYAH
-  ====================================== -->
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <h2>Rekapitulasi Wilayah</h2>
-
-        <p>Ringkasan jumlah KK dan penduduk berdasarkan lingkungan.</p>
-      </div>
-
-      <i data-lucide="map"></i>
-    </div>
-
-    <div class="table-container">
-      <table class="data-table" id="tableRekapWilayah">
-        <thead>
-          <tr>
-            <th>No</th>
-
-            <th>Lingkungan</th>
-
-            <th>RT</th>
-
-            <th>Jumlah KK</th>
-
-            <th>Laki-Laki</th>
-
-            <th>Perempuan</th>
-
-            <th>Total Penduduk</th>
-          </tr>
-        </thead>
-
-        <tbody id="rekapWilayahBody">
-          <!-- Akan diisi JS -->
-
-          <tr>
-            <td colspan="7" class="table-empty">
-              Belum ada data rekapitulasi.
+                <span> Pilih filter kemudian klik "Tampilkan Laporan". </span>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- =================================
+         PAGINATION
+    ================================== -->
+
+    <div class="laporan-result-footer">
+      <div class="pagination-info" id="laporanPaginationInfo">
+        Menampilkan 0 data
+      </div>
+
+      <div id="laporanPagination" class="pagination"></div>
     </div>
   </div>
 </div>
