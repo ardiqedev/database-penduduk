@@ -13,6 +13,9 @@ async function initApp() {
     await Router.loadComponent("components/sidebar.html", "sidebar");
 
     await Router.loadComponent("components/navbar.html", "navbar");
+    if (typeof Theme !== "undefined") {
+      Theme.init();
+    }
 
     await Modal.init();
 
