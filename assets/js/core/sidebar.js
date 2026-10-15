@@ -13,6 +13,7 @@ const Sidebar = {
   ===================================== */
 
   init() {
+    this.renderProfile();
     this.applyRole();
 
     this.restoreSidebarState();
@@ -20,6 +21,54 @@ const Sidebar = {
     this.restoreLastPage();
 
     this.bindEvents();
+  },
+
+  /* =====================================
+     RENDER SIDEBAR PROFILE
+  ===================================== */
+
+  renderProfile() {
+    const user = Auth.getUser();
+
+    if (!user) return;
+
+    const name = String(user.NAMA || user.USERNAME || "Pengguna").trim();
+
+    const role = String(user.ROLE || "")
+      .trim()
+      .toUpperCase();
+
+    const roleLabels = {
+      ADMIN: "Administrator",
+      LINGKUNGAN: "Ketua Lingkungan",
+    };
+
+    const nameElements = document.querySelectorAll("#sidebarProfileName");
+
+    const roleElements = document.querySelectorAll("#sidebarProfileRole");
+
+    const avatarElements = document.querySelectorAll("#sidebarProfileAvatar");
+
+    nameElements.forEach(function (el) {
+      el.textContent = name;
+    });
+
+    roleElements.forEach(function (el) {
+      el.textContent = roleLabels[role] || role || "Pengguna";
+    });
+
+    const initials = name
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(function (part) {
+        return part.charAt(0).toUpperCase();
+      })
+      .join("");
+
+    avatarElements.forEach(function (el) {
+      el.textContent = initials || "U";
+    });
   },
 
   /* =====================================

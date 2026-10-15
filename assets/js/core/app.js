@@ -20,6 +20,7 @@ async function initApp() {
     State.init();
 
     // Restore dan validasi session
+
     const authenticated = await Auth.init();
 
     if (!authenticated) {
@@ -33,6 +34,17 @@ async function initApp() {
     }
 
     document.body.classList.remove("login-mode");
+
+    /* =====================================
+   NAVBAR PROFILE
+===================================== */
+
+    if (
+      typeof NavbarUI !== "undefined" &&
+      typeof NavbarUI.renderProfile === "function"
+    ) {
+      NavbarUI.renderProfile();
+    }
 
     Sidebar.init();
 
