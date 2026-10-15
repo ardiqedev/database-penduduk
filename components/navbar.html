@@ -43,11 +43,31 @@
 
   <!-- Notification -->
 
-  <button class="nav-button" type="button" title="Notifikasi">
-    <i data-lucide="bell"></i>
+  <!-- NOTIFICATION -->
+  <div class="notification-wrapper">
+    <button
+      id="btnNotifications"
+      class="nav-button"
+      type="button"
+      title="Notifikasi"
+      aria-label="Notifikasi"
+      aria-expanded="false"
+    >
+      <i data-lucide="bell"></i>
+      <span id="notificationBadge" class="notification-badge hidden"> 0 </span>
+    </button>
 
-    <span class="badge-dot"></span>
-  </button>
+    <div id="notificationDropdown" class="notification-dropdown hidden">
+      <div class="notification-header">
+        <strong>Notifikasi</strong>
+        <span id="notificationCountLabel">Terbaru</span>
+      </div>
+
+      <div id="notificationList" class="notification-list">
+        <div class="notification-empty">Memuat notifikasi...</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Theme -->
 
